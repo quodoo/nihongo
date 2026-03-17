@@ -153,8 +153,50 @@ body {
 }
 
 /* Welcome screen */
-.welcome-emoji {
-	font-size: 3.5rem;
+#welcome-screen {
+	background: linear-gradient(135deg, #f8f9fb 0%, #eff8f4 100%);
+}
+
+#welcome-screen .display-1 {
+	animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-20px); }
+}
+
+#welcome-screen .card {
+	border-top: 4px solid !important;
+	transition: transform 0.3s, box-shadow 0.3s;
+	cursor: pointer;
+}
+
+#welcome-screen .card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#welcome-screen .card-title {
+	font-size: 1.1rem;
+	font-weight: 700;
+	color: #1f2a24;
+}
+
+#welcome-screen .card-text {
+	color: #6c757d;
+}
+
+#welcome-screen .list-group-item {
+	border-left: 4px solid var(--accent);
+	border-radius: 0 !important;
+}
+
+#welcome-screen .alert {
+	border-radius: 12px;
+	border: none;
+	background: #e8f7f2;
+	color: #0f7b6c;
 }
 
 /* Viewer toolbar */
@@ -212,6 +254,7 @@ body {
 .html-preview-wrap {
 	display: grid;
 	gap: 10px;
+    height: 100%;
 }
 
 .html-preview-frame {

@@ -114,12 +114,6 @@
     "category": "Tài liệu học tập"
   },
   {
-    "id": "trotu-docs",
-    "title": "Tài liệu Trợ từ",
-    "path": "trotu/docs.md",
-    "category": "Tài liệu học tập"
-  },
-  {
     "id": "trotu-sheet",
     "title": "Bảng tra nhanh Trợ từ",
     "path": "trotu/quizlet-tro-tu-import.json",
@@ -136,6 +130,30 @@
     "title": "Mini test Trợ từ (Làm bài)",
     "path": "trotu/minitest_trotu.html",
     "category": "Minitest"
+  },
+  {
+    "id": "daimeishi",
+    "title": "Danh từ Tiếng Nhật (Meishi)",
+    "path": "daimeishi/daimeishi.md",
+    "category": "Chuyên đề khác"
+  },
+  {
+    "id": "kanji",
+    "title": "Kanji học tập",
+    "path": "kanji/kanji.md",
+    "category": "Chuyên đề khác"
+  },
+  {
+    "id": "luyen-thi",
+    "title": "Luyện thi JLPT",
+    "path": "luyen-thi/luyen-thi.md",
+    "category": "Chuyên đề khác"
+  },
+  {
+    "id": "giao-tiep",
+    "title": "Tiếng Nhật Giao tiếp Thực tế",
+    "path": "giao-tiep/giao-tiep.md",
+    "category": "Chuyên đề khác"
   },
   {
     "id": "about",

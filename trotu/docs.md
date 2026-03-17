@@ -1,1 +1,0 @@
-https://gemini.google.com/share/cc7550625252

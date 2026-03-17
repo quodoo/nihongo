@@ -53,6 +53,21 @@ if (document.readyState === "loading") {
 	loadResources();
 }
 
+// About button click handler
+document.getElementById("about-btn").addEventListener("click", async () => {
+	await loadDocument("", "Giới thiệu");
+});
+
+// Logo button - go back to home/welcome screen
+document.getElementById("logo-btn").addEventListener("click", (e) => {
+	e.preventDefault();
+	// Hide viewer, show welcome screen
+	viewerArea.classList.add("d-none");
+	welcomeScreen.classList.remove("d-none");
+	// Clear active nav items
+	resourceNav.querySelectorAll(".nav-item-btn").forEach((b) => b.classList.remove("active"));
+});
+
 function renderSidebar() {
 	// Group resources by category
 	const groups = {};
@@ -145,8 +160,14 @@ async function loadDocument(path, title) {
 		const fileType = getFileType(path);
 		const normalizedType = fileType.toLowerCase();
 
-		if (normalizedType === "about") {
-			renderAbout();
+		if (normalizedType === "about" || path === "") {
+			// Load about.html
+			const response = await fetch(basePath + "about.html", { cache: "no-store" });
+			if (!response.ok) {
+				throw new Error("Không thể tải trang About");
+			}
+			const html = await response.text();
+			viewerContent.innerHTML = html;
 		} else if (normalizedType === "markdown") {
 			const response = await fetch(basePath + path, { cache: "no-store" });
 			if (!response.ok) {
@@ -248,33 +269,6 @@ function renderFlashcards(items) {
 			card.classList.toggle("is-flipped");
 		});
 	});
-}
-
-function renderAbout() {
-	viewerContent.innerHTML = `
-		<div class="p-2">
-			<h4 class="fw-bold mb-3">📖 Giới thiệu dự án</h4>
-			<p>Trang này tập hợp các tài liệu giảng dạy tiếng Nhật từ trình độ <strong>N5 đến N3</strong>, tập trung vào hai mảng kiến thức trọng tâm:</p>
-			<ul>
-				<li><strong>Trợ từ:</strong> Học theo ngữ cảnh hành động — Làm gì → Ở đâu → Bằng gì → Với ai → Từ đâu → Đến đâu.</li>
-				<li><strong>Động từ:</strong> Chia thể cơ bản đến nâng cao: masu, te, nai, ta, ukemi, shieki, kanou…</li>
-			</ul>
-			<hr>
-			<h6 class="fw-bold">Cấu trúc tài liệu</h6>
-			<table class="table table-bordered table-sm">
-				<thead class="table-light">
-					<tr><th>Mục</th><th>Nội dung</th></tr>
-				</thead>
-				<tbody>
-					<tr><td>📚 Tài liệu học tập</td><td>Giáo trình chi tiết theo từng chương, có ví dụ phân tích và bài tập.</td></tr>
-					<tr><td>🃏 Quizlet</td><td>Bộ thẻ lật ôn tập trợ từ, bấm để lật xem nghĩa và ví dụ.</td></tr>
-					<tr><td>🎯 Minitest</td><td>100 câu trắc nghiệm JLPT từ N5–N3, có tính điểm và phản hồi ngay.</td></tr>
-				</tbody>
-			</table>
-			<hr>
-			<p class="text-muted small mb-0">Dự án được biên soạn và duy trì trên GitHub. Cập nhật nội dung bằng cách chỉnh sửa file Markdown trong repo.</p>
-		</div>
-	`;
 }
 
 function escapeHtml(text) {
