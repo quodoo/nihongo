@@ -62,11 +62,24 @@ document.getElementById("minitest-btn").addEventListener("click", async () => {
 	await openMiniTest();
 });
 
+document.getElementById("quizapp-btn").addEventListener("click", () => {
+	openQuizApp();
+});
+
 async function openMiniTest() {
 	await loadDocument("minitest.html", "Mini Test Tiếng Nhật");
 }
 
+function openQuizApp() {
+	const quizAppUrl = "https://japan-quiz.erpblogs.com/index.html";
+	const newTab = window.open(quizAppUrl, "_blank", "noopener,noreferrer");
+	if (!newTab) {
+		window.location.href = quizAppUrl;
+	}
+}
+
 window.openMiniTest = openMiniTest;
+window.openQuizApp = openQuizApp;
 
 // Logo button - go back to home/welcome screen
 document.getElementById("logo-btn").addEventListener("click", (e) => {
