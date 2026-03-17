@@ -10,6 +10,7 @@ const CUSTOM_TESTS_KEY = "jpn_n345_custom_tests_v1";
 let homeFlashcards = [];
 let homeFlashcardIndex = 0;
 let homeFlashcardInteractionsBound = false;
+let homeFlashcardIsAnimating = false;
 let homeQuestionPool = [];
 let homeQuestionPoolReady = false;
 let currentHomeQuestion = null;
@@ -63,17 +64,17 @@ if (document.readyState === "loading") {
 }
 
 // About button click handler
-document.getElementById("about-btn").addEventListener("click", async () => {
-	await loadDocument("", "Giới thiệu");
-});
+// document.getElementById("about-btn").addEventListener("click", async () => {
+// 	await loadDocument("", "Giới thiệu");
+// });
 
 document.getElementById("minitest-btn").addEventListener("click", async () => {
 	await openMiniTest();
 });
 
-document.getElementById("quizapp-btn").addEventListener("click", () => {
-	openQuizApp();
-});
+// document.getElementById("quizapp-btn").addEventListener("click", () => {
+// 	openQuizApp();
+// });
 
 async function openMiniTest() {
 	await loadDocument("minitest.html", "Mini Test Tiếng Nhật");
@@ -191,6 +192,10 @@ function bindHomeFlashcardInteractions() {
 
 	cardEl.addEventListener("pointerup", (event) => {
 		if (!pointerActive) return;
+		if (homeFlashcardIsAnimating) {
+			endGesture();
+			return;
+		}
 
 		const deltaX = event.clientX - startX;
 		const deltaY = event.clientY - startY;
@@ -241,15 +246,45 @@ function bindHomeFlashcardInteractions() {
 }
 
 function prevHomeFlashcard() {
-	if (!homeFlashcards.length) return;
-	homeFlashcardIndex = (homeFlashcardIndex - 1 + homeFlashcards.length) % homeFlashcards.length;
-	renderHomeFlashcard();
+	animateHomeFlashcardTransition(-1);
 }
 
 function nextHomeFlashcard() {
-	if (!homeFlashcards.length) return;
-	homeFlashcardIndex = (homeFlashcardIndex + 1) % homeFlashcards.length;
-	renderHomeFlashcard();
+	animateHomeFlashcardTransition(1);
+}
+
+function animateHomeFlashcardTransition(step) {
+	if (!homeFlashcards.length || !Number.isInteger(step) || step === 0) return;
+	if (homeFlashcardIsAnimating) return;
+
+	const cardEl = document.getElementById("home-flashcard");
+	if (!cardEl) {
+		homeFlashcardIndex = (homeFlashcardIndex + step + homeFlashcards.length) % homeFlashcards.length;
+		renderHomeFlashcard();
+		return;
+	}
+
+	homeFlashcardIsAnimating = true;
+	const outClass = step > 0 ? "swipe-out-left" : "swipe-out-right";
+	const inClass = step > 0 ? "swipe-in-right" : "swipe-in-left";
+
+	cardEl.classList.remove("swipe-out-left", "swipe-out-right", "swipe-in-left", "swipe-in-right");
+	cardEl.classList.add(outClass);
+
+	const handleOut = () => {
+		cardEl.classList.remove(outClass);
+		homeFlashcardIndex = (homeFlashcardIndex + step + homeFlashcards.length) % homeFlashcards.length;
+		renderHomeFlashcard();
+		cardEl.classList.add(inClass);
+		cardEl.addEventListener("animationend", handleIn, { once: true });
+	};
+
+	const handleIn = () => {
+		cardEl.classList.remove(inClass);
+		homeFlashcardIsAnimating = false;
+	};
+
+	cardEl.addEventListener("animationend", handleOut, { once: true });
 }
 
 function readCustomTests() {

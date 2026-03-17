@@ -335,6 +335,42 @@ body {
 	transform: scale(0.992);
 }
 
+.home-flashcard.swipe-out-left {
+	animation: flashcardSwipeOutLeft 0.2s ease forwards;
+}
+
+.home-flashcard.swipe-out-right {
+	animation: flashcardSwipeOutRight 0.2s ease forwards;
+}
+
+.home-flashcard.swipe-in-left {
+	animation: flashcardSwipeInLeft 0.22s ease forwards;
+}
+
+.home-flashcard.swipe-in-right {
+	animation: flashcardSwipeInRight 0.22s ease forwards;
+}
+
+@keyframes flashcardSwipeOutLeft {
+	from { transform: translateX(0) rotateZ(0deg); opacity: 1; }
+	to { transform: translateX(-22px) rotateZ(-1.1deg); opacity: 0.35; }
+}
+
+@keyframes flashcardSwipeOutRight {
+	from { transform: translateX(0) rotateZ(0deg); opacity: 1; }
+	to { transform: translateX(22px) rotateZ(1.1deg); opacity: 0.35; }
+}
+
+@keyframes flashcardSwipeInLeft {
+	from { transform: translateX(-22px) rotateZ(-1.1deg); opacity: 0.35; }
+	to { transform: translateX(0) rotateZ(0deg); opacity: 1; }
+}
+
+@keyframes flashcardSwipeInRight {
+	from { transform: translateX(22px) rotateZ(1.1deg); opacity: 0.35; }
+	to { transform: translateX(0) rotateZ(0deg); opacity: 1; }
+}
+
 .home-flashcard-inner {
 	position: relative;
 	width: 100%;
