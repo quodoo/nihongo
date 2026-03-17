@@ -58,6 +58,16 @@ document.getElementById("about-btn").addEventListener("click", async () => {
 	await loadDocument("", "Giới thiệu");
 });
 
+document.getElementById("minitest-btn").addEventListener("click", async () => {
+	await openMiniTest();
+});
+
+async function openMiniTest() {
+	await loadDocument("minitest.html", "Mini Test Tiếng Nhật");
+}
+
+window.openMiniTest = openMiniTest;
+
 // Logo button - go back to home/welcome screen
 document.getElementById("logo-btn").addEventListener("click", (e) => {
 	e.preventDefault();
@@ -72,6 +82,7 @@ function renderSidebar() {
 	// Group resources by category
 	const groups = {};
 	resources.forEach((item) => {
+		if (item.category === "Minitest") return;
 		if (!groups[item.category]) groups[item.category] = [];
 		groups[item.category].push(item);
 	});
@@ -207,7 +218,6 @@ async function loadDocument(path, title) {
 function renderHtmlPreview(path, title) {
 	viewerContent.innerHTML = `
 		<div class="html-preview-wrap">
-			<p class="muted">Đang hiển thị bản xem nhanh của: ${escapeHtml(title)}</p>
 			<iframe class="html-preview-frame" src="${encodeURI(basePath + path)}" title="${escapeHtml(title)}"></iframe>
 		</div>
 	`;

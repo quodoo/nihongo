@@ -21,7 +21,8 @@
 		</button>
 		<a id="logo-btn" class="navbar-brand app-brand mb-0" href="#" role="button">JPN-N345</a>
 		<span class="ms-2 d-none d-md-inline text-muted small">Tài liệu tự học tiếng Nhật N5-N3</span>
-		<div class="ms-auto">
+		<div class="ms-auto d-flex gap-2">
+			<button id="minitest-btn" class="btn btn-sm btn-success">📝 Mini Test Tiếng Nhật</button>
 			<button id="about-btn" class="btn btn-sm btn-outline-success">👤 About me</button>
 		</div>
 	</nav>
@@ -84,12 +85,12 @@
 							</div>
 							
 							<!-- Minitest Trợ từ -->
-							<div class="col-md-6" onclick="document.querySelector('[data-id=trotu-quiz-html]').click();">
+							<div class="col-md-6" onclick="window.openMiniTest && window.openMiniTest();">
 								<div class="card border-warning h-100 position-relative shadow-lg" style="border-width: 3px;">
 									<div class="card-body">
 										<h4 class="card-title">🎯 100 câu test Trợ từ</h4>
 										<p class="card-text">Trắc nghiệm 100 câu JLPT về trợ từ N5–N3. Kiểm tra kỹ năng của bạn ngay!</p>
-										<button class="btn btn-warning btn-sm mt-2" onclick="document.querySelector('[data-id=trotu-minitest-md]').click();">Bắt đầu test →</button>
+										<button class="btn btn-warning btn-sm mt-2" onclick="window.openMiniTest && window.openMiniTest();">Bắt đầu test →</button>
 									</div>
 								</div>
 							</div>
