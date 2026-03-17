@@ -1055,7 +1055,7 @@
 
             document.getElementById('question-tracker').textContent = `Câu ${currentQuestionIndex + 1}/${total}`;
             document.getElementById('progress-bar').style.width = `${(currentQuestionIndex / total) * 100}%`;
-            document.getElementById('question-text').innerHTML = `${currentQuestionIndex + 1}. ${renderWithFurigana(q.q)}`;
+            document.getElementById('question-text').innerHTML = `${currentQuestionIndex + 1}. ${renderWithFurigana(q.q, ['br'])}`;
             const explainBox = document.getElementById('question-explain');
             if (explainBox) {
                 explainBox.classList.add('hidden');
@@ -1069,7 +1069,7 @@
                 const btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = 'option-btn btn btn-outline-secondary text-start p-3 rounded-4 bg-white';
-                btn.innerHTML = `<span class="fw-bold me-2 text-primary">${getOptionLabel(index)}.</span>${renderWithFurigana(opt)}`;
+                btn.innerHTML = `<span class="fw-bold me-2 text-primary">${getOptionLabel(index)}.</span>${renderWithFurigana(opt, ['br'])}`;
                 btn.onclick = () => selectAnswer(index, btn);
                 container.appendChild(btn);
             });
