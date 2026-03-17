@@ -17,7 +17,7 @@
           ],
           "correct": 3,
           "point": 1,
-          "explain": "Cấu trúc ～だという dùng để truyền đạt lại thông tin (nghe nói là). Đi với cụm 「～の話では」 để chỉ nguồn thông tin."
+          "explain": "Cấu trúc <b>～だという</b> dùng để truyền đạt lại thông tin (nghe nói là). Đi với cụm 「～の話では」 để chỉ nguồn thông tin."
         },
         {
           "q": "カップラーメンは（　）簡単[かんたん]にできる。",
@@ -29,7 +29,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc ～さえ～ば: Chỉ cần... là đủ. Chỉ cần cho nước sôi vào là có thể ăn ngay."
+          "explain": "Cấu trúc <b>～さえ～ば</b>: Chỉ cần... là đủ. Chỉ cần cho nước sôi vào là có thể ăn ngay."
         },
         {
           "q": "あの女優[じょゆう]は（　）が、少[すこ]し冷[つめ]たい感[かん]じがする。",
@@ -41,7 +41,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc ～ことは～が: Tuy là có... thật đấy nhưng... (Thừa nhận một sự thực nhưng vế sau đưa ra đánh giá khác)."
+          "explain": "Cấu trúc <b>～ことは～が</b>: Tuy là có... thật đấy nhưng... (Thừa nhận một sự thực nhưng vế sau đưa ra đánh giá khác)."
         },
         {
           "q": "この車[くるま]は電気[でんき]とガソリン（　）動[うご]く「ハイブリッドカー」だ。",
@@ -53,7 +53,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc ～によって ở đây chỉ phương thức, phương tiện. Xe chạy bằng (bởi) điện và xăng."
+          "explain": "Cấu trúc <b>～によって</b> ở đây chỉ phương thức, phương tiện. Xe chạy bằng (bởi) điện và xăng."
         },
         {
           "q": "たとえ詳[くわ]しい説明[せつめい]が（　）、用語[ようご]が難[むむず]かしければわかりにくい。",
@@ -65,7 +65,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc たとえ～ても: Cho dù... đi chăng nữa. Cho dù có viết giải thích chi tiết nhưng thuật ngữ khó thì vẫn khó hiểu."
+          "explain": "Cấu trúc <b>たとえ～ても</b>: Cho dù... đi chăng nữa. Cho dù có viết giải thích chi tiết nhưng thuật ngữ khó thì vẫn khó hiểu."
         },
         {
           "q": "A「あれ。また1匹[ぴき]。お宅[たく]にはねこが何匹[なんびき]いるんですか。」<br>B「5匹[ひき]います。」<br>A「5匹[ひき]（　）大変[たいへん]でしょう。」",
@@ -77,7 +77,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc ～ては: Nếu/Trong trường hợp (thường dẫn đến kết quả không tốt hoặc đánh giá tiêu cực). Có tận 5 con thì chắc là vất vả lắm."
+          "explain": "Cấu trúc <b>～ては</b>: Nếu/Trong trường hợp (thường dẫn đến kết quả không tốt hoặc đánh giá tiêu cực). Có tận 5 con thì chắc là vất vả lắm."
         },
         {
           "q": "料理[りょうり]は（　）が、時間[じかん]がなくてあまりしない。",
@@ -89,7 +89,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc ～ないことはない: Không phải là không thể... (Khẳng định nhẹ nhàng hoặc có điều kiện). Không phải là không biết nấu ăn, nhưng vì không có thời gian nên ít làm."
+          "explain": "Cấu trúc <b>～ないことはない</b>: Không phải là không thể... (Khẳng định nhẹ nhàng hoặc có điều kiện). Không phải là không biết nấu ăn, nhưng vì không có thời gian nên ít làm."
         },
         {
           "q": "いいレストランで食事[しょくじ]を（　）、そんなかっこうではだめだろう。",
@@ -101,7 +101,7 @@
           ],
           "correct": 3,
           "point": 1,
-          "explain": "Cấu trúc ～なら: Nếu là/Trong trường hợp là... (Đưa ra lời khuyên hoặc đánh giá dựa trên tình huống). Nếu ăn ở nhà hàng xịn thì bộ dạng đó không được đâu."
+          "explain": "Cấu trúc <b>～なら</b>: Nếu là/Trong trường hợp là... (Đưa ra lời khuyên hoặc đánh giá dựa trên tình huống). Nếu ăn ở nhà hàng xịn thì bộ dạng đó không được đâu."
         },
         {
           "q": "わたしの実験[じっけん]が成功[せいこう]したのは、みんなが手伝[てつだ]って（　）です。",
@@ -113,7 +113,7 @@
           ],
           "correct": 3,
           "point": 1,
-          "explain": "Cấu trúc ～てくれたおかげ: Nhờ vào việc ai đó đã làm gì giúp mình. Thí nghiệm thành công là nhờ mọi người đã giúp đỡ."
+          "explain": "Cấu trúc <b>～てくれたおかげ</b>: Nhờ vào việc ai đó đã làm gì giúp mình. Thí nghiệm thành công là nhờ mọi người đã giúp đỡ."
         },
         {
           "q": "聞[き]いた話[はなし]ではあしたは大雪[おおゆき]になる（　）。今日[きょう]のうちに買[か]い物[もの]をしておこう。",
@@ -125,7 +125,7 @@
           ],
           "correct": 3,
           "point": 1,
-          "explain": "Cấu trúc ～とのこと: Nghe nói là... (Dùng để truyền đạt lại thông tin từ nguồn khác, trang trọng hơn ~だそうだ)."
+          "explain": "Cấu trúc <b>～とのこと</b>: Nghe nói là... (Dùng để truyền đạt lại thông tin từ nguồn khác, trang trọng hơn ~だそうだ)."
         },
         {
           "q": "梅雨[つゆ]の間[あいだ]でも毎日[まいにち]雨[あめ]が（　）。晴[は]れる日[ひ]もある。",
@@ -137,7 +137,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc ～とは限らない: Không hẳn là/Không nhất thiết là. Ngay cả trong mùa mưa thì không hẳn ngày nào cũng mưa."
+          "explain": "Cấu trúc <b>～とは限らない</b>: Không hẳn là/Không nhất thiết là. Ngay cả trong mùa mưa thì không hẳn ngày nào cũng mưa."
         },
         {
           "q": "あれ、この上着[うわぎ]はちょっと大[おお]きすぎる。きのう買[か]う前[まえ]に（　）なあ。",
@@ -149,7 +149,7 @@
           ],
           "correct": 3,
           "point": 1,
-          "explain": "Cấu trúc ～ばよかった: Đáng lẽ nên... thì tốt (Thể hiện sự hối hận về một việc đã không làm trong quá khứ)."
+          "explain": "Cấu trúc <b>～ばよかった</b>: Đáng lẽ nên... thì tốt (Thể hiện sự hối hận về một việc đã không làm trong quá khứ)."
         },
         {
           "q": "国[くに]の大学[だいがく]で日本人[にほんじん]留学生[りゅうがくせい]と知[し]り合[あ]った（　）、日本[にほん]に興味[きょうみ]を持[も]った。",
@@ -161,7 +161,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc ～ことから: Do/Từ việc... (Chỉ nguyên nhân, lý do dẫn đến một sự thay đổi hoặc kết quả). Từ việc quen biết du học sinh Nhật ở đại học mà tôi bắt đầu hứng thú với Nhật Bản."
+          "explain": "Cấu trúc <b>～ことから</b>: Do/Từ việc... (Chỉ nguyên nhân, lý do dẫn đến một sự thay đổi hoặc kết quả). Từ việc quen biết du học sinh Nhật ở đại học mà tôi bắt đầu hứng thú với Nhật Bản."
         }
       ]
     }

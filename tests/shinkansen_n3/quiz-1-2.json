@@ -16,7 +16,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-plain + うちに: Trong lúc chưa... (Trong lúc chưa quên, nên ghi chú lại những gì đã nghe)."
+          "explain": "Cấu trúc <b>V-plain + うちに</b>: Trong lúc chưa... (Trong lúc chưa quên, nên ghi chú lại những gì đã nghe)."
         },
         {
           "q": "ほかのことに気[き]を（　）うちに昼[ひる]ご飯[はん]を食[た]べる時間[じかん]がなくなってしまった。",
@@ -27,7 +27,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-plain + うちに: Trong khi đang... (mải mê việc khác) thì một sự thay đổi xảy ra (hết thời gian ăn trưa)."
+          "explain": "Cấu trúc <b>V-plain + うちに</b>: Trong khi đang... (mải mê việc khác) thì một sự thay đổi xảy ra (hết thời gian ăn trưa)."
         },
         {
           "q": "お風呂[ふろ]に（　）間[あいだ]に、配達[はいたつ]の人[ひと]が来[き]たようだ。",
@@ -38,7 +38,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-plain + 間に: Trong lúc đang làm gì đó (hành động kéo dài) thì có một hành động khác xen vào (người giao hàng đến)."
+          "explain": "Cấu trúc <b>V-plain + 間に</b>: Trong lúc đang làm gì đó (hành động kéo dài) thì có một hành động khác xen vào (người giao hàng đến)."
         },
         {
           "q": "わたしは夏休み[なつやすみ]の（　）、アメリカ[あめりか]の友[とも]だちの家[いえ]にいた。",
@@ -49,7 +49,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc Nの + 間: Trong suốt khoảng thời gian... (Ở suốt tại nhà bạn trong cả kỳ nghỉ hè)."
+          "explain": "Cấu trúc <b>Nの + 間</b>: Trong suốt khoảng thời gian... (Ở suốt tại nhà bạn trong cả kỳ nghỉ hè)."
         },
         {
           "q": "4時[よじ]に（　）飛行機[ひこうき]の時間[じかん]には間[ま]に合[あ]わない。",
@@ -60,7 +60,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc V-te + からでなければ...ない: Nếu không sau khi... thì không thể (Nếu không dậy từ lúc 4h thì không kịp giờ bay)."
+          "explain": "Cấu trúc <b>V-te + からでなければ...ない</b>: Nếu không sau khi... thì không thể (Nếu không dậy từ lúc 4h thì không kịp giờ bay)."
         },
         {
           "q": "もっと暑[あつ]くなってからでないと（　）。",
@@ -71,7 +71,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc ～てからでないと: Nếu chưa trở nên nóng hơn thì chưa thể đi bơi ở biển được."
+          "explain": "Cấu trúc <b>～てからでないと</b>: Nếu chưa trở nên nóng hơn thì chưa thể đi bơi ở biển được."
         },
         {
           "q": "間[ま]もなく2時[にじ]に（　）ところです。",
@@ -82,7 +82,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-plain + ところです: Sắp sửa... (Sắp sửa đến 2 giờ rồi)."
+          "explain": "Cấu trúc <b>V-plain + ところです</b>: Sắp sửa... (Sắp sửa đến 2 giờ rồi)."
         },
         {
           "q": "学校[がっこう]を休[やす]んで遊[あそ]んでいる（　）友[とも]だちのお母[かあ]さんに見[み]られた。",
@@ -93,7 +93,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc V-te iru + ところを: Đúng lúc đang... thì bị (bị bắt gặp/bị nhìn thấy). Dùng 'wo' vì đằng sau là động từ tác động."
+          "explain": "Cấu trúc <b>V-te iru + ところを</b>: Đúng lúc đang... thì bị (bị bắt gặp/bị nhìn thấy). Dùng 'wo' vì đằng sau là động từ tác động."
         },
         {
           "q": "今[いま]、出[で]かける準備[じゅんび]をしている（　）ちょっと待[ま]って。",
@@ -115,7 +115,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc V-plain + とおりに: Theo như... (Cuộc đời không diễn ra theo đúng như những gì mình nghĩ)."
+          "explain": "Cấu trúc <b>V-plain + とおりに</b>: Theo như... (Cuộc đời không diễn ra theo đúng như những gì mình nghĩ)."
         },
         {
           "q": "この絵[え]の（　）30年前[ねんまえ]はこの辺[へん]は畑[はたけ]だった。",
@@ -126,7 +126,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc N + とおり: Theo như... (Theo như bức tranh này thì 30 năm trước vùng này là cánh đồng)."
+          "explain": "Cấu trúc <b>N + とおり</b>: Theo như... (Theo như bức tranh này thì 30 năm trước vùng này là cánh đồng)."
         },
         {
           "q": "この虫[むし]は地方[ちほう]によって呼び方[よびかた]が（　）そうだ。",
@@ -137,7 +137,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc N + によって: Tùy vào... mà khác nhau (Tùy vào địa phương mà cách gọi loài sâu này khác nhau)."
+          "explain": "Cấu trúc <b>N + によって</b>: Tùy vào... mà khác nhau (Tùy vào địa phương mà cách gọi loài sâu này khác nhau)."
         },
         {
           "q": "あしたは、所[ところ]によっては（　）。",
@@ -148,7 +148,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc N + によっては: Tùy vào/Có trường hợp... (Ngày mai tùy nơi mà có thể có mưa)."
+          "explain": "Cấu trúc <b>N + によっては</b>: Tùy vào/Có trường hợp... (Ngày mai tùy nơi mà có thể có mưa)."
         },
         {
           "q": "彼女[かのじょ]はデート[でーと]のたびに（　）。",
@@ -159,7 +159,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc N/V-plain + たびに: Cứ mỗi lần... (Cứ mỗi lần hẹn hò cô ấy lại đến muộn)."
+          "explain": "Cấu trúc <b>N/V-plain + たびに</b>: Cứ mỗi lần... (Cứ mỗi lần hẹn hò cô ấy lại đến muộn)."
         },
         {
           "q": "この絵[え]は本物[ほんもの]ではないが、見[み]れば（　）本物[ほんもの]に見[み]える。",
@@ -170,7 +170,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-ba + V-plain + ほど: Càng... càng (Bức tranh này không phải đồ thật nhưng càng nhìn càng thấy giống đồ thật)."
+          "explain": "Cấu trúc <b>V-ba + V-plain + ほど</b>: Càng... càng (Bức tranh này không phải đồ thật nhưng càng nhìn càng thấy giống đồ thật)."
         },
         {
           "q": "刺身[さしみ]は（　）新鮮[しんせん]なほどおいしい。",
@@ -181,7 +181,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc A-na なら + A-na なほど: Càng... càng (Sashimi càng tươi thì càng ngon)."
+          "explain": "Cấu trúc <b>A-na なら + A-na なほど</b>: Càng... càng (Sashimi càng tươi thì càng ngon)."
         },
         {
           "q": "カン[かん]さんはピアノ[ぴあお]を（　）歌[うた]を歌[うた]うのが上手[じょうず]だ。",
@@ -192,7 +192,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc V-masu + ながら: Vừa... vừa (Anh Kan vừa đánh đàn vừa hát rất giỏi)."
+          "explain": "Cấu trúc <b>V-masu + ながら</b>: Vừa... vừa (Anh Kan vừa đánh đàn vừa hát rất giỏi)."
         },
         {
           "q": "銀行[ぎんこう]に行[い]ったついでに（　）。",
@@ -203,7 +203,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc V-plain-past + ついでに: Nhân tiện... (Nhân tiện đi ngân hàng tôi đã ghé qua tiệm hoa)."
+          "explain": "Cấu trúc <b>V-plain-past + ついでに</b>: Nhân tiện... (Nhân tiện đi ngân hàng tôi đã ghé qua tiệm hoa)."
         },
         {
           "q": "ちょうどメール[めーる]を書[か]いている（　）本人[ほんにん]が来[き]た。",
@@ -214,7 +214,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc V-te iru + ところに: Đúng lúc đang... thì (Đúng lúc đang viết mail thì chính chủ đến)."
+          "explain": "Cấu trúc <b>V-te iru + ところに</b>: Đúng lúc đang... thì (Đúng lúc đang viết mail thì chính chủ đến)."
         },
         {
           "q": "先生[せんせい]の説明[せつめい]を聞[き]いている（　）だんだんわかってきた。",
@@ -225,7 +225,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-te iru + うちに: Trong khi đang... thì một sự thay đổi diễn ra (Trong khi nghe giải thích thì dần dần trở nên hiểu)."
+          "explain": "Cấu trúc <b>V-te iru + うちに</b>: Trong khi đang... thì một sự thay đổi diễn ra (Trong khi nghe giải thích thì dần dần trở nên hiểu)."
         },
         {
           "q": "今朝[けさ]（　）のどが痛[いた]かった。",
@@ -236,7 +236,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Sử dụng ～とき để chỉ thời điểm: Khi thức dậy sáng nay thì bị đau họng."
+          "explain": "Sử dụng <b>～とき</b> để chỉ thời điểm: Khi thức dậy sáng nay thì bị đau họng."
         },
         {
           "q": "自分[じぶん]の目[め]で（　）何[なん]ともお答え[おこたえ]できません。",
@@ -247,7 +247,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc ～てからでないと: Nếu chưa xác nhận bằng mắt mình thì tôi không thể trả lời gì được."
+          "explain": "Cấu trúc <b>～てからでないと</b>: Nếu chưa xác nhận bằng mắt mình thì tôi không thể trả lời gì được."
         },
         {
           "q": "今日[きょう]のスポーツ[すぽーつ]大会[たいかい]は（　）行[おこな]います。",
@@ -258,7 +258,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc N + どおり: Đúng theo như dự định."
+          "explain": "Cấu trúc <b>N + どおり</b>: Đúng theo như dự định."
         },
         {
           "q": "わたしの場合[ばあい]、引っ越し[ひっこし]する（　）物[もの]が増[ふ]える。",
@@ -269,7 +269,7 @@
           ],
           "correct": 1,
           "point": 1,
-          "explain": "Cấu trúc V-plain + たびに: Cứ mỗi lần chuyển nhà là đồ đạc lại tăng lên."
+          "explain": "Cấu trúc <b>V-plain + たびに</b>: Cứ mỗi lần chuyển nhà là đồ đạc lại tăng lên."
         },
         {
           "q": "あの子[こ]はここにかばんを（　）どこかへ行[い]ってしまった。",
@@ -280,7 +280,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc V-ta + まま: Cứ để nguyên trạng thái... (Đứa trẻ đó cứ để nguyên cặp sách ở đây rồi đi đâu mất)."
+          "explain": "Cấu trúc <b>V-ta + まま</b>: Cứ để nguyên trạng thái... (Đứa trẻ đó cứ để nguyên cặp sách ở đây rồi đi đâu mất)."
         },
         {
           "q": "山道[やまみち]を（　）見[み]える景色[けしき]が広がって[ひろがって]いく。",
@@ -291,7 +291,7 @@
           ],
           "correct": 0,
           "point": 1,
-          "explain": "Cấu trúc V-ba + V-plain + ほど: Càng leo núi thì cảnh sắc hiện ra càng rộng mở."
+          "explain": "Cấu trúc <b>V-ba + V-plain + ほど</b>: Càng leo núi thì cảnh sắc hiện ra càng rộng mở."
         },
         {
           "q": "感謝[かんしゃ]の言葉[ことば]でも、言い方[いいかた]（　）悪い[わるい]意味[いみ]に聞こえる[きこえる]こともある。",
@@ -302,7 +302,7 @@
           ],
           "correct": 2,
           "point": 1,
-          "explain": "Cấu trúc N + によっては: Tùy vào cách nói mà có khi nghe thành ý nghĩa xấu."
+          "explain": "Cấu trúc <b>N + によっては</b>: Tùy vào cách nói mà có khi nghe thành ý nghĩa xấu."
         }
       ]
     }

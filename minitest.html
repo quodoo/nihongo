@@ -490,7 +490,11 @@
 
             <div id="question-explain" class="alert alert-light border small mt-3 hidden"></div>
 
-            <div class="mt-4 d-flex justify-content-end">
+            <div class="mt-4 d-flex justify-content-between align-items-center gap-3">
+                <button id="submit-btn" onclick="submitQuiz()"
+                    class="btn btn-outline-danger px-4 py-2">
+                    Nộp bài
+                </button>
                 <button id="next-btn" onclick="nextQuestion()"
                     class="hidden btn btn-dark px-4 py-2">
                     Câu tiếp theo ➔
@@ -1060,7 +1064,7 @@
             const explainBox = document.getElementById('question-explain');
             if (explainText && explainBox) {
                 explainBox.classList.remove('hidden');
-                explainBox.innerHTML = `<strong>Giải thích:</strong> ${renderWithFurigana(explainText)}`;
+                explainBox.innerHTML = `<strong>Giải thích:</strong> ${renderWithFurigana(explainText, ['b', 'strong', 'br', 'i', 'em', 'u'])}`;
             }
 
             document.getElementById('next-btn').classList.remove('hidden');
@@ -1077,6 +1081,20 @@
             } else {
                 showResults();
             }
+        }
+
+        function submitQuiz() {
+            if (!Array.isArray(quizData) || quizData.length === 0) {
+                return;
+            }
+            const total = quizData.length;
+            const done = Math.min(currentQuestionIndex + 1, total);
+            const remaining = Math.max(0, total - done);
+            const msg = remaining > 0
+                ? `Bạn còn ${remaining} câu chưa làm. Vẫn nộp bài chứ?`
+                : 'Bạn đã làm hết. Nộp bài chứ?';
+            if (!confirm(msg)) return;
+            showResults();
         }
 
         // ── Results ────────────────────────────────────────────
@@ -1152,9 +1170,30 @@
                 .replace(/"/g, '&quot;');
         }
 
-        function renderWithFurigana(str) {
+        function unescapeAllowedTags(escapedHtml, allowedTags) {
+            if (!escapedHtml) return '';
+            const tags = (Array.isArray(allowedTags) ? allowedTags : [])
+                .map(t => String(t || '').trim().toLowerCase())
+                .filter(Boolean);
+            if (tags.length === 0) return escapedHtml;
+
+            const uniqueTags = Array.from(new Set(tags));
+            const tagGroup = uniqueTags.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+
+            // Only unescape exact tag forms without attributes to reduce XSS risk.
+            // Examples allowed: <b>, </b>, <br>, <br/>
+            const re = new RegExp(`&lt;\\s*(\\/)?\\s*(${tagGroup})\\s*(\\/)?\\s*&gt;`, 'gi');
+            return escapedHtml.replace(re, (_m, slash1, tagName) => {
+                const t = String(tagName).toLowerCase();
+                if (t === 'br') return '<br>';
+                return `<${slash1 ? '/' : ''}${t}>`;
+            });
+        }
+
+        function renderWithFurigana(str, allowedTags = []) {
             const escaped = escHtml(str || '');
-            return escaped.replace(/([\u4E00-\u9FFF々〆ヵヶ]+)\[([^\]]+)\]/g, '<ruby>$1<rt>$2</rt></ruby>');
+            const withBasicTags = unescapeAllowedTags(escaped, allowedTags);
+            return withBasicTags.replace(/([\u4E00-\u9FFF々〆ヵヶ]+)\[([^\]]+)\]/g, '<ruby>$1<rt>$2</rt></ruby>');
         }
 
         function getOptionLabel(index) {
