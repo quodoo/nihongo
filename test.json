@@ -1,5 +1,32 @@
 [
   {
+    "id": "dongtu-a",
+    "title": "Động từ Phần A (N5)",
+    "emoji": "✏️",
+    "description": "30 câu nền tảng: nhóm động từ, masu, te, nai, ta",
+    "file": "tests/dongtu-phan-a.json",
+    "total": 30,
+    "tags": ["N5", "Động từ", "Phần A"]
+  },
+  {
+    "id": "dongtu-b",
+    "title": "Động từ Phần B (N4)",
+    "emoji": "📘",
+    "description": "30 câu mở rộng: khả năng, ý định, cảm đoán, sai khiến",
+    "file": "tests/dongtu-phan-b.json",
+    "total": 30,
+    "tags": ["N4", "Động từ", "Phần B"]
+  },
+  {
+    "id": "dongtu-c",
+    "title": "Động từ Phần C (N3)",
+    "emoji": "🎓",
+    "description": "40 câu nâng cao: bị động, sai khiến bị động, sắc thái, cụm động từ",
+    "file": "tests/dongtu-phan-c.json",
+    "total": 40,
+    "tags": ["N3", "Động từ", "Phần C"]
+  },
+  {
     "id": "trotu",
     "title": "Trợ Từ N5-N3",
     "emoji": "🌸",
