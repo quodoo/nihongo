@@ -63,18 +63,9 @@ if (document.readyState === "loading") {
 	loadResources();
 }
 
-// About button click handler
-// document.getElementById("about-btn").addEventListener("click", async () => {
-// 	await loadDocument("", "Giới thiệu");
-// });
-
 document.getElementById("minitest-btn").addEventListener("click", async () => {
 	await openMiniTest();
 });
-
-// document.getElementById("quizapp-btn").addEventListener("click", () => {
-// 	openQuizApp();
-// });
 
 async function openMiniTest() {
 	await loadDocument("minitest.html", "Mini Test Tiếng Nhật");
