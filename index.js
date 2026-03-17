@@ -124,7 +124,6 @@ function renderSidebar() {
 			const fileType = getFileType(item.path);
 			btn.innerHTML = `
 				<span class="nav-item-title">${escapeHtml(item.title)}</span>
-				${fileType !== "ABOUT" ? `<span class="badge rounded-pill text-bg-light border" style="font-size:0.68rem">${escapeHtml(fileType)}</span>` : ""}
 			`;
 			btn.addEventListener("click", async () => {
 				// Mark active

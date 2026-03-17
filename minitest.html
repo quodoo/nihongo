@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Test - Tiếng Nhật</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+        }
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        .correct {
+            background-color: #10B981 !important;
+            color: white !important;
+            border-color: #10B981 !important;
+        }
+        .incorrect {
+            background-color: #EF4444 !important;
+            color: white !important;
+            border-color: #EF4444 !important;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .test-card {
+            transition: all 0.2s ease;
+        }
+        .test-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px -4px rgba(0,0,0,0.12);
+        }
+        /* Custom slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: #bfdbfe;
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(37,99,235,0.4);
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4 min-h-screen">
+
+    <div id="app" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden fade-in">
+
+        <!-- Header -->
+        <div class="bg-blue-600 p-6 text-white text-center">
+            <h1 id="header-title" class="text-2xl font-bold mb-2">🌸 Mini Test Tiếng Nhật 🌸</h1>
+            <p id="header-subtitle" class="text-blue-100 text-sm">Chọn bài kiểm tra để bắt đầu</p>
+        </div>
+
+        <!-- Home Screen -->
+        <div id="home-screen" class="p-8">
+            <p class="text-gray-400 text-sm mb-5 text-center">Chọn chủ đề để luyện tập</p>
+            <div id="test-list" class="space-y-4">
+                <div class="text-center text-gray-400 py-10">
+                    <div class="text-3xl mb-2 animate-spin inline-block">⟳</div>
+                    <p class="text-sm">Đang tải...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Config Screen -->
+        <div id="config-screen" class="p-8 hidden">
+            <div id="test-info" class="mb-8 text-center"></div>
+
+            <div class="bg-blue-50 rounded-xl p-5 mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-3">
+                    🎯 Số câu hỏi muốn làm
+                </label>
+                <div class="flex items-center gap-4">
+                    <input type="range" id="question-count-slider" min="5" max="100" value="20"
+                        class="flex-1 cursor-pointer"
+                        oninput="updateQuestionCount(this.value)">
+                    <div class="bg-white border-2 border-blue-400 rounded-xl px-4 py-2 text-center min-w-[72px] shadow-sm">
+                        <span id="question-count-display" class="text-blue-600 font-bold text-2xl leading-none">20</span>
+                        <span class="text-gray-400 text-xs block mt-0.5">/ <span id="max-display">100</span> câu</span>
+                    </div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-400 mt-2 px-0.5">
+                    <span>5 câu</span>
+                    <span id="max-label-end">100 câu</span>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <button onclick="startQuiz()"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                    Bắt Đầu Làm Bài →
+                </button>
+                <button onclick="goHome()"
+                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2.5 px-8 rounded-full transition">
+                    ← Chọn bài khác
+                </button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="p-8 hidden">
+            <div class="flex justify-between items-center mb-6 text-sm font-medium text-gray-500">
+                <span id="question-tracker" class="bg-gray-100 px-3 py-1 rounded-full">Câu 1/20</span>
+                <span id="score-tracker" class="text-blue-600 font-semibold">Điểm: 0</span>
+            </div>
+
+            <div class="w-full bg-gray-200 rounded-full h-2 mb-8">
+                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <h2 id="question-text" class="text-xl font-bold text-gray-800 mb-6 leading-relaxed"></h2>
+
+            <div id="options-container" class="space-y-3"></div>
+
+            <div class="mt-8 flex justify-end">
+                <button id="next-btn" onclick="nextQuestion()"
+                    class="hidden bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-6 rounded-lg transition">
+                    Câu tiếp theo ➔
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="p-8 text-center hidden">
+            <div id="result-emoji" class="text-6xl mb-4">🏆</div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-1">Hoàn Thành!</h2>
+            <p id="result-test-name" class="text-gray-400 text-sm mb-6"></p>
+
+            <div class="text-5xl font-bold text-blue-600 mb-1" id="final-score">0/20</div>
+            <div id="result-percentage" class="text-gray-400 text-sm mb-4"></div>
+            <p id="feedback-message" class="text-base font-medium text-gray-700 mb-8 max-w-sm mx-auto"></p>
+
+            <div class="flex gap-3 justify-center flex-wrap">
+                <button onclick="restartQuiz()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-5 rounded-full shadow-lg transition">
+                    🔄 Làm lại (bộ câu mới)
+                </button>
+                <button onclick="goConfig()"
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-5 rounded-full transition">
+                    ⚙️ Đổi số câu
+                </button>
+                <button onclick="goHome()"
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-5 rounded-full transition">
+                    🏠 Chọn bài khác
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ── State ──────────────────────────────────────────────
+        let allTests = [];
+        let currentTest = null;
+        let allQuestions = [];
+        let quizData = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let hasAnswered = false;
+        let selectedCount = 20;
+
+        // ── Screens ────────────────────────────────────────────
+        function showScreen(id) {
+            ['home-screen', 'config-screen', 'quiz-screen', 'result-screen'].forEach(s => {
+                document.getElementById(s).classList.add('hidden');
+            });
+            const el = document.getElementById(id);
+            el.classList.remove('hidden');
+            el.classList.add('fade-in');
+            setTimeout(() => el.classList.remove('fade-in'), 400);
+        }
+
+        // ── Init: load test list ───────────────────────────────
+        async function init() {
+            try {
+                const res = await fetch('test.json');
+                if (!res.ok) throw new Error(res.status);
+                allTests = await res.json();
+                renderHomeScreen();
+            } catch (e) {
+                document.getElementById('test-list').innerHTML =
+                    '<p class="text-red-500 text-center py-6">❌ Không thể tải danh sách bài test.</p>';
+            }
+        }
+
+        // ── Home Screen ────────────────────────────────────────
+        function renderHomeScreen() {
+            document.getElementById('header-title').textContent = '🌸 Mini Test Tiếng Nhật 🌸';
+            document.getElementById('header-subtitle').textContent = 'Chọn bài kiểm tra để bắt đầu';
+
+            const list = document.getElementById('test-list');
+            list.innerHTML = allTests.map(test => `
+                <div class="test-card border-2 border-gray-200 hover:border-blue-400 rounded-xl p-5 cursor-pointer"
+                     data-test-id="${escHtml(test.id)}">
+                    <div class="flex items-center gap-4">
+                        <span class="text-4xl leading-none">${escHtml(test.emoji)}</span>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-gray-800 text-lg leading-tight">${escHtml(test.title)}</h3>
+                            <p class="text-gray-500 text-sm mt-1 line-clamp-2">${escHtml(test.description)}</p>
+                            <div class="flex gap-2 mt-2 flex-wrap">
+                                ${test.tags.map(t => `<span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">${escHtml(t)}</span>`).join('')}
+                                <span class="bg-gray-100 text-gray-500 text-xs font-semibold px-2 py-0.5 rounded-full">${test.total} câu</span>
+                            </div>
+                        </div>
+                        <span class="text-gray-300 text-2xl font-light shrink-0">›</span>
+                    </div>
+                </div>
+            `).join('');
+
+            list.querySelectorAll('.test-card').forEach((card) => {
+                card.addEventListener('click', () => {
+                    const testId = card.dataset.testId;
+                    if (testId) {
+                        selectTest(testId);
+                    }
+                });
+            });
+
+            showScreen('home-screen');
+        }
+
+        // ── Select test & load questions ───────────────────────
+        async function selectTest(testId) {
+            currentTest = allTests.find(t => t.id === testId);
+            if (!currentTest) return;
+
+            try {
+                const res = await fetch(currentTest.file);
+                if (!res.ok) throw new Error(res.status);
+                allQuestions = await res.json();
+            } catch (e) {
+                alert('Không thể tải câu hỏi. Vui lòng thử lại.');
+                return;
+            }
+
+            goConfig();
+        }
+
+        // ── Config Screen ──────────────────────────────────────
+        function goConfig() {
+            if (!currentTest) return;
+
+            document.getElementById('header-title').textContent = `${currentTest.emoji} ${currentTest.title}`;
+            document.getElementById('header-subtitle').textContent = currentTest.description;
+
+            document.getElementById('test-info').innerHTML = `
+                <div class="text-5xl mb-3">${escHtml(currentTest.emoji)}</div>
+                <h3 class="text-xl font-bold text-gray-800">${escHtml(currentTest.title)}</h3>
+                <p class="text-gray-500 text-sm mt-1">${escHtml(currentTest.description)}</p>
+            `;
+
+            const max = currentTest.total;
+            const def = Math.min(20, max);
+            selectedCount = def;
+
+            const slider = document.getElementById('question-count-slider');
+            slider.max = max;
+            slider.value = def;
+            document.getElementById('question-count-display').textContent = def;
+            document.getElementById('max-display').textContent = max;
+            document.getElementById('max-label-end').textContent = max + ' câu';
+
+            showScreen('config-screen');
+        }
+
+        function updateQuestionCount(val) {
+            selectedCount = parseInt(val, 10);
+            document.getElementById('question-count-display').textContent = selectedCount;
+        }
+
+        // ── Quiz ───────────────────────────────────────────────
+        function startQuiz() {
+            // Fisher-Yates shuffle
+            const pool = [...allQuestions];
+            for (let i = pool.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [pool[i], pool[j]] = [pool[j], pool[i]];
+            }
+            quizData = pool.slice(0, selectedCount);
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('score-tracker').textContent = 'Điểm: 0';
+            showScreen('quiz-screen');
+            loadQuestion();
+        }
+
+        function restartQuiz() {
+            startQuiz();
+        }
+
+        function loadQuestion() {
+            hasAnswered = false;
+            document.getElementById('next-btn').classList.add('hidden');
+
+            const q = quizData[currentQuestionIndex];
+            const total = quizData.length;
+
+            document.getElementById('question-tracker').textContent = `Câu ${currentQuestionIndex + 1}/${total}`;
+            document.getElementById('progress-bar').style.width = `${(currentQuestionIndex / total) * 100}%`;
+            document.getElementById('question-text').textContent = `${currentQuestionIndex + 1}. ${q.q}`;
+
+            const labels = ['A', 'B', 'C', 'D'];
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+
+            q.opts.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 text-gray-700 font-medium hover:border-blue-500 focus:outline-none bg-white';
+                btn.innerHTML = `<span class="font-bold mr-2 text-blue-600">${labels[index]}.</span>${escHtml(opt)}`;
+                btn.onclick = () => selectAnswer(index, btn);
+                container.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(selectedIndex, btnElement) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+
+            const q = quizData[currentQuestionIndex];
+            const allBtns = document.getElementById('options-container').children;
+
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                if (i === q.answer) {
+                    allBtns[i].classList.add('correct');
+                    allBtns[i].innerHTML += ' <span class="float-right">✓</span>';
+                }
+            }
+
+            if (selectedIndex === q.answer) {
+                score++;
+                document.getElementById('score-tracker').textContent = `Điểm: ${score}`;
+            } else {
+                btnElement.classList.add('incorrect');
+                btnElement.innerHTML += ' <span class="float-right">✗</span>';
+            }
+
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                const screen = document.getElementById('quiz-screen');
+                screen.classList.remove('fade-in');
+                void screen.offsetWidth;
+                screen.classList.add('fade-in');
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        // ── Results ────────────────────────────────────────────
+        function showResults() {
+            const total = quizData.length;
+            const pct = Math.round((score / total) * 100);
+
+            document.getElementById('final-score').textContent = `${score} / ${total}`;
+            document.getElementById('result-percentage').textContent = `Đạt ${pct}%`;
+            document.getElementById('result-test-name').textContent = currentTest ? currentTest.title : '';
+
+            let emoji, msg, colorClass;
+            if (pct >= 90) {
+                emoji = '🏆';
+                msg = 'Tuyệt vời! Phản xạ của bạn cực kỳ vững chắc. Chúc mừng!';
+                colorClass = 'text-green-600';
+            } else if (pct >= 75) {
+                emoji = '🌟';
+                msg = 'Rất tốt! Bạn nắm khá vững, chỉ cần cẩn thận thêm vài bẫy nữa thôi.';
+                colorClass = 'text-blue-600';
+            } else if (pct >= 60) {
+                emoji = '👍';
+                msg = 'Khá tốt. Hãy ôn thêm các cấu trúc nâng cao và thử lại nhé.';
+                colorClass = 'text-yellow-600';
+            } else {
+                emoji = '📚';
+                msg = 'Đừng nản chí! Hãy xem lại nền tảng trong sách và thử sức lại nhé.';
+                colorClass = 'text-red-600';
+            }
+
+            document.getElementById('result-emoji').textContent = emoji;
+            const fb = document.getElementById('feedback-message');
+            fb.textContent = msg;
+            fb.className = `text-base font-medium mb-8 max-w-sm mx-auto ${colorClass}`;
+
+            showScreen('result-screen');
+        }
+
+        // ── Go home ────────────────────────────────────────────
+        function goHome() {
+            currentTest = null;
+            renderHomeScreen();
+        }
+
+        // ── XSS helper ─────────────────────────────────────────
+        function escHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        // ── Bootstrap ──────────────────────────────────────────
+        init();
+    </script>
+</body>
+</html>
