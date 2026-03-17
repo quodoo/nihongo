@@ -8,9 +8,41 @@
     <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
     <style>
         @import url('assets/vendor/fonts/minitest-fonts.css');
+        :root {
+            --vti-dark: #1A4DBE;
+            --vti-dark-deep: #153ea8;
+            --vti-dark-xdeep: #0f2d82;
+            --vti-medium: #2E6BE6;
+            --vti-medium-hover: #2660d4;
+            --vti-light: #4D8CFF;
+            --vti-light-tint: #EBF3FF;
+            --vti-light-tint2: #dce9ff;
+            --vti-light-tint3: #ccdcff;
+
+            --sem-green: #28a745;
+            --sem-green-hover: #1e7e34;
+            --sem-green-tint: #d4edda;
+            --sem-green-text: #155724;
+            --sem-red: #dc3545;
+            --sem-red-tint: #f8d7da;
+            --sem-red-text: #721c24;
+            --sem-yellow: #ffc107;
+            --sem-yellow-tint: #fff3cd;
+            --sem-yellow-text: #856404;
+
+            --surface-base: #F0F4FA;
+            --surface-card: #ffffff;
+            --surface-raised: #ffffff;
+            --border: #D8E2F0;
+            --border-light: #E8EFF9;
+            --text-primary: #111827;
+            --text-secondary: #4B5768;
+            --text-muted: #8A96A8;
+            --text-placeholder: #B0BAC9;
+        }
         body {
-            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            font-family: 'DM Sans', 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, var(--surface-base) 0%, var(--vti-light-tint) 100%);
             min-height: 100vh;
             margin: 0;
         }
@@ -21,8 +53,8 @@
         }
         .app-navbar {
             flex-shrink: 0;
-            background: #fff;
-            border-bottom: 1px solid #dee2e6;
+            background: var(--surface-card);
+            border-bottom: 1px solid var(--border);
             z-index: 1030;
         }
         .app-navbar-shell {
@@ -46,11 +78,34 @@
         .app-brand {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            color: #0f7b6c !important;
+            color: var(--vti-dark) !important;
             letter-spacing: 0.05em;
             text-decoration: none;
             font-size: 1.15rem;
             line-height: 1;
+        }
+        .btn-success,
+        .btn-primary {
+            background-color: var(--vti-medium);
+            border-color: var(--vti-medium);
+        }
+        .btn-success:hover,
+        .btn-success:focus,
+        .btn-primary:hover,
+        .btn-primary:focus {
+            background-color: var(--vti-medium-hover);
+            border-color: var(--vti-medium-hover);
+        }
+        .btn-outline-success,
+        .btn-outline-primary {
+            color: var(--vti-medium);
+            border-color: var(--vti-light);
+        }
+        .btn-outline-success:hover,
+        .btn-outline-primary:hover {
+            color: #fff;
+            background-color: var(--vti-medium);
+            border-color: var(--vti-medium);
         }
         .app-navbar-actions {
             display: flex;
@@ -119,7 +174,7 @@
             max-width: 760px;
         }
         .minitest-header {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, var(--vti-medium) 0%, var(--vti-dark) 100%);
         }
         .home-link-btn {
             background: rgba(255, 255, 255, 0.18);
@@ -164,20 +219,20 @@
         }
         .option-btn:hover:not(:disabled) {
             transform: translateY(-2px);
-            color: #1f2937;
-            background-color: #f8fafc;
-            border-color: #94a3b8;
+            color: var(--text-primary);
+            background-color: var(--vti-light-tint);
+            border-color: var(--vti-light);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
         }
         .correct {
-            background-color: #10B981 !important;
+            background-color: var(--sem-green) !important;
             color: white !important;
-            border-color: #10B981 !important;
+            border-color: var(--sem-green) !important;
         }
         .incorrect {
-            background-color: #EF4444 !important;
+            background-color: var(--sem-red) !important;
             color: white !important;
-            border-color: #EF4444 !important;
+            border-color: var(--sem-red) !important;
         }
         .fade-in {
             animation: fadeIn 0.3s ease-in;
@@ -204,21 +259,21 @@
             font-size: 14px;
             font-weight: 700;
             color: #fff;
-            background: #2563eb;
+            background: var(--vti-medium);
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
             cursor: pointer;
             transition: all 0.2s ease;
         }
         .go-top-btn:hover {
             transform: translateY(-2px);
-            background: #1d4ed8;
+            background: var(--vti-dark);
         }
         .go-top-btn.hidden {
             display: none;
         }
         ruby rt {
             font-size: 0.72em;
-            color: #2563eb;
+            color: var(--vti-medium);
             font-weight: 500;
         }
         /* Custom slider */
@@ -227,7 +282,7 @@
             appearance: none;
             height: 6px;
             border-radius: 3px;
-            background: #bfdbfe;
+            background: var(--vti-light-tint2);
             outline: none;
         }
         input[type=range]::-webkit-slider-thumb {
@@ -236,7 +291,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #2563eb;
+            background: var(--vti-medium);
             cursor: pointer;
             box-shadow: 0 1px 4px rgba(37,99,235,0.4);
         }
