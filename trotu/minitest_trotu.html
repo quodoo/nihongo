@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Test Trợ Từ N5-N3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            min-height: 100vh;
+        }
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+        .option-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .correct {
+            background-color: #10B981 !important;
+            color: white !important;
+            border-color: #10B981 !important;
+        }
+        .incorrect {
+            background-color: #EF4444 !important;
+            color: white !important;
+            border-color: #EF4444 !important;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+
+    <div id="app" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden fade-in relative">
+        <!-- Header -->
+        <div class="bg-blue-600 p-6 text-white text-center">
+            <h1 class="text-2xl font-bold mb-2">🌸 Mini Test Trợ Từ N5-N3 🌸</h1>
+            <p class="text-blue-100 text-sm">Chinh phục 100 câu hỏi trợ từ tiếng Nhật</p>
+        </div>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="p-8 text-center">
+            <p class="text-gray-600 mb-6">Bài test gồm 100 câu hỏi trắc nghiệm về trợ từ từ trình độ N5 đến N3. Hãy kiểm tra xem phản xạ của bạn tốt đến đâu nhé!</p>
+            <div class="space-y-4 mb-8 text-left max-w-sm mx-auto bg-blue-50 p-4 rounded-lg text-sm text-blue-800">
+                <p><strong>Thang điểm:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>90-100: Rất tốt</li>
+                    <li>75-89: Tốt</li>
+                    <li>60-74: Khá</li>
+                    <li>Dưới 60: Cần ôn tập thêm</li>
+                </ul>
+            </div>
+            <button onclick="startQuiz()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                Bắt Đầu Làm Bài
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="p-8 hidden">
+            <div class="flex justify-between items-center mb-6 text-sm font-medium text-gray-500">
+                <span id="question-tracker" class="bg-gray-100 px-3 py-1 rounded-full">Câu 1/100</span>
+                <span id="score-tracker" class="text-blue-600">Điểm: 0</span>
+            </div>
+
+            <!-- Progress bar -->
+            <div class="w-full bg-gray-200 rounded-full h-2 mb-8">
+                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <h2 id="question-text" class="text-xl font-bold text-gray-800 mb-6 leading-relaxed jp-text">
+                <!-- Question goes here -->
+            </h2>
+
+            <div id="options-container" class="space-y-3">
+                <!-- Options go here -->
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button id="next-btn" onclick="nextQuestion()" class="hidden bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-6 rounded-lg transition">
+                    Câu tiếp theo ➔
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="p-8 text-center hidden">
+            <div class="text-6xl mb-4">🏆</div>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Hoàn Thành!</h2>
+            <p class="text-gray-600 mb-6">Bạn đã vượt qua bài kiểm tra trợ từ.</p>
+            
+            <div class="text-5xl font-bold text-blue-600 mb-4" id="final-score">0/100</div>
+            <p id="feedback-message" class="text-lg font-medium text-gray-700 mb-8"></p>
+
+            <button onclick="location.reload()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+                Làm Lại Từ Đầu
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Data Parser logic mapping the user's input directly
+        const rawAnswers = "1-B, 2-A, 3-C, 4-A, 5-B, 6-C, 7-B, 8-C, 9-A, 10-B, 11-C, 12-B, 13-B, 14-C, 15-B, 16-A, 17-C, 18-B, 19-A, 20-C, 21-C, 22-C, 23-B, 24-B, 25-B, 26-C, 27-A, 28-C, 29-B, 30-D, 31-B, 32-A, 33-B, 34-C, 35-A, 36-C, 37-B, 38-C, 39-B, 40-C, 41-B, 42-C, 43-C, 44-B, 45-C, 46-B, 47-A, 48-B, 49-A, 50-A, 51-B, 52-D, 53-B, 54-B, 55-B, 56-B, 57-A, 58-C, 59-A, 60-D, 61-B, 62-C, 63-A, 64-B, 65-A, 66-B, 67-A, 68-A, 69-B, 70-C, 71-B, 72-B, 73-B, 74-A, 75-C, 76-A, 77-B, 78-C, 79-A, 80-A, 81-C, 82-B, 83-A, 84-C, 85-A, 86-B, 87-B, 88-D, 89-B, 90-C, 91-B, 92-B, 93-A, 94-B, 95-C, 96-B, 97-C, 98-B, 99-A, 100-C";
+        
+        const answerMap = {};
+        rawAnswers.split(',').forEach(item => {
+            const parts = item.trim().split('-');
+            if (parts.length === 2) {
+                answerMap[parts[0]] = parts[1]; // e.g. "1": "B"
+            }
+        });
+
+        // 100 Questions Data
+        const questionsData = [
+            {q: "私___学生です。", opts: ["が", "は", "を", "に"]},
+            {q: "田中さん___来ました。", opts: ["が", "を", "に", "で"]},
+            {q: "毎日、日本語___勉強します。", opts: ["に", "と", "を", "が"]},
+            {q: "7時___起きます。", opts: ["に", "で", "を", "と"]},
+            {q: "学校___行きます。", opts: ["を", "へ", "で", "が"]},
+            {q: "バス___会社へ行きます。", opts: ["に", "が", "で", "を"]},
+            {q: "公園___子どもがいます。", opts: ["で", "に", "を", "と"]},
+            {q: "図書館___本を読みます。", opts: ["に", "を", "で", "へ"]},
+            {q: "友だち___話します。", opts: ["と", "を", "が", "へ"]},
+            {q: "先生___質問します。", opts: ["と", "に", "で", "から"]},
+            {q: "ベトナム___来ました。", opts: ["を", "で", "から", "に"]},
+            {q: "9時___12時___勉強します。", opts: ["に / を", "から / まで", "へ / に", "が / が"]},
+            {q: "レポートは金曜日___出してください。", opts: ["まで", "までに", "から", "より"]},
+            {q: "水___飲みます。", opts: ["が", "と", "を", "に"]},
+            {q: "机の上___本があります。", opts: ["で", "に", "と", "を"]},
+            {q: "母___花をあげました。", opts: ["に", "で", "を", "が"]},
+            {q: "兄___本をもらいました。", opts: ["まで", "に", "から", "へ"]},
+            {q: "私はコーヒー___飲みます。妹___飲みます。", opts: ["が / は", "を / も", "に / を", "と / が"]},
+            {q: "あの店___ラーメンを食べました。", opts: ["で", "に", "が", "へ"]},
+            {q: "うち___帰ります。", opts: ["で", "を", "に", "と"]},
+            {q: "日曜日___働きません。", opts: ["が", "を", "に", "と"]},
+            {q: "ここ___座ってください。", opts: ["を", "に", "で", "が"]},
+            {q: "ドア___閉めてください。", opts: ["で", "を", "に", "が"]},
+            {q: "会社___電話しました。", opts: ["へ", "に", "で", "を"]},
+            {q: "昨日、友だち___映画を見ました。", opts: ["に", "と", "が", "まで"]},
+            {q: "駅___歩きます。", opts: ["を", "で", "へ", "から"]},
+            {q: "家___学校まで30分かかります。", opts: ["から", "に", "で", "が"]},
+            {q: "明日___試験があります。", opts: ["で", "へ", "に", "から"]},
+            {q: "バス停___待っています。", opts: ["を", "で", "が", "と"]},
+            {q: "私___犬がいます。", opts: ["を", "で", "に", "は"]},
+            {q: "どこ___行きましたか。", opts: ["を", "に", "が", "と"]},
+            {q: "何時___寝ますか。", opts: ["に", "で", "が", "へ"]},
+            {q: "教室___学生が3人います。", opts: ["で", "に", "へ", "を"]},
+            {q: "教室___日本語を勉強します。", opts: ["が", "に", "で", "を"]},
+            {q: "これは私___かばんです。", opts: ["の", "に", "で", "と"]},
+            {q: "その問題___答えてください。", opts: ["が", "を", "に", "で"]},
+            {q: "先生___会いました。", opts: ["で", "に", "を", "が"]},
+            {q: "会議は3時___です。", opts: ["へ", "が", "まで", "を"]},
+            {q: "今日は雨___降っています。", opts: ["を", "が", "に", "で"]},
+            {q: "郵便局___行って、手紙を出します。", opts: ["で", "と", "へ", "を"]},
+            {q: "この店はあの店___安いです。", opts: ["ほど", "より", "くらい", "しか"]},
+            {q: "今年は去年___寒くありません。", opts: ["より", "しか", "ほど", "だけ"]},
+            {q: "1時間___待ちました。", opts: ["ほど", "までに", "くらい", "から"]},
+            {q: "財布___忘れました。", opts: ["が", "を", "に", "で"]},
+            {q: "会議___遅れないでください。", opts: ["を", "と", "に", "で"]},
+            {q: "駅___バスで行くつもりです。", opts: ["から", "まで", "で", "に"]},
+            {q: "彼___英語を教えてもらいました。", opts: ["に", "が", "を", "で"]},
+            {q: "彼___英語を教えました。", opts: ["から", "に", "と", "で"]},
+            {q: "今日はコーヒー___紅茶___飲みません。", opts: ["も / も", "と / と", "が / が", "を / を"]},
+            {q: "先月___日本へ行きました。", opts: ["に", "で", "を", "と"]},
+            {q: "宿題は明日___提出します。", opts: ["まで", "までに", "から", "より"]},
+            {q: "学校___帰る前に、スーパーに行きます。", opts: ["に", "で", "へ", "を"]},
+            {q: "私は弟___背が高いです。", opts: ["しか", "より", "ほど", "まで"]},
+            {q: "この町は夜___静かです。", opts: ["が", "に", "で", "を"]},
+            {q: "バス___電車___速くありません。", opts: ["より / ほど", "ほど / より", "しか / より", "まで / までに"]},
+            {q: "その話___聞いたことがあります。", opts: ["に", "を", "が", "で"]},
+            {q: "先生___相談したいことがあります。", opts: ["に", "で", "へ", "を"]},
+            {q: "家族___日本へ旅行します。", opts: ["が", "で", "と", "を"]},
+            {q: "この本は子ども___読めます。", opts: ["でも", "しか", "ほど", "まで"]},
+            {q: "その映画は思った___面白くなかったです。", opts: ["より", "しか", "だけ", "ほど"]},
+            {q: "ここ___写真を撮ってはいけません。", opts: ["を", "で", "に", "へ"]},
+            {q: "友だち___プレゼントをもらいました。", opts: ["へ", "で", "から", "が"]},
+            {q: "その店は土曜日___日曜日___休みです。", opts: ["から / まで", "に / に", "を / を", "へ / へ"]},
+            {q: "今日は忙しいです。5分___ありません。", opts: ["も", "しか", "だけ", "ほど"]},
+            {q: "水___飲んでください。", opts: ["を", "が", "に", "へ"]},
+            {q: "私___、そんなことはできません。", opts: ["しか", "は", "で", "を"]},
+            {q: "仕事___終わってから、電話します。", opts: ["を", "で", "が", "に"]},
+            {q: "この問題は私___難しいです。", opts: ["にとって", "について", "までに", "から"]},
+            {q: "家___駅___バスが出ています。", opts: ["に / へ", "から / まで", "で / で", "を / に"]},
+            {q: "兄はケーキ___3つ食べました。", opts: ["が", "に", "を", "で"]},
+            {q: "会議は10時___始まります。", opts: ["まで", "に", "から", "より"]},
+            {q: "雨___、試合は中止になりました。", opts: ["に", "で", "を", "が"]},
+            {q: "その問題___、後で話しましょう。", opts: ["まで", "について", "へ", "しか"]},
+            {q: "毎日、駅___会社まで歩きます。", opts: ["から", "で", "を", "が"]},
+            {q: "この薬は子ども___飲ませないでください。", opts: ["が", "を", "に", "で"]},
+            {q: "あなた___正しいです。", opts: ["こそ", "しか", "だけ", "ほど"]},
+            {q: "彼は漢字___、ひらがなもまだ苦手です。", opts: ["ばかりか", "はおろか", "に関して", "抜きで"]},
+            {q: "冗談___本気で言っています。", opts: ["に対して", "ばかりか", "抜きで", "までに"]},
+            {q: "その件___、詳しく説明してください。", opts: ["に関して", "ほど", "しか", "こそ"]},
+            {q: "この制度___市民の不満が高まっています。", opts: ["に対して", "に際して", "だけ", "まで"]},
+            {q: "試合開始___、注意事項を確認します。", opts: ["に対して", "にかけて", "に際して", "より"]},
+            {q: "昨夜___今朝___雪が降りました。", opts: ["に / に", "から / にかけて", "より / ほど", "を / まで"]},
+            {q: "彼は謝る___、私を責めました。", opts: ["どころか", "しか", "だけ", "までに"]},
+            {q: "彼女は日本語___英語も上手です。", opts: ["はおろか", "どころか", "ばかりか", "抜きで"]},
+            {q: "この会議は部長___、全員参加してください。", opts: ["のみ", "まで", "より", "ほど"]},
+            {q: "忙しくて昼ご飯を食べる時間___ない。", opts: ["ばかり", "しか", "こそ", "までに"]},
+            {q: "その説明は子ども___分かるほど簡単です。", opts: ["すら", "でさえ", "のみ", "に対して"]},
+            {q: "この資料___明日までに読んでおいてください。", opts: ["をめぐって", "によると", "に関して", "について"]},
+            {q: "この問題は簡単___、すぐ解けます。", opts: ["ばかりか", "ほど", "だけ", "でさえ"]},
+            {q: "私は水___飲みません。", opts: ["だけ", "ばかり", "しか", "のみ"]},
+            {q: "彼は甘いもの___食べています。", opts: ["しか", "ばかり", "だけ", "こそ"]},
+            {q: "今日___、この計画を始めましょう。", opts: ["までに", "こそ", "しか", "どころか"]},
+            {q: "住所___知らないので、連絡できません。", opts: ["すら", "のみ", "まで", "より"]},
+            {q: "新商品___問い合わせが増えています。", opts: ["に際して", "に対して", "までに", "だけ"]},
+            {q: "契約___、規約をよく読んでください。", opts: ["にかけて", "に関して", "に際して", "はおろか"]},
+            {q: "料理の腕___彼女が一番です。", opts: ["に関して", "にかけては", "に対して", "についての"]},
+            {q: "彼は休む___、毎日遅くまで働いている。", opts: ["ばかりか", "はおろか", "どころか", "抜きで"]},
+            {q: "このイベントは関係者___参加できます。", opts: ["だけ", "のみ", "しか", "こそ"]},
+            {q: "その話___、後ほどメールで連絡します。", opts: ["に関しては", "はおろか", "抜きで", "どころか"]},
+            {q: "前置き___本題に入りましょう。", opts: ["ばかりか", "どころか", "抜きで", "に対して"]}
+        ];
+
+        // Format data properly by binding correct answers
+        const letterToIndex = {"A": 0, "B": 1, "C": 2, "D": 3};
+        const quizData = questionsData.map((item, index) => {
+            let correctLetter = answerMap[index + 1];
+            return {
+                id: index + 1,
+                question: `${index + 1}. ${item.q}`,
+                options: item.opts,
+                correctIndex: letterToIndex[correctLetter]
+            };
+        });
+
+        // App State
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let hasAnswered = false;
+
+        // DOM Elements
+        const startScreen = document.getElementById('start-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultScreen = document.getElementById('result-screen');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const nextBtn = document.getElementById('next-btn');
+        const questionTracker = document.getElementById('question-tracker');
+        const scoreTracker = document.getElementById('score-tracker');
+        const progressBar = document.getElementById('progress-bar');
+        const finalScore = document.getElementById('final-score');
+        const feedbackMessage = document.getElementById('feedback-message');
+
+        function startQuiz() {
+            startScreen.classList.add('hidden');
+            quizScreen.classList.remove('hidden');
+            quizScreen.classList.add('fade-in');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            hasAnswered = false;
+            nextBtn.classList.add('hidden');
+            
+            const q = quizData[currentQuestionIndex];
+            
+            // Update UI trackers
+            questionTracker.innerText = `Câu ${currentQuestionIndex + 1}/100`;
+            progressBar.style.width = `${((currentQuestionIndex) / 100) * 100}%`;
+            
+            questionText.innerText = q.question;
+            
+            // Render options
+            optionsContainer.innerHTML = '';
+            const labels = ["A", "B", "C", "D"];
+            
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 text-gray-700 font-medium hover:border-blue-500 focus:outline-none bg-white';
+                btn.innerHTML = `<span class="font-bold mr-2 text-blue-600">${labels[index]}.</span> ${opt}`;
+                btn.onclick = () => selectAnswer(index, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectAnswer(selectedIndex, btnElement) {
+            if (hasAnswered) return;
+            hasAnswered = true;
+            
+            const q = quizData[currentQuestionIndex];
+            const isCorrect = (selectedIndex === q.correctIndex);
+            
+            const allBtns = optionsContainer.children;
+            
+            // Disable all buttons and show correct/incorrect
+            for (let i = 0; i < allBtns.length; i++) {
+                allBtns[i].disabled = true;
+                if (i === q.correctIndex) {
+                    allBtns[i].classList.add('correct');
+                    allBtns[i].innerHTML += ' <span class="float-right">✓</span>';
+                }
+            }
+            
+            if (isCorrect) {
+                score++;
+                scoreTracker.innerText = `Điểm: ${score}`;
+            } else {
+                btnElement.classList.add('incorrect');
+                btnElement.innerHTML += ' <span class="float-right">✗</span>';
+            }
+            
+            nextBtn.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizData.length) {
+                quizScreen.classList.remove('fade-in');
+                void quizScreen.offsetWidth; // trigger reflow
+                quizScreen.classList.add('fade-in');
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            quizScreen.classList.add('hidden');
+            resultScreen.classList.remove('hidden');
+            resultScreen.classList.add('fade-in');
+            
+            finalScore.innerText = `${score} / 100`;
+            
+            if (score >= 90) {
+                feedbackMessage.innerText = "Tuyệt vời! Phản xạ trợ từ của bạn cực kỳ vững chắc. Chúc mừng!";
+                feedbackMessage.className = "text-lg font-medium text-green-600 mb-8";
+            } else if (score >= 75) {
+                feedbackMessage.innerText = "Rất tốt! Bạn nắm khá vững kiến thức, chỉ cần cẩn thận vài bẫy N3 nữa thôi.";
+                feedbackMessage.className = "text-lg font-medium text-blue-600 mb-8";
+            } else if (score >= 60) {
+                feedbackMessage.innerText = "Khá tốt. Tuy nhiên bạn cần ôn tập lại kỹ hơn các cấu trúc trợ từ ghép.";
+                feedbackMessage.className = "text-lg font-medium text-yellow-600 mb-8";
+            } else {
+                feedbackMessage.innerText = "Đừng nản chí! Hãy xem lại nền tảng N5-N4 trong sách và thử sức lại nhé.";
+                feedbackMessage.className = "text-lg font-medium text-red-600 mb-8";
+            }
+        }
+    </script>
+</body>
+</html>
