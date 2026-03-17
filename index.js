@@ -55,6 +55,16 @@ const viewerContent = document.getElementById("viewer-content");
 const welcomeScreen = document.getElementById("welcome-screen");
 const viewerArea = document.getElementById("viewer-area");
 
+// Get base path for GitHub Pages repo
+const getBasePath = () => {
+	const path = window.location.pathname;
+	if (path.includes("/") && !path.endsWith("/")) {
+		return path.substring(0, path.lastIndexOf("/")) + "/";
+	}
+	return path.endsWith("/") ? path : path + "/";
+};
+const basePath = getBasePath();
+
 renderSidebar();
 
 function renderSidebar() {
@@ -111,7 +121,7 @@ async function loadDocument(path, title, type) {
 		if (normalizedType === "about") {
 			renderAbout();
 		} else if (normalizedType === "markdown") {
-			const response = await fetch(path, { cache: "no-store" });
+			const response = await fetch(basePath + path, { cache: "no-store" });
 			if (!response.ok) {
 				throw new Error(`Không thể đọc file: ${path}`);
 			}
@@ -120,21 +130,21 @@ async function loadDocument(path, title, type) {
 		} else if (normalizedType === "html") {
 			renderHtmlPreview(path, title);
 		} else if (normalizedType === "json") {
-			const response = await fetch(path, { cache: "no-store" });
+			const response = await fetch(basePath + path, { cache: "no-store" });
 			if (!response.ok) {
 				throw new Error(`Không thể đọc file: ${path}`);
 			}
 			const items = await response.json();
 			renderFlashcards(items);
 		} else if (normalizedType === "tsv") {
-			const response = await fetch(path, { cache: "no-store" });
+			const response = await fetch(basePath + path, { cache: "no-store" });
 			if (!response.ok) {
 				throw new Error(`Không thể đọc file: ${path}`);
 			}
 			const text = await response.text();
 			renderFlashcardsFromTsv(text);
 		} else {
-			const response = await fetch(path, { cache: "no-store" });
+			const response = await fetch(basePath + path, { cache: "no-store" });
 			if (!response.ok) {
 				throw new Error(`Không thể đọc file: ${path}`);
 			}
@@ -151,7 +161,7 @@ function renderHtmlPreview(path, title) {
 	viewerContent.innerHTML = `
 		<div class="html-preview-wrap">
 			<p class="muted">Đang hiển thị bản xem nhanh của: ${escapeHtml(title)}</p>
-			<iframe class="html-preview-frame" src="${encodeURI(path)}" title="${escapeHtml(title)}"></iframe>
+			<iframe class="html-preview-frame" src="${encodeURI(basePath + path)}" title="${escapeHtml(title)}"></iframe>
 		</div>
 	`;
 }
