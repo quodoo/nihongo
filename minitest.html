@@ -43,6 +43,29 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 16px -4px rgba(0,0,0,0.12);
         }
+        .go-top-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 50;
+            border: none;
+            border-radius: 9999px;
+            padding: 10px 14px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            background: #2563eb;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .go-top-btn:hover {
+            transform: translateY(-2px);
+            background: #1d4ed8;
+        }
+        .go-top-btn.hidden {
+            display: none;
+        }
         ruby rt {
             font-size: 0.72em;
             color: #2563eb;
@@ -97,11 +120,24 @@
                     ⬆️ Import bộ quiz (JSON / TEXT)
                 </button>
             </div>
+            <div class="mb-3">
+                <input id="test-search" type="text" oninput="onSearchInput(this.value)"
+                    class="w-full border border-gray-300 rounded-xl p-3 text-sm"
+                    placeholder="🔎 Tìm theo tên bài, mô tả, tag...">
+            </div>
+            <p id="search-meta" class="text-xs text-gray-400 mb-3"></p>
             <div id="test-list" class="space-y-4">
                 <div class="text-center text-gray-400 py-10">
                     <div class="text-3xl mb-2 animate-spin inline-block">⟳</div>
                     <p class="text-sm">Đang tải...</p>
                 </div>
+            </div>
+            <div id="list-sentinel" class="text-center text-xs text-gray-400 py-3 hidden">Đang tải thêm...</div>
+            <div class="text-center pb-2">
+                <button id="load-more-btn" onclick="loadMoreTests()"
+                    class="hidden bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold px-4 py-2 rounded-lg transition">
+                    Xem thêm bài thi
+                </button>
             </div>
         </div>
 
@@ -150,6 +186,10 @@
                 </div>
 
                 <div id="import-message" class="text-sm hidden"></div>
+
+                <div class="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                    ⚠️ Ghi chú: Nếu import bộ quiz có ID trùng với bộ đã có, hệ thống sẽ ghi đè lên bộ cũ.
+                </div>
 
                 <div class="space-y-3">
                     <button onclick="importQuizPack()"
@@ -250,6 +290,10 @@
 
     </div>
 
+    <button id="go-top-btn" class="go-top-btn hidden" type="button" onclick="goTop()" aria-label="Lên đầu trang">
+        ↑ Top
+    </button>
+
     <script>
         // ── State ──────────────────────────────────────────────
         let allTests = [];
@@ -262,6 +306,11 @@
         let selectedCount = 20;
         let builtInTests = [];
         const CUSTOM_TESTS_KEY = 'jpn_n345_custom_tests_v1';
+        const PAGE_SIZE = 6;
+        let filteredTests = [];
+        let renderCount = 0;
+        let listObserver = null;
+        let searchKeyword = '';
 
         // ── Screens ────────────────────────────────────────────
         function showScreen(id) {
@@ -293,48 +342,16 @@
             document.getElementById('header-title').textContent = '🌸 Mini Test Tiếng Nhật 🌸';
             document.getElementById('header-subtitle').textContent = 'Chọn bài kiểm tra để bắt đầu';
             allTests = mergeAllTests();
-
-            const list = document.getElementById('test-list');
-            list.innerHTML = allTests.map(test => `
-                <div class="test-card border-2 border-gray-200 hover:border-blue-400 rounded-xl p-5 cursor-pointer"
-                     data-test-id="${escHtml(test.id)}">
-                    <div class="flex items-center gap-4">
-                        <span class="text-4xl leading-none">${escHtml(test.emoji)}</span>
-                        <div class="flex-1 min-w-0">
-                            <h3 class="font-bold text-gray-800 text-lg leading-tight">${escHtml(test.title)}</h3>
-                            <p class="text-gray-500 text-sm mt-1 line-clamp-2">${escHtml(test.description)}</p>
-                            <div class="flex gap-2 mt-2 flex-wrap">
-                                ${(Array.isArray(test.tags) ? test.tags : []).map(t => `<span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">${escHtml(t)}</span>`).join('')}
-                                ${test.source === 'local' ? '<span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full">Cá nhân</span>' : ''}
-                                <span class="bg-gray-100 text-gray-500 text-xs font-semibold px-2 py-0.5 rounded-full">${test.total} câu</span>
-                            </div>
-                        </div>
-                        ${test.source === 'local' ? `<button class="delete-test-btn bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg" data-delete-id="${escHtml(test.id)}" title="Xoá bộ quiz này">🗑️ Xoá</button>` : ''}
-                        <span class="text-gray-300 text-2xl font-light shrink-0">›</span>
-                    </div>
-                </div>
-            `).join('');
-
-            list.querySelectorAll('.test-card').forEach((card) => {
-                card.addEventListener('click', () => {
-                    const testId = card.dataset.testId;
-                    if (testId) {
-                        selectTest(testId);
-                    }
-                });
-            });
-
-            list.querySelectorAll('.delete-test-btn').forEach((btn) => {
-                btn.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    const testId = btn.dataset.deleteId;
-                    if (testId) {
-                        deleteCustomTest(testId);
-                    }
-                });
-            });
+            const searchInput = document.getElementById('test-search');
+            if (searchInput) {
+                searchInput.value = searchKeyword;
+            }
 
             showScreen('home-screen');
+            // Render after screen becomes visible so IntersectionObserver can trigger reliably.
+            setTimeout(() => {
+                applySearchAndRender();
+            }, 0);
         }
 
         // ── Select test & load questions ───────────────────────
@@ -363,15 +380,15 @@
             if (!currentTest) return;
 
             document.getElementById('header-title').textContent = `${currentTest.emoji} ${currentTest.title}`;
-            document.getElementById('header-subtitle').textContent = currentTest.description;
+            document.getElementById('header-subtitle').textContent = currentTest.description || '';
 
             document.getElementById('test-info').innerHTML = `
-                <div class="text-5xl mb-3">${escHtml(currentTest.emoji)}</div>
-                <h3 class="text-xl font-bold text-gray-800">${escHtml(currentTest.title)}</h3>
-                <p class="text-gray-500 text-sm mt-1">${escHtml(currentTest.description)}</p>
+                <div class="text-5xl mb-3">${escHtml(currentTest.emoji || '🧩')}</div>
+                <h3 class="text-xl font-bold text-gray-800">${escHtml(currentTest.title || 'Quiz')}</h3>
+                <p class="text-gray-500 text-sm mt-1">${escHtml(currentTest.description || '')}</p>
             `;
 
-            const max = currentTest.total;
+            const max = Math.max(1, parseInt(currentTest.total, 10) || (Array.isArray(allQuestions) ? allQuestions.length : 1));
             const def = Math.min(20, max);
             selectedCount = def;
 
@@ -385,25 +402,170 @@
             showScreen('config-screen');
         }
 
-        function updateQuestionCount(val) {
-            selectedCount = parseInt(val, 10);
-            document.getElementById('question-count-display').textContent = selectedCount;
+        function createTestCardHtml(test) {
+            if (!test || typeof test !== 'object') return '';
+            const safeTitle = test.title || 'Quiz chưa đặt tên';
+            const safeDescription = test.description || 'Không có mô tả';
+            const safeEmoji = test.emoji || '🧩';
+            const safeTotal = Number.isFinite(Number(test.total)) ? Number(test.total) : (Array.isArray(test.questions) ? test.questions.length : 0);
+            return `
+                <div class="test-card border-2 border-gray-200 hover:border-blue-400 rounded-xl p-5 cursor-pointer"
+                     data-test-id="${escHtml(test.id)}">
+                    <div class="flex items-center gap-4">
+                        <span class="text-4xl leading-none">${escHtml(safeEmoji)}</span>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-gray-800 text-lg leading-tight">${escHtml(safeTitle)}</h3>
+                            <p class="text-gray-500 text-sm mt-1 line-clamp-2">${escHtml(safeDescription)}</p>
+                            <div class="flex gap-2 mt-2 flex-wrap">
+                                ${(Array.isArray(test.tags) ? test.tags : []).map(t => `<span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">${escHtml(t)}</span>`).join('')}
+                                ${test.source === 'local' ? '<span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full">Cá nhân</span>' : ''}
+                                <span class="bg-gray-100 text-gray-500 text-xs font-semibold px-2 py-0.5 rounded-full">${safeTotal} câu</span>
+                            </div>
+                        </div>
+                        ${test.source === 'local' ? `<button class="delete-test-btn bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg" data-delete-id="${escHtml(test.id)}" title="Xoá bộ quiz này">🗑️ Xoá</button>` : ''}
+                        <span class="text-gray-300 text-2xl font-light shrink-0">›</span>
+                    </div>
+                </div>
+            `;
         }
 
-        // ── Quiz ───────────────────────────────────────────────
-        function startQuiz() {
-            // Fisher-Yates shuffle
-            const pool = [...allQuestions];
-            for (let i = pool.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [pool[i], pool[j]] = [pool[j], pool[i]];
+        function bindListEvents() {
+            const list = document.getElementById('test-list');
+            list.querySelectorAll('.test-card').forEach((card) => {
+                if (card.dataset.bound === '1') return;
+                card.dataset.bound = '1';
+                card.addEventListener('click', () => {
+                    const testId = card.dataset.testId;
+                    if (testId) {
+                        selectTest(testId);
+                    }
+                });
+            });
+
+            list.querySelectorAll('.delete-test-btn').forEach((btn) => {
+                if (btn.dataset.bound === '1') return;
+                btn.dataset.bound = '1';
+                btn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const testId = btn.dataset.deleteId;
+                    if (testId) {
+                        deleteCustomTest(testId);
+                    }
+                });
+            });
+        }
+
+        function normalizeSearchText(text) {
+            return String(text || '')
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .trim();
+        }
+
+        function updateSearchMeta() {
+            const meta = document.getElementById('search-meta');
+            if (!meta) return;
+            if (filteredTests.length === 0) {
+                meta.textContent = 'Không tìm thấy bộ quiz phù hợp.';
+                return;
             }
-            quizData = pool.slice(0, selectedCount);
-            currentQuestionIndex = 0;
-            score = 0;
-            document.getElementById('score-tracker').textContent = 'Điểm: 0';
-            showScreen('quiz-screen');
-            loadQuestion();
+            meta.textContent = `Hiển thị ${Math.min(renderCount, filteredTests.length)}/${filteredTests.length} bộ quiz`;
+        }
+
+        function stopListObserver() {
+            if (listObserver) {
+                listObserver.disconnect();
+                listObserver = null;
+            }
+        }
+
+        function setupListObserver() {
+            stopListObserver();
+            const sentinel = document.getElementById('list-sentinel');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            if (!sentinel) return;
+
+            if (renderCount >= filteredTests.length || filteredTests.length === 0) {
+                sentinel.classList.add('hidden');
+                if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+                return;
+            }
+
+            sentinel.classList.remove('hidden');
+            if (loadMoreBtn) loadMoreBtn.classList.remove('hidden');
+            listObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        renderNextChunk(false);
+                    }
+                });
+            }, { root: null, rootMargin: '120px', threshold: 0.1 });
+            listObserver.observe(sentinel);
+        }
+
+        function renderNextChunk(reset = false) {
+            const list = document.getElementById('test-list');
+            if (!list) return;
+
+            if (reset) {
+                list.innerHTML = '';
+            }
+
+            if (filteredTests.length === 0) {
+                list.innerHTML = '<div class="text-center text-gray-400 py-6 text-sm">Không có kết quả phù hợp.</div>';
+                stopListObserver();
+                const loadMoreBtn = document.getElementById('load-more-btn');
+                if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
+                updateSearchMeta();
+                return;
+            }
+
+            const nextItems = filteredTests.slice(renderCount, renderCount + PAGE_SIZE);
+            const html = nextItems.map((test) => createTestCardHtml(test)).join('');
+            list.insertAdjacentHTML('beforeend', html);
+            renderCount += nextItems.length;
+            bindListEvents();
+            updateSearchMeta();
+            setupListObserver();
+        }
+
+        function applySearchAndRender() {
+            const keyword = normalizeSearchText(searchKeyword);
+            filteredTests = allTests
+                .filter((test) => test && typeof test === 'object' && test.id)
+                .filter((test) => {
+                if (!keyword) return true;
+                const haystack = normalizeSearchText(
+                    `${test.title || ''} ${test.description || ''} ${(Array.isArray(test.tags) ? test.tags.join(' ') : '')}`
+                );
+                return haystack.includes(keyword);
+                });
+            renderCount = 0;
+            renderNextChunk(true);
+        }
+
+        function loadMoreTests() {
+            renderNextChunk(false);
+        }
+
+        function onSearchInput(value) {
+            searchKeyword = value || '';
+            applySearchAndRender();
+        }
+
+        function goTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleGoTopButton() {
+            const btn = document.getElementById('go-top-btn');
+            if (!btn) return;
+            if (window.scrollY > 240) {
+                btn.classList.remove('hidden');
+            } else {
+                btn.classList.add('hidden');
+            }
         }
 
         function restartQuiz() {
@@ -804,6 +966,8 @@
 
         // ── Bootstrap ──────────────────────────────────────────
         toggleHomePageButtonForFrameMode();
+        window.addEventListener('scroll', toggleGoTopButton, { passive: true });
+        toggleGoTopButton();
         init();
     </script>
 </body>

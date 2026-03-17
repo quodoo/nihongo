@@ -72,10 +72,14 @@ async function openMiniTest() {
 
 function openQuizApp() {
 	const quizAppUrl = "https://japan-quiz.erpblogs.com/index.html";
-	const newTab = window.open(quizAppUrl, "_blank", "noopener,noreferrer");
-	if (!newTab) {
-		window.location.href = quizAppUrl;
-	}
+	const link = document.createElement("a");
+	link.href = quizAppUrl;
+	link.target = "_blank";
+	link.rel = "noopener noreferrer";
+	link.style.display = "none";
+	document.body.appendChild(link);
+	link.click();
+	link.remove();
 }
 
 window.openMiniTest = openMiniTest;
