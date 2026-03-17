@@ -978,6 +978,24 @@
             startQuiz();
         }
 
+        function getCorrectAnswerIndex(q) {
+            const answerRaw = typeof q.answer !== "undefined" && q.answer !== null ? q.answer : q.correct;
+            if (Number.isInteger(answerRaw)) return answerRaw;
+            if (typeof answerRaw === "string") {
+                const t = answerRaw.trim();
+                if (/^[A-Za-z]$/.test(t)) {
+                    return t.toUpperCase().charCodeAt(0) - 65;
+                }
+                if (/^\d+$/.test(t)) {
+                    return parseInt(t, 10);
+                }
+                const options = Array.isArray(q.options) ? q.options : [];
+                const idx = options.findIndex(o => String(o).trim() === t);
+                if (idx >= 0) return idx;
+            }
+            return -1;
+        }
+
         function startQuiz() {
             if (!Array.isArray(allQuestions) || allQuestions.length === 0) {
                 alert('Bộ quiz này chưa có câu hỏi hợp lệ.');
@@ -1042,17 +1060,18 @@
             hasAnswered = true;
 
             const q = quizData[currentQuestionIndex];
+            const correctIndex = getCorrectAnswerIndex(q);
             const allBtns = document.getElementById('options-container').children;
 
             for (let i = 0; i < allBtns.length; i++) {
                 allBtns[i].disabled = true;
-                if (i === q.answer) {
+                if (i === correctIndex) {
                     allBtns[i].classList.add('correct');
                     allBtns[i].innerHTML += ' <span class="float-end">✓</span>';
                 }
             }
 
-            if (selectedIndex === q.answer) {
+            if (selectedIndex === correctIndex) {
                 score += Number.isFinite(Number(q.point)) ? Number(q.point) : 1;
                 document.getElementById('score-tracker').textContent = `Điểm: ${score}/${maxScore}`;
             } else {
