@@ -1,0 +1,287 @@
+[
+  {
+    "id": 1,
+    "front": "へ (hướng đi)",
+    "back": "Dùng khi nhấn mạnh hướng di chuyển. Ví dụ: 日本へ行きます。= Đi về phía Nhật."
+  },
+  {
+    "id": 2,
+    "front": "に (điểm đến)",
+    "back": "Dùng khi nhấn mạnh điểm đến cụ thể. Ví dụ: 東京に行きます。"
+  },
+  {
+    "id": 3,
+    "front": "に (thời điểm)",
+    "back": "Dùng với thời điểm cụ thể. Ví dụ: 7時に起きます。"
+  },
+  {
+    "id": 4,
+    "front": "で (phương tiện)",
+    "back": "Dùng cho phương tiện/cách thức. Ví dụ: 電車で行きます。"
+  },
+  {
+    "id": 5,
+    "front": "で (nơi diễn ra hành động)",
+    "back": "Dùng cho địa điểm có hành động. Ví dụ: 図書館で勉強します。"
+  },
+  {
+    "id": 6,
+    "front": "から (mốc bắt đầu)",
+    "back": "Nghĩa là từ (thời gian/không gian). Ví dụ: 9時から始まります。"
+  },
+  {
+    "id": 7,
+    "front": "まで (mốc kết thúc)",
+    "back": "Nghĩa là đến (điểm kết thúc). Ví dụ: 5時まで働きます。"
+  },
+  {
+    "id": 8,
+    "front": "までに (hạn chót)",
+    "back": "Nghĩa là trước/không muộn hơn. Ví dụ: 金曜日までに出します。"
+  },
+  {
+    "id": 9,
+    "front": "を (tân ngữ trực tiếp)",
+    "back": "Đánh dấu đối tượng trực tiếp của hành động. Ví dụ: 本を読みます。"
+  },
+  {
+    "id": 10,
+    "front": "に (người nhận)",
+    "back": "Đánh dấu người nhận/hướng tới. Ví dụ: 先生に聞きます。"
+  },
+  {
+    "id": 11,
+    "front": "と (cùng với)",
+    "back": "Diễn tả cùng làm với ai. Ví dụ: 友だちと話します。"
+  },
+  {
+    "id": 12,
+    "front": "も (cũng)",
+    "back": "Thêm nghĩa cũng. Ví dụ: 私も行きます。"
+  },
+  {
+    "id": 13,
+    "front": "より (so với)",
+    "back": "Dùng làm chuẩn so sánh hơn. Ví dụ: AはBより高いです。"
+  },
+  {
+    "id": 14,
+    "front": "ほど (không bằng/đến mức)",
+    "back": "Dùng trong so sánh phủ định hoặc mức độ. Ví dụ: 去年ほど寒くない。"
+  },
+  {
+    "id": 15,
+    "front": "くらい (khoảng/đến mức)",
+    "back": "Dùng cho xấp xỉ hoặc mức độ. Ví dụ: 1時間くらい勉強した。"
+  },
+  {
+    "id": 16,
+    "front": "こそ (chính là)",
+    "back": "Nhấn mạnh mạnh. Ví dụ: 今こそ始めるべきだ。"
+  },
+  {
+    "id": 17,
+    "front": "さえ (ngay cả)",
+    "back": "Nêu trường hợp cực đoan. Ví dụ: 子どもでさえ分かる。"
+  },
+  {
+    "id": 18,
+    "front": "すら (đến cả)",
+    "back": "Gần nghĩa さえ nhưng văn viết hơn. Ví dụ: 名前すら知らない。"
+  },
+  {
+    "id": 19,
+    "front": "のみ (chỉ, văn viết)",
+    "back": "Sắc thái trang trọng/thông báo. Ví dụ: 関係者のみ入場可。"
+  },
+  {
+    "id": 20,
+    "front": "だけ (chỉ)",
+    "back": "Giới hạn trung tính, thông dụng. Ví dụ: 水だけ飲みます。"
+  },
+  {
+    "id": 21,
+    "front": "ばかり (toàn/chỉ toàn)",
+    "back": "Thường kèm sắc thái lặp lại/thiên lệch. Ví dụ: 文句ばかり言う。"
+  },
+  {
+    "id": 22,
+    "front": "しか (chỉ...không)",
+    "back": "Luôn đi với phủ định. Ví dụ: 1000円しかない。"
+  },
+  {
+    "id": 23,
+    "front": "どころか (đâu phải...mà còn)",
+    "back": "Phủ định kỳ vọng trước đó. Ví dụ: 休むどころか残業した。"
+  },
+  {
+    "id": 24,
+    "front": "ばかりか (không chỉ...mà còn)",
+    "back": "Văn viết hơn だけでなく. Ví dụ: 英語ばかりか中国語も話せる。"
+  },
+  {
+    "id": 25,
+    "front": "はおろか (huống hồ)",
+    "back": "Đến mức dễ còn không, mức khó càng không. Ví dụ: 漢字はおろかひらがなも難しい。"
+  },
+  {
+    "id": 26,
+    "front": "抜きで (không có/loại bỏ)",
+    "back": "Bỏ một thành phần ra. Ví dụ: 冗談抜きで話す。"
+  },
+  {
+    "id": 27,
+    "front": "に関して (liên quan đến)",
+    "back": "Dùng trong văn viết, báo cáo. Ví dụ: 環境問題に関して。"
+  },
+  {
+    "id": 28,
+    "front": "に対して (đối với/đối ứng)",
+    "back": "Thể hiện quan hệ hướng tới/đối ứng. Ví dụ: お客様に対して失礼だ。"
+  },
+  {
+    "id": 29,
+    "front": "に際して (nhân dịp)",
+    "back": "Dùng trong bối cảnh trang trọng/sự kiện. Ví dụ: 入学に際して。"
+  },
+  {
+    "id": 30,
+    "front": "にかけて (từ...đến.../về mặt)",
+    "back": "Diễn tả khoảng kéo dài hoặc lĩnh vực. Ví dụ: 夜から朝にかけて。"
+  },
+  {
+    "id": 31,
+    "front": "へ vs に (di chuyển)",
+    "back": "へ nhấn hướng; に nhấn điểm đến cụ thể."
+  },
+  {
+    "id": 32,
+    "front": "に vs で (địa điểm)",
+    "back": "に = nơi tồn tại/trạng thái; で = nơi hành động diễn ra."
+  },
+  {
+    "id": 33,
+    "front": "まで vs までに",
+    "back": "まで = kéo dài đến mốc; までに = hoàn thành trước hạn."
+  },
+  {
+    "id": 34,
+    "front": "に聞く vs と話す",
+    "back": "に聞く = hỏi ai; と話す = nói chuyện với ai."
+  },
+  {
+    "id": 35,
+    "front": "を vs が (cơ bản)",
+    "back": "を đánh dấu tân ngữ trực tiếp; が thường đánh dấu chủ thể/điều mới."
+  },
+  {
+    "id": 36,
+    "front": "だけ vs しか",
+    "back": "だけ trung tính; しか luôn đi với phủ định để nhấn ngoài ra không có."
+  },
+  {
+    "id": 37,
+    "front": "だけ vs のみ",
+    "back": "のみ trang trọng hơn, hay gặp văn bản/thông báo."
+  },
+  {
+    "id": 38,
+    "front": "さえ vs すら",
+    "back": "Cùng nghĩa ngay cả; すら thiên văn viết/trang trọng hơn."
+  },
+  {
+    "id": 39,
+    "front": "より vs ほど",
+    "back": "より dùng để so sánh hơn; ほど hay dùng trong cấu trúc không bằng."
+  },
+  {
+    "id": 40,
+    "front": "ほど vs くらい",
+    "back": "Cùng có nghĩa đến mức; くらい còn dùng cho số lượng xấp xỉ."
+  },
+  {
+    "id": 41,
+    "front": "ばかり vs だけ",
+    "back": "ばかり có sắc thái thiên lệch/lặp lại; だけ trung tính."
+  },
+  {
+    "id": 42,
+    "front": "どころか vs ばかりか",
+    "back": "どころか = phủ định kỳ vọng; ばかりか = cộng thêm thông tin cùng hướng."
+  },
+  {
+    "id": 43,
+    "front": "はおろか vs さえ",
+    "back": "はおろか nhấn mức dễ còn không; さえ nhấn ngay cả trường hợp cực đoan."
+  },
+  {
+    "id": 44,
+    "front": "から (nguồn nhận)",
+    "back": "Nghĩa là từ ai (nhận thông tin/vật). Ví dụ: 友だちから手紙をもらった。"
+  },
+  {
+    "id": 45,
+    "front": "Nに会う",
+    "back": "Động từ 会う thường đi với に. Ví dụ: 先生に会いました。"
+  },
+  {
+    "id": 46,
+    "front": "Nと結婚する",
+    "back": "Động từ 結婚する thường đi với と. Ví dụ: 田中さんと結婚した。"
+  },
+  {
+    "id": 47,
+    "front": "Nで買う",
+    "back": "Mua ở đâu thì dùng で. Ví dụ: スーパーで野菜を買う。"
+  },
+  {
+    "id": 48,
+    "front": "Nに住む",
+    "back": "Sống ở đâu thường dùng に. Ví dụ: 東京に住んでいます。"
+  },
+  {
+    "id": 49,
+    "front": "Nに座る",
+    "back": "Ngồi vào vị trí đích dùng に. Ví dụ: いすに座る。"
+  },
+  {
+    "id": 50,
+    "front": "Nを出る",
+    "back": "Rời khỏi địa điểm dùng を với động từ 出る. Ví dụ: 家を出る。"
+  },
+  {
+    "id": 51,
+    "front": "Nを渡る",
+    "back": "Băng qua không gian dùng を. Ví dụ: 橋を渡る。"
+  },
+  {
+    "id": 52,
+    "front": "Vてから",
+    "back": "Sau khi làm V1 thì làm V2. Ví dụ: ご飯を食べてから勉強する。"
+  },
+  {
+    "id": 53,
+    "front": "NしかVない",
+    "back": "Mẫu nhấn mạnh chỉ và phủ định. Ví dụ: 5分しかありません。"
+  },
+  {
+    "id": 54,
+    "front": "NばかりV",
+    "back": "Mẫu toàn/chỉ toàn làm gì đó. Ví dụ: 甘いものばかり食べる。"
+  },
+  {
+    "id": 55,
+    "front": "Nに関してNに対して",
+    "back": "に関して = về chủ đề; に対して = đối với đối tượng/hướng phản hồi."
+  },
+  {
+    "id": 56,
+    "front": "Nに際してNにかけて",
+    "back": "に際して = nhân dịp sự kiện; にかけて = từ...đến... hoặc xét về lĩnh vực."
+  },
+  {
+    "id": 57,
+    "front": "trợ từ mục tiêu học",
+    "back": "Học theo sơ đồ: Làm gì -> Ở đâu -> Bằng gì -> Với ai -> Từ đâu -> Đến đâu -> Trước khi nào."
+  }
+]

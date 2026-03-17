@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Thư viện tài liệu giảng dạy tiếng Nhật N5-N3: trợ từ, động từ, mini test.">
+	<title>JPN N5-N3 | Tài liệu giảng dạy</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+	<div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+	<header class="site-header">
+		<div class="container nav-row">
+			<a class="brand" href="#top">JPN-N345</a>
+			<nav class="nav-links" aria-label="Điều hướng chính">
+				<a href="#thu-vien">Thư viện</a>
+				<a href="#xem-nhanh">Xem nhanh</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="top" class="container">
+		<section class="hero">
+			<p class="eyebrow">Trang tài liệu giảng dạy</p>
+			<h1>Hệ thống tài liệu Nhật ngữ N5-N3 dễ dùng trên GitHub</h1>
+			<p class="hero-sub">
+				Truy cập nhanh giáo án trợ từ, khung chương trình động từ và mini test.
+				Mọi tài liệu được tải trực tiếp từ repo để bạn cập nhật một lần, dùng mọi nơi.
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="#thu-vien">Mở thư viện tài liệu</a>
+				<a class="btn btn-ghost" href="trotu/minitest_trotu.html" target="_blank" rel="noopener noreferrer">Làm mini test trợ từ</a>
+			</div>
+		</section>
+
+		<section id="thu-vien" class="section">
+			<div class="section-head">
+				<h2>Thư viện tài liệu</h2>
+				<p>Nhấn vào từng mục để xem nội dung ngay trên trang.</p>
+			</div>
+			<div id="resource-grid" class="resource-grid" aria-live="polite"></div>
+		</section>
+
+		<section id="xem-nhanh" class="section viewer-wrap">
+			<div class="section-head">
+				<h2>Xem nhanh nội dung</h2>
+				<p id="viewer-status">Chọn một tài liệu ở trên để hiển thị.</p>
+			</div>
+			<article class="viewer-card">
+				<div class="viewer-toolbar">
+					<h3 id="viewer-title">Chưa chọn tài liệu</h3>
+					<a id="open-file-link" class="btn btn-small" href="#" hidden>Mở file gốc</a>
+				</div>
+				<div id="viewer-content" class="markdown-body">
+					<p class="muted">Nội dung sẽ xuất hiện tại đây.</p>
+				</div>
+			</article>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<p>JPN-N345 - Teaching Docs Hub</p>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	<script src="index.js"></script>
+</body>
+</html>
