@@ -63,10 +63,6 @@ if (document.readyState === "loading") {
 	loadResources();
 }
 
-document.getElementById("minitest-btn").addEventListener("click", async () => {
-	await openMiniTest();
-});
-
 async function openMiniTest() {
 	await loadDocument("minitest.html", "Mini Test Tiếng Nhật");
 }
