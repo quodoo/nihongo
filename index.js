@@ -355,13 +355,11 @@ async function loadHomeQuestionPool() {
 }
 
 function pushQuestionsToPool(questions, sourceTitle) {
-	console.log("Processing question:", { questions, sourceTitle });
 	if (!Array.isArray(questions)) return;
 	for (const q of questions) {
 		if (!q) continue;
 		const text = String(q.q || q.question || "").trim();
 		const opts = Array.isArray(q.opts) ? q.opts : Array.isArray(q.options) ? q.options : [];
-		console.log("Processing question:", { text, opts, rawAnswer: q.answer, rawCorrect: q.correct });
 		const answerRaw = typeof q.answer !== "undefined" && q.answer !== null ? q.answer : q.correct;
 		const answerIndex = parseAnswerIndex(answerRaw, opts);
 		const explanation = String(q.explain || q.explanation || "").trim();
@@ -394,7 +392,7 @@ function parseAnswerIndex(answer, options) {
 }
 
 function renderFurigana(text) {
-	return escapeHtml(String(text || "")).replace(/([\u4E00-\u9FFF々〆ヵヶ]+)\[([^\]]+)\]/g, "<ruby>$1<rt>$2</rt></ruby>");
+	return escapeHtml(String(text || "")).replace(/([\u4E00-\u9FFF々〆ヵヶ\u3040-\u309F\u30A0-\u30FF]+)\[([^\]]+)\]/g, "<ruby>$1<rt>$2</rt></ruby>");
 }
 
 function showRandomHomeQuestion() {

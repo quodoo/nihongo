@@ -461,7 +461,15 @@
                 </div>
             </div>
 
-            <div class="d-grid gap-3">
+            <div class="form-check mt-4 p-3 bg-light rounded-4">
+                <input class="form-check-input mx-2" type="checkbox" id="shuffle-toggle" checked
+                    onchange="toggleShuffle(this.checked)">
+                <label class="form-check-label fw-semibold text-dark" for="shuffle-toggle">
+                    Trộn câu hỏi.
+                </label>
+            </div>
+
+            <div class="d-grid gap-3 mt-4">
                 <button onclick="startQuiz()"
                     class="btn btn-primary btn-lg rounded-pill fw-bold shadow btn-scale">
                     Bắt Đầu Làm Bài →
@@ -557,6 +565,7 @@
         let selectedSourceFilter = 'all';
         let selectedTagFilter = 'all';
         let selectedSort = 'newest';
+        let shouldShuffleQuestions = true;
 
         // ── Screens ────────────────────────────────────────────
         function showScreen(id) {
@@ -736,6 +745,10 @@
             if (!Number.isFinite(parsed)) return;
             selectedCount = parsed;
             document.getElementById('question-count-display').textContent = parsed;
+        }
+
+        function toggleShuffle(checked) {
+            shouldShuffleQuestions = checked;
         }
 
         function bindListEvents() {
@@ -1008,11 +1021,18 @@
                 return;
             }
 
-            const shuffled = [...allQuestions]
-                .map((question) => ({ ...question, options: Array.isArray(question.options) ? [...question.options] : [] }))
-                .sort(() => Math.random() - 0.5);
+            let quizDataToUse;
+            if (shouldShuffleQuestions) {
+                const shuffled = [...allQuestions]
+                    .map((question) => ({ ...question, options: Array.isArray(question.options) ? [...question.options] : [] }))
+                    .sort(() => Math.random() - 0.5);
+                quizDataToUse = shuffled.slice(0, total);
+            } else {
+                quizDataToUse = allQuestions.slice(0, total)
+                    .map((question) => ({ ...question, options: Array.isArray(question.options) ? [...question.options] : [] }));
+            }
 
-            quizData = shuffled.slice(0, total);
+            quizData = quizDataToUse;
             currentQuestionIndex = 0;
             score = 0;
             maxScore = quizData.reduce((sum, q) => sum + (Number.isFinite(Number(q.point)) ? Number(q.point) : 1), 0);
@@ -1212,7 +1232,7 @@
         function renderWithFurigana(str, allowedTags = []) {
             const escaped = escHtml(str || '');
             const withBasicTags = unescapeAllowedTags(escaped, allowedTags);
-            return withBasicTags.replace(/([\u4E00-\u9FFF々〆ヵヶ]+)\[([^\]]+)\]/g, '<ruby>$1<rt>$2</rt></ruby>');
+            return withBasicTags.replace(/([\u4E00-\u9FFF々〆ヵヶ\u3040-\u309F\u30A0-\u30FF]+)\[([^\]]+)\]/g, '<ruby>$1<rt>$2</rt></ruby>');
         }
 
         function getOptionLabel(index) {

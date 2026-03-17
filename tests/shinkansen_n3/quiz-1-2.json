@@ -14,7 +14,7 @@
             "b. 忘[わす]れない",
             "c. 忘[わす]れている"
           ],
-          "correct": 0,
+          "correct": 1,
           "point": 1,
           "explain": "Cấu trúc <b>V-plain + うちに</b>: Trong lúc chưa... (Trong lúc chưa quên, nên ghi chú lại những gì đã nghe)."
         },
@@ -25,7 +25,7 @@
             "b. 取[と]られない",
             "c. 取[と]られている"
           ],
-          "correct": 0,
+          "correct": 2,
           "point": 1,
           "explain": "Cấu trúc <b>V-plain + うちに</b>: Trong khi đang... (mải mê việc khác) thì một sự thay đổi xảy ra (hết thời gian ăn trưa)."
         },
@@ -36,7 +36,7 @@
             "b. 入[はい]った",
             "c. 入[はい]っている"
           ],
-          "correct": 0,
+          "correct": 2,
           "point": 1,
           "explain": "Cấu trúc <b>V-plain + 間に</b>: Trong lúc đang làm gì đó (hành động kéo dài) thì có một hành động khác xen vào (người giao hàng đến)."
         },
