@@ -1,5 +1,35 @@
 # KHUNG CHUONG TRINH PHAN DONG TU (N5 - N3)
 
+## Chú Ý: File Được Tách Riêng Theo Chương
+
+Từ Chương 6 trở đi, mỗi chương được lưu trong **file riêng** để dễ quản lý và chỉnh sửa:
+
+**PHẦN A (N5)** - [yeucau.md](yeucau.md):
+- Chương 1-5 + Mini-test A
+
+**PHẦN B (N4)** - Các file riêng:
+- [Chương 6: Thể khả năng (Kanou)](chuong-6-kanou.md)
+- [Chương 7: Thể ý định (Ishikei)](chuong-7-ishikei.md)
+- [Chương 8: Thể cảm đoán (Darou, Deshou, Hazu)](chuong-8-campan.md)
+- [Chương 9: Thể sai khiến (Shieki)](chuong-9-shieki.md)
+- [Chương 10: Kết hợp động từ (Yêu cầu, cho phép)](chuong-10-kethop.md)
+
+**PHẦN C (N3)** - Sắp tới:
+- Thể bị động (Ukemi)
+- Sai khiến bị động (Shieki-Ukemi)
+- Mệnh lệnh, cam đoán, khuyên ngừng
+- Sắc thái nói-viết
+- Cụm động từ
+**PHẦN C (N3)** - Các file riêng:
+- [Chương 11: Thể bị động (Ukemi)](chuong-11-ukemi.md)
+- [Chương 12: Sai khiến bị động (Shieki-Ukemi)](chuong-12-shieki-ukemi.md)
+- [Chương 13: Mệnh lệnh, cấm, cảnh báo](chuong-13-meirei.md)
+- [Chương 14: Sắc thái nói-viết](chuong-14-sacthai.md)
+- [Chương 15: Cụm động từ](chuong-15-cumdongtv.md)
+- [Mini-test C: 40 câu](minitest-phan-c.md)
+
+---
+
 ## 1. Muc tieu tong the
 
 Tai lieu dong tu huong den 3 muc tieu:
