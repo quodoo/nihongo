@@ -1,0 +1,25 @@
+TITLE: Mẫu Quiz Text
+DESCRIPTION: Ví dụ import text có furigana
+EMOJI: 📝
+TAGS: Sample, Text, Furigana
+
+Q: 日本語[にほんご]を___。
+A) 勉強[べんきょう]します
+B) 勉強[べんきょう]しません
+C) 勉強[べんきょう]でした
+D) 勉強[べんきょう]です
+ANSWER: A
+
+Q: 図書館[としょかん]で本[ほん]を___。
+A) 読[よ]みます
+B) 読[よ]みません
+C) 読[よ]みました
+D) 読[よ]めます
+ANSWER: A
+
+Q: 明日[あした]、雨[あめ]が___。
+A) 降[ふ]ります
+B) 降[ふ]りません
+C) 降[ふ]りました
+D) 降[ふ]れます
+ANSWER: A

@@ -43,6 +43,11 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 16px -4px rgba(0,0,0,0.12);
         }
+        ruby rt {
+            font-size: 0.72em;
+            color: #2563eb;
+            font-weight: 500;
+        }
         /* Custom slider */
         input[type=range] {
             -webkit-appearance: none;
@@ -86,10 +91,75 @@
         <!-- Home Screen -->
         <div id="home-screen" class="p-8">
             <p class="text-gray-400 text-sm mb-5 text-center">Chọn chủ đề để luyện tập</p>
+            <div class="mb-4 flex justify-center">
+                <button onclick="goImportScreen()"
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-full transition shadow-sm">
+                    ⬆️ Import bộ quiz (JSON / TEXT)
+                </button>
+            </div>
             <div id="test-list" class="space-y-4">
                 <div class="text-center text-gray-400 py-10">
                     <div class="text-3xl mb-2 animate-spin inline-block">⟳</div>
                     <p class="text-sm">Đang tải...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import Screen -->
+        <div id="import-screen" class="p-8 hidden">
+            <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">⬆️ Import bộ quiz cá nhân</h3>
+            <p class="text-sm text-gray-500 text-center mb-6">Hỗ trợ JSON hoặc TEXT. Dữ liệu được lưu trong local storage của trình duyệt.</p>
+
+            <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 mb-5 text-sm text-indigo-800">
+                <p class="font-semibold mb-2">Tải file mẫu:</p>
+                <div class="flex flex-wrap gap-2">
+                    <a class="bg-white border border-indigo-200 hover:border-indigo-400 px-3 py-1.5 rounded-lg"
+                        href="samples/quiz-import-sample.json" download>📄 Mẫu JSON</a>
+                    <a class="bg-white border border-indigo-200 hover:border-indigo-400 px-3 py-1.5 rounded-lg"
+                        href="samples/quiz-import-sample.txt" download>📝 Mẫu TEXT</a>
+                </div>
+                <p class="mt-3 text-xs text-indigo-700">Furigana: dùng cú pháp <strong>漢字[かな]</strong> (ví dụ: 日本語[にほんご])</p>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Định dạng</label>
+                    <select id="import-format" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                        <option value="auto">Tự nhận diện</option>
+                        <option value="json">JSON</option>
+                        <option value="text">TEXT</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Tên bộ quiz (tuỳ chọn)</label>
+                    <input id="import-title" type="text" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm"
+                        placeholder="Ví dụ: Động từ N4 - Bộ tự luyện">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Chọn file (.json/.txt)</label>
+                    <input id="import-file" type="file" accept=".json,.txt,.text"
+                        class="w-full border border-gray-300 rounded-lg p-2 text-sm bg-white">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Hoặc dán nội dung trực tiếp</label>
+                    <textarea id="import-text" rows="10" class="w-full border border-gray-300 rounded-lg p-3 text-sm"
+                        placeholder="Dán JSON/TEXT bộ quiz của bạn vào đây..."></textarea>
+                </div>
+
+                <div id="import-message" class="text-sm hidden"></div>
+
+                <div class="space-y-3">
+                    <button onclick="importQuizPack()"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+                        Lưu bộ quiz vào máy của tôi
+                    </button>
+                    <button onclick="goHome()"
+                        class="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2.5 px-8 rounded-full transition">
+                        ← Quay lại danh sách
+                    </button>
                 </div>
             </div>
         </div>
@@ -190,10 +260,12 @@
         let score = 0;
         let hasAnswered = false;
         let selectedCount = 20;
+        let builtInTests = [];
+        const CUSTOM_TESTS_KEY = 'jpn_n345_custom_tests_v1';
 
         // ── Screens ────────────────────────────────────────────
         function showScreen(id) {
-            ['home-screen', 'config-screen', 'quiz-screen', 'result-screen'].forEach(s => {
+            ['home-screen', 'import-screen', 'config-screen', 'quiz-screen', 'result-screen'].forEach(s => {
                 document.getElementById(s).classList.add('hidden');
             });
             const el = document.getElementById(id);
@@ -207,7 +279,8 @@
             try {
                 const res = await fetch('test.json');
                 if (!res.ok) throw new Error(res.status);
-                allTests = await res.json();
+                builtInTests = await res.json();
+                allTests = mergeAllTests();
                 renderHomeScreen();
             } catch (e) {
                 document.getElementById('test-list').innerHTML =
@@ -219,6 +292,7 @@
         function renderHomeScreen() {
             document.getElementById('header-title').textContent = '🌸 Mini Test Tiếng Nhật 🌸';
             document.getElementById('header-subtitle').textContent = 'Chọn bài kiểm tra để bắt đầu';
+            allTests = mergeAllTests();
 
             const list = document.getElementById('test-list');
             list.innerHTML = allTests.map(test => `
@@ -230,10 +304,12 @@
                             <h3 class="font-bold text-gray-800 text-lg leading-tight">${escHtml(test.title)}</h3>
                             <p class="text-gray-500 text-sm mt-1 line-clamp-2">${escHtml(test.description)}</p>
                             <div class="flex gap-2 mt-2 flex-wrap">
-                                ${test.tags.map(t => `<span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">${escHtml(t)}</span>`).join('')}
+                                ${(Array.isArray(test.tags) ? test.tags : []).map(t => `<span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">${escHtml(t)}</span>`).join('')}
+                                ${test.source === 'local' ? '<span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full">Cá nhân</span>' : ''}
                                 <span class="bg-gray-100 text-gray-500 text-xs font-semibold px-2 py-0.5 rounded-full">${test.total} câu</span>
                             </div>
                         </div>
+                        ${test.source === 'local' ? `<button class="delete-test-btn bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg" data-delete-id="${escHtml(test.id)}" title="Xoá bộ quiz này">🗑️ Xoá</button>` : ''}
                         <span class="text-gray-300 text-2xl font-light shrink-0">›</span>
                     </div>
                 </div>
@@ -248,6 +324,16 @@
                 });
             });
 
+            list.querySelectorAll('.delete-test-btn').forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const testId = btn.dataset.deleteId;
+                    if (testId) {
+                        deleteCustomTest(testId);
+                    }
+                });
+            });
+
             showScreen('home-screen');
         }
 
@@ -257,9 +343,13 @@
             if (!currentTest) return;
 
             try {
-                const res = await fetch(currentTest.file);
-                if (!res.ok) throw new Error(res.status);
-                allQuestions = await res.json();
+                if (currentTest.source === 'local') {
+                    allQuestions = Array.isArray(currentTest.questions) ? currentTest.questions : [];
+                } else {
+                    const res = await fetch(currentTest.file);
+                    if (!res.ok) throw new Error(res.status);
+                    allQuestions = await res.json();
+                }
             } catch (e) {
                 alert('Không thể tải câu hỏi. Vui lòng thử lại.');
                 return;
@@ -329,16 +419,15 @@
 
             document.getElementById('question-tracker').textContent = `Câu ${currentQuestionIndex + 1}/${total}`;
             document.getElementById('progress-bar').style.width = `${(currentQuestionIndex / total) * 100}%`;
-            document.getElementById('question-text').textContent = `${currentQuestionIndex + 1}. ${q.q}`;
+            document.getElementById('question-text').innerHTML = `${currentQuestionIndex + 1}. ${renderWithFurigana(q.q)}`;
 
-            const labels = ['A', 'B', 'C', 'D'];
             const container = document.getElementById('options-container');
             container.innerHTML = '';
 
             q.opts.forEach((opt, index) => {
                 const btn = document.createElement('button');
                 btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 text-gray-700 font-medium hover:border-blue-500 focus:outline-none bg-white';
-                btn.innerHTML = `<span class="font-bold mr-2 text-blue-600">${labels[index]}.</span>${escHtml(opt)}`;
+                btn.innerHTML = `<span class="font-bold mr-2 text-blue-600">${getOptionLabel(index)}.</span>${renderWithFurigana(opt)}`;
                 btn.onclick = () => selectAnswer(index, btn);
                 container.appendChild(btn);
             });
@@ -425,6 +514,13 @@
             renderHomeScreen();
         }
 
+        function goImportScreen() {
+            document.getElementById('header-title').textContent = '⬆️ Import bộ quiz';
+            document.getElementById('header-subtitle').textContent = 'JSON hoặc TEXT - lưu local storage';
+            hideImportMessage();
+            showScreen('import-screen');
+        }
+
         function goWebsiteHome() {
             window.location.href = 'index.html';
         }
@@ -446,6 +542,264 @@
                 .replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;');
+        }
+
+        function renderWithFurigana(str) {
+            const escaped = escHtml(str || '');
+            return escaped.replace(/([\u4E00-\u9FFF々〆ヵヶ]+)\[([^\]]+)\]/g, '<ruby>$1<rt>$2</rt></ruby>');
+        }
+
+        function getOptionLabel(index) {
+            return String.fromCharCode(65 + index);
+        }
+
+        function getCustomTests() {
+            try {
+                const raw = localStorage.getItem(CUSTOM_TESTS_KEY);
+                const parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveCustomTests(tests) {
+            localStorage.setItem(CUSTOM_TESTS_KEY, JSON.stringify(tests));
+        }
+
+        function deleteCustomTest(testId) {
+            if (!confirm('Xoá bộ quiz này khỏi local storage?')) return;
+            const existing = getCustomTests();
+            const updated = existing.filter(t => t.id !== testId);
+            saveCustomTests(updated);
+            allTests = mergeAllTests();
+            renderHomeScreen();
+        }
+
+        function mergeAllTests() {
+            return [...builtInTests, ...getCustomTests()];
+        }
+
+        function showImportMessage(message, isError = false) {
+            const el = document.getElementById('import-message');
+            el.classList.remove('hidden', 'text-red-600', 'text-green-600', 'bg-red-50', 'bg-green-50', 'p-3', 'rounded-lg');
+            el.classList.add(isError ? 'text-red-600' : 'text-green-600', isError ? 'bg-red-50' : 'bg-green-50', 'p-3', 'rounded-lg');
+            el.textContent = message;
+        }
+
+        function hideImportMessage() {
+            const el = document.getElementById('import-message');
+            el.classList.add('hidden');
+            el.textContent = '';
+        }
+
+        function slugify(text) {
+            return String(text || 'quiz')
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '') || 'quiz';
+        }
+
+        function normalizeQuestion(rawQ) {
+            const q = (rawQ && (rawQ.q || rawQ.question || rawQ.text || '')).toString().trim();
+            const opts = rawQ && (rawQ.opts || rawQ.options || rawQ.choices);
+            const choices = Array.isArray(opts) ? opts.map(o => String(o)) : [];
+            if (!q || choices.length < 2) {
+                throw new Error('Mỗi câu hỏi cần có nội dung và ít nhất 2 lựa chọn.');
+            }
+
+            let answer = rawQ.answer;
+            if (typeof answer === 'string') {
+                const t = answer.trim();
+                if (/^[A-Za-z]$/.test(t)) {
+                    answer = t.toUpperCase().charCodeAt(0) - 65;
+                } else if (/^\d+$/.test(t)) {
+                    answer = parseInt(t, 10);
+                } else {
+                    const idx = choices.findIndex(c => c.trim() === t);
+                    answer = idx;
+                }
+            }
+
+            if (!Number.isInteger(answer) || answer < 0 || answer >= choices.length) {
+                throw new Error(`Đáp án không hợp lệ cho câu: ${q}`);
+            }
+
+            return { q, opts: choices, answer };
+        }
+
+        function normalizeQuizPack(rawPack, fallbackIndex = 1) {
+            const title = String(rawPack.title || rawPack.name || `Quiz import ${fallbackIndex}`).trim();
+            const questions = Array.isArray(rawPack.questions) ? rawPack.questions.map(normalizeQuestion) : [];
+            if (questions.length === 0) {
+                throw new Error(`Bộ quiz "${title}" chưa có câu hỏi hợp lệ.`);
+            }
+
+            const tags = Array.isArray(rawPack.tags)
+                ? rawPack.tags.map(t => String(t).trim()).filter(Boolean)
+                : [];
+
+            return {
+                id: String(rawPack.id || `custom-${slugify(title)}-${Date.now()}`),
+                title,
+                emoji: String(rawPack.emoji || '🧩'),
+                description: String(rawPack.description || 'Bộ quiz do bạn import').trim(),
+                total: questions.length,
+                tags,
+                source: 'local',
+                questions,
+                importedAt: new Date().toISOString()
+            };
+        }
+
+        function parseJsonImport(rawText) {
+            const parsed = JSON.parse(rawText);
+
+            if (Array.isArray(parsed)) {
+                if (parsed.length === 0) throw new Error('File JSON rỗng.');
+                if (parsed[0] && (parsed[0].q || parsed[0].question)) {
+                    return [normalizeQuizPack({ title: 'Quiz import', questions: parsed }, 1)];
+                }
+                return parsed.map((pack, idx) => normalizeQuizPack(pack, idx + 1));
+            }
+
+            if (parsed && Array.isArray(parsed.quizzes)) {
+                return parsed.quizzes.map((pack, idx) => normalizeQuizPack(pack, idx + 1));
+            }
+
+            if (parsed && Array.isArray(parsed.questions)) {
+                return [normalizeQuizPack(parsed, 1)];
+            }
+
+            throw new Error('JSON không đúng định dạng hỗ trợ.');
+        }
+
+        function parseTextImport(rawText) {
+            const lines = rawText.split(/\r?\n/);
+            let title = 'Quiz import text';
+            let description = 'Bộ quiz import từ text';
+            let emoji = '🧩';
+            let tags = [];
+            const questions = [];
+
+            let current = null;
+
+            for (const lineRaw of lines) {
+                const line = lineRaw.trim();
+                if (!line) continue;
+
+                if (!current) {
+                    if (line.startsWith('TITLE:')) {
+                        title = line.slice(6).trim() || title;
+                        continue;
+                    }
+                    if (line.startsWith('DESCRIPTION:')) {
+                        description = line.slice(12).trim() || description;
+                        continue;
+                    }
+                    if (line.startsWith('EMOJI:')) {
+                        emoji = line.slice(6).trim() || emoji;
+                        continue;
+                    }
+                    if (line.startsWith('TAGS:')) {
+                        tags = line.slice(5).split(',').map(t => t.trim()).filter(Boolean);
+                        continue;
+                    }
+                }
+
+                if (line.startsWith('Q:')) {
+                    if (current) {
+                        questions.push(normalizeQuestion(current));
+                    }
+                    current = { q: line.slice(2).trim(), opts: [] };
+                    continue;
+                }
+
+                if (!current) continue;
+
+                const optMatch = line.match(/^([A-F])\)\s*(.+)$/i);
+                if (optMatch) {
+                    current.opts.push(optMatch[2].trim());
+                    continue;
+                }
+
+                if (line.startsWith('ANSWER:')) {
+                    current.answer = line.slice(7).trim();
+                    continue;
+                }
+            }
+
+            if (current) {
+                questions.push(normalizeQuestion(current));
+            }
+
+            if (questions.length === 0) {
+                throw new Error('Không tìm thấy câu hỏi trong TEXT. Hãy dùng file mẫu.');
+            }
+
+            return [normalizeQuizPack({ title, description, emoji, tags, questions }, 1)];
+        }
+
+        async function readImportInput() {
+            const fileInput = document.getElementById('import-file');
+            const textInput = document.getElementById('import-text').value.trim();
+
+            if (textInput) {
+                return { raw: textInput, fileName: '' };
+            }
+
+            const file = fileInput.files && fileInput.files[0];
+            if (!file) {
+                throw new Error('Bạn chưa chọn file hoặc dán nội dung.');
+            }
+
+            const raw = await file.text();
+            return { raw, fileName: file.name || '' };
+        }
+
+        async function importQuizPack() {
+            hideImportMessage();
+            try {
+                const { raw, fileName } = await readImportInput();
+                const titleOverride = document.getElementById('import-title').value.trim();
+                const format = document.getElementById('import-format').value;
+                const picked = format === 'auto'
+                    ? (fileName.toLowerCase().endsWith('.json') || raw.trim().startsWith('{') || raw.trim().startsWith('[') ? 'json' : 'text')
+                    : format;
+
+                const imported = picked === 'json' ? parseJsonImport(raw) : parseTextImport(raw);
+                if (titleOverride) {
+                    if (imported.length === 1) {
+                        imported[0].title = titleOverride;
+                    } else {
+                        imported.forEach((pack, idx) => {
+                            pack.title = `${titleOverride} ${idx + 1}`;
+                        });
+                    }
+                }
+                const existing = getCustomTests();
+
+                imported.forEach((pack) => {
+                    const idx = existing.findIndex(e => e.id === pack.id);
+                    if (idx >= 0) {
+                        existing[idx] = pack;
+                    } else {
+                        existing.push(pack);
+                    }
+                });
+
+                saveCustomTests(existing);
+                showImportMessage(`Đã lưu ${imported.length} bộ quiz vào local storage.`);
+
+                document.getElementById('import-text').value = '';
+                document.getElementById('import-file').value = '';
+                document.getElementById('import-title').value = '';
+                allTests = mergeAllTests();
+            } catch (err) {
+                showImportMessage(`Import thất bại: ${err.message}`, true);
+            }
         }
 
         // ── Bootstrap ──────────────────────────────────────────
