@@ -298,14 +298,17 @@ function pushQuestionsToPool(questions, sourceTitle) {
 	for (const q of questions) {
 		if (!q) continue;
 		const text = String(q.q || q.question || "").trim();
-		const opts = Array.isArray(q.options) ? q.options : Array.isArray(q.options) ? q.options : [];
-		const answerIndex = parseAnswerIndex(q.answer, opts);
+		const opts = Array.isArray(q.opts) ? q.opts : Array.isArray(q.options) ? q.options : [];
+		const answerRaw = typeof q.answer !== "undefined" && q.answer !== null ? q.answer : q.correct;
+		const answerIndex = parseAnswerIndex(answerRaw, opts);
+		const explanation = String(q.explain || q.explanation || "").trim();
 		if (!text || opts.length < 2) continue;
 		if (answerIndex < 0 || answerIndex >= opts.length) continue;
 		homeQuestionPool.push({
 			question: text,
 			options: opts.map((o) => String(o)),
 			answerIndex,
+			explanation,
 			source: sourceTitle
 		});
 	}
@@ -374,10 +377,12 @@ function selectHomeOption(selectedIndex) {
 	const feedbackEl = document.getElementById("home-random-feedback");
 	if (!feedbackEl) return;
 	if (selectedIndex === correctIndex) {
-		feedbackEl.textContent = "✅ Chính xác";
+		const explanationHtml = currentHomeQuestion.explanation ? `<div class="mt-1">💡 ${renderFurigana(currentHomeQuestion.explanation)}</div>` : "";
+		feedbackEl.innerHTML = `✅ Chính xác${explanationHtml}`;
 		feedbackEl.className = "small mt-2 text-success fw-semibold";
 	} else {
-		feedbackEl.textContent = `❌ Sai rồi. Đáp án đúng là ${String.fromCharCode(65 + correctIndex)}.`;
+		const explanationHtml = currentHomeQuestion.explanation ? `<div class="mt-1">💡 ${renderFurigana(currentHomeQuestion.explanation)}</div>` : "";
+		feedbackEl.innerHTML = `❌ Sai rồi. Đáp án đúng là ${String.fromCharCode(65 + correctIndex)}.${explanationHtml}`;
 		feedbackEl.className = "small mt-2 text-danger fw-semibold";
 	}
 }
