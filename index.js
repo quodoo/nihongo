@@ -9,6 +9,7 @@ const viewerArea = document.getElementById("viewer-area");
 const CUSTOM_TESTS_KEY = "jpn_n345_custom_tests_v1";
 let homeFlashcards = [];
 let homeFlashcardIndex = 0;
+let homeFlashcardInteractionsBound = false;
 let homeQuestionPool = [];
 let homeQuestionPoolReady = false;
 let currentHomeQuestion = null;
@@ -111,6 +112,7 @@ document.getElementById("logo-btn").addEventListener("click", (e) => {
 
 async function initializeHomeWidgets() {
 	await loadHomeFlashcards();
+	bindHomeFlashcardInteractions();
 	renderHomeFlashcard();
 	await loadHomeQuestionPool();
 	showRandomHomeQuestion();
@@ -159,6 +161,83 @@ function renderHomeFlashcard() {
 	backEl.textContent = card.back;
 	idxEl.textContent = `${homeFlashcardIndex + 1} / ${homeFlashcards.length}`;
 	cardEl.classList.remove("is-flipped");
+}
+
+function bindHomeFlashcardInteractions() {
+	if (homeFlashcardInteractionsBound) return;
+	const cardEl = document.getElementById("home-flashcard");
+	if (!cardEl) return;
+
+	homeFlashcardInteractionsBound = true;
+
+	let startX = 0;
+	let startY = 0;
+	let pointerActive = false;
+	const swipeThreshold = 56;
+	const tapThreshold = 10;
+
+	const endGesture = () => {
+		pointerActive = false;
+		cardEl.classList.remove("is-pressing");
+	};
+
+	cardEl.addEventListener("pointerdown", (event) => {
+		if (event.pointerType === "mouse" && event.button !== 0) return;
+		startX = event.clientX;
+		startY = event.clientY;
+		pointerActive = true;
+		cardEl.classList.add("is-pressing");
+	});
+
+	cardEl.addEventListener("pointerup", (event) => {
+		if (!pointerActive) return;
+
+		const deltaX = event.clientX - startX;
+		const deltaY = event.clientY - startY;
+		const absX = Math.abs(deltaX);
+		const absY = Math.abs(deltaY);
+
+		endGesture();
+
+		if (absX >= swipeThreshold && absX > absY) {
+			if (deltaX < 0) {
+				nextHomeFlashcard();
+			} else {
+				prevHomeFlashcard();
+			}
+			return;
+		}
+
+		if (absX <= tapThreshold && absY <= tapThreshold) {
+			cardEl.classList.toggle("is-flipped");
+		}
+	});
+
+	cardEl.addEventListener("pointercancel", endGesture);
+	cardEl.addEventListener("pointerleave", (event) => {
+		if (pointerActive && event.pointerType === "mouse") {
+			endGesture();
+		}
+	});
+	cardEl.addEventListener("dragstart", (event) => event.preventDefault());
+	cardEl.addEventListener("keydown", (event) => {
+		if (event.key === "Enter" || event.key === " ") {
+			event.preventDefault();
+			cardEl.classList.toggle("is-flipped");
+			return;
+		}
+
+		if (event.key === "ArrowLeft") {
+			event.preventDefault();
+			prevHomeFlashcard();
+			return;
+		}
+
+		if (event.key === "ArrowRight") {
+			event.preventDefault();
+			nextHomeFlashcard();
+		}
+	});
 }
 
 function prevHomeFlashcard() {

@@ -12,17 +12,23 @@
 <body class="app-body">
 
 	<!-- Navbar -->
-	<nav class="navbar app-navbar px-3">
-		<button class="navbar-toggler me-2 d-md-none" type="button"
-			data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Mở menu">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<a id="logo-btn" class="navbar-brand app-brand mb-0" href="#" role="button">JP-VN</a>
-		<span class="ms-2 d-none d-md-inline text-muted small">Tài liệu tự học tiếng Nhật N5-N3</span>
-		<div class="ms-auto d-flex gap-2">
-			<button id="minitest-btn" class="btn btn-sm btn-success">📝 Mini Test Tiếng Nhật</button>
-			<button id="quizapp-btn" class="btn btn-sm btn-outline-primary">🌐 Quiz App</button>
-			<button id="about-btn" class="btn btn-sm btn-outline-success">👤 About me</button>
+	<nav class="navbar app-navbar px-3 px-sm-4">
+		<div class="app-navbar-shell w-100">
+			<div class="app-navbar-main">
+				<button class="navbar-toggler app-navbar-toggler d-md-none" type="button"
+					data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar" aria-label="Mở menu">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="app-brand-wrap">
+					<a id="logo-btn" class="navbar-brand app-brand mb-0" href="#" role="button">JP-VN</a>
+					<span class="app-brand-tagline d-none d-md-inline text-muted small">Tài liệu tự học tiếng Nhật N5-N3</span>
+				</div>
+			</div>
+			<div class="app-navbar-actions">
+				<button id="minitest-btn" class="btn btn-success app-nav-btn app-nav-btn-primary">📝 Mini Test Tiếng Nhật</button>
+				<button id="quizapp-btn" class="btn btn-outline-primary app-nav-btn">🌐 Quiz App</button>
+				<button id="about-btn" class="btn btn-outline-success app-nav-btn">👤 About me</button>
+			</div>
 		</div>
 	</nav>
 
@@ -77,12 +83,12 @@
 										<h6 class="mb-0 fw-bold">🃏 Ô thẻ lật Trợ từ</h6>
 										<span class="badge bg-success-subtle text-success-emphasis">Live</span>
 									</div>
-									<div id="home-flashcard" class="home-flashcard" onclick="this.classList.toggle('is-flipped')">
+									<div id="home-flashcard" class="home-flashcard" role="button" tabindex="0" aria-label="Ô thẻ trợ từ, bấm để lật hoặc vuốt để chuyển thẻ">
 										<div class="home-flashcard-inner">
 											<div class="home-flashcard-face home-flashcard-front">
 												<div class="small text-muted mb-1">Mặt trước</div>
 												<div id="home-flashcard-front" class="fw-bold fs-4">に</div>
-												<div class="small mt-2">Hãy bấm để lật thẻ</div>
+												<div class="small mt-2">Bấm để lật, vuốt trái hoặc phải để đổi thẻ</div>
 											</div>
 											<div class="home-flashcard-face home-flashcard-back">
 												<div class="small text-muted mb-1">Mặt sau</div>
