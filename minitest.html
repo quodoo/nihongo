@@ -4,13 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Test - Tiếng Nhật</title>
-    <script src="assets/vendor/tailwind/tailwindcss.js"></script>
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
     <style>
         @import url('assets/vendor/fonts/minitest-fonts.css');
         body {
             font-family: 'Roboto', 'Noto Sans JP', sans-serif;
             background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             min-height: 100vh;
+        }
+        .hidden {
+            display: none !important;
+        }
+        .minitest-shell {
+            width: 100%;
+            max-width: 760px;
+        }
+        .minitest-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+        .home-link-btn {
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
+        .home-link-btn:hover,
+        .home-link-btn:focus {
+            background: rgba(255, 255, 255, 0.28);
+            border-color: rgba(255, 255, 255, 0.18);
+            color: #fff;
+        }
+        .header-spacer {
+            width: 96px;
+        }
+        .min-width-72 {
+            min-width: 72px;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+        .btn-scale:hover {
+            transform: scale(1.02);
+        }
+        .progress-smooth {
+            transition: width 0.3s ease;
+        }
+        .spin {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         .option-btn {
             transition: all 0.2s ease;
@@ -92,75 +139,75 @@
         }
     </style>
 </head>
-<body class="flex items-start justify-center p-4 min-h-screen">
+<body class="min-vh-100 d-flex align-items-start justify-content-center p-3 p-md-4">
 
-    <div id="app" class="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden fade-in">
+    <div id="app" class="minitest-shell bg-white rounded-4 shadow overflow-hidden fade-in">
 
         <!-- Header -->
-        <div class="bg-blue-600 p-6 text-white text-center">
-            <div class="flex items-center justify-between mb-2">
+        <div class="minitest-header p-4 p-md-5 text-white text-center">
+            <div class="d-flex align-items-center justify-content-between mb-2">
                 <button id="home-page-btn" type="button"
-                    class="bg-white/20 hover:bg-white/30 text-white text-sm font-semibold px-3 py-1.5 rounded-full transition"
+                    class="btn btn-sm rounded-pill px-3 py-2 fw-semibold home-link-btn"
                     onclick="goWebsiteHome()"
                     title="Về trang chủ">
                     🏠 Home
                 </button>
-                <div class="w-24"></div>
+                <div class="header-spacer"></div>
             </div>
-            <h1 id="header-title" class="text-2xl font-bold mb-2">🌸 Mini Test Tiếng Nhật 🌸</h1>
-            <p id="header-subtitle" class="text-blue-100 text-sm">Chọn bài kiểm tra để bắt đầu</p>
+            <h1 id="header-title" class="fs-3 fw-bold mb-2">🌸 Mini Test Tiếng Nhật 🌸</h1>
+            <p id="header-subtitle" class="mb-0 small text-white-50">Chọn bài kiểm tra để bắt đầu</p>
         </div>
 
         <!-- Home Screen -->
-        <div id="home-screen" class="p-8">
-            <p class="text-gray-400 text-sm mb-5 text-center">Chọn chủ đề để luyện tập</p>
-            <div class="mb-4 flex justify-center">
+        <div id="home-screen" class="p-4 p-md-5">
+            <p class="text-secondary small mb-4 text-center">Chọn chủ đề để luyện tập</p>
+            <div class="mb-4 d-flex justify-content-center">
                 <button onclick="goImportScreen()"
-                    class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-full transition shadow-sm">
+                    class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm">
                     ⬆️ Import bộ quiz (JSON / TEXT)
                 </button>
             </div>
             <div class="mb-3">
                 <input id="test-search" type="text" oninput="onSearchInput(this.value)"
-                    class="w-full border border-gray-300 rounded-xl p-3 text-sm"
+                    class="form-control rounded-4 py-3"
                     placeholder="🔎 Tìm theo tên bài, mô tả, tag...">
             </div>
-            <p id="search-meta" class="text-xs text-gray-400 mb-3"></p>
-            <div id="test-list" class="space-y-4">
-                <div class="text-center text-gray-400 py-10">
-                    <div class="text-3xl mb-2 animate-spin inline-block">⟳</div>
-                    <p class="text-sm">Đang tải...</p>
+            <p id="search-meta" class="small text-secondary mb-3"></p>
+            <div id="test-list" class="d-grid gap-3">
+                <div class="text-center text-secondary py-5">
+                    <div class="fs-3 mb-2 spin">⟳</div>
+                    <p class="small mb-0">Đang tải...</p>
                 </div>
             </div>
-            <div id="list-sentinel" class="text-center text-xs text-gray-400 py-3 hidden">Đang tải thêm...</div>
+            <div id="list-sentinel" class="text-center small text-secondary py-3 hidden">Đang tải thêm...</div>
             <div class="text-center pb-2">
                 <button id="load-more-btn" onclick="loadMoreTests()"
-                    class="hidden bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold px-4 py-2 rounded-lg transition">
+                    class="hidden btn btn-light px-4 py-2 fw-semibold">
                     Xem thêm bài thi
                 </button>
             </div>
         </div>
 
         <!-- Import Screen -->
-        <div id="import-screen" class="p-8 hidden">
-            <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">⬆️ Import bộ quiz cá nhân</h3>
-            <p class="text-sm text-gray-500 text-center mb-6">Hỗ trợ JSON hoặc TEXT. Dữ liệu được lưu trong local storage của trình duyệt.</p>
+        <div id="import-screen" class="p-4 p-md-5 hidden">
+            <h3 class="fs-4 fw-bold text-dark mb-2 text-center">⬆️ Import bộ quiz cá nhân</h3>
+            <p class="small text-secondary text-center mb-4">Hỗ trợ JSON hoặc TEXT. Dữ liệu được lưu trong local storage của trình duyệt.</p>
 
-            <div class="bg-indigo-50 border border-indigo-100 rounded-xl p-4 mb-5 text-sm text-indigo-800">
-                <p class="font-semibold mb-2">Tải file mẫu:</p>
-                <div class="flex flex-wrap gap-2">
-                    <a class="bg-white border border-indigo-200 hover:border-indigo-400 px-3 py-1.5 rounded-lg"
+            <div class="alert alert-primary border rounded-4 p-4 mb-4">
+                <p class="fw-semibold mb-2">Tải file mẫu:</p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a class="btn btn-light border px-3 py-2"
                         href="samples/quiz-import-sample.json" download>📄 Mẫu JSON</a>
-                    <a class="bg-white border border-indigo-200 hover:border-indigo-400 px-3 py-1.5 rounded-lg"
+                    <a class="btn btn-light border px-3 py-2"
                         href="samples/quiz-import-sample.txt" download>📝 Mẫu TEXT</a>
                 </div>
-                <p class="mt-3 text-xs text-indigo-700">Furigana: dùng cú pháp <strong>漢字[かな]</strong> (ví dụ: 日本語[にほんご])</p>
+                <p class="mt-3 small mb-0">Furigana: dùng cú pháp <strong>漢字[かな]</strong> (ví dụ: 日本語[にほんご])</p>
             </div>
 
-            <div class="space-y-4">
+            <div class="d-grid gap-4">
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Định dạng</label>
-                    <select id="import-format" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm">
+                    <label class="form-label fw-semibold text-dark mb-1">Định dạng</label>
+                    <select id="import-format" class="form-select">
                         <option value="auto">Tự nhận diện</option>
                         <option value="json">JSON</option>
                         <option value="text">TEXT</option>
@@ -168,36 +215,36 @@
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Tên bộ quiz (tuỳ chọn)</label>
-                    <input id="import-title" type="text" class="w-full border border-gray-300 rounded-lg p-2.5 text-sm"
+                    <label class="form-label fw-semibold text-dark mb-1">Tên bộ quiz (tuỳ chọn)</label>
+                    <input id="import-title" type="text" class="form-control"
                         placeholder="Ví dụ: Động từ N4 - Bộ tự luyện">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Chọn file (.json/.txt)</label>
+                    <label class="form-label fw-semibold text-dark mb-1">Chọn file (.json/.txt)</label>
                     <input id="import-file" type="file" accept=".json,.txt,.text"
-                        class="w-full border border-gray-300 rounded-lg p-2 text-sm bg-white">
+                        class="form-control bg-white">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Hoặc dán nội dung trực tiếp</label>
-                    <textarea id="import-text" rows="10" class="w-full border border-gray-300 rounded-lg p-3 text-sm"
+                    <label class="form-label fw-semibold text-dark mb-1">Hoặc dán nội dung trực tiếp</label>
+                    <textarea id="import-text" rows="10" class="form-control"
                         placeholder="Dán JSON/TEXT bộ quiz của bạn vào đây..."></textarea>
                 </div>
 
-                <div id="import-message" class="text-sm hidden"></div>
+                <div id="import-message" class="small hidden"></div>
 
-                <div class="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg p-3">
+                <div class="alert alert-warning small mb-0">
                     ⚠️ Ghi chú: Nếu import bộ quiz có ID trùng với bộ đã có, hệ thống sẽ ghi đè lên bộ cũ.
                 </div>
 
-                <div class="space-y-3">
+                <div class="d-grid gap-3">
                     <button onclick="importQuizPack()"
-                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">
+                        class="btn btn-primary btn-lg rounded-pill fw-bold shadow">
                         Lưu bộ quiz vào máy của tôi
                     </button>
                     <button onclick="goHome()"
-                        class="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2.5 px-8 rounded-full transition">
+                        class="btn btn-light btn-lg rounded-pill fw-medium">
                         ← Quay lại danh sách
                     </button>
                 </div>
@@ -205,84 +252,84 @@
         </div>
 
         <!-- Config Screen -->
-        <div id="config-screen" class="p-8 hidden">
-            <div id="test-info" class="mb-8 text-center"></div>
+        <div id="config-screen" class="p-4 p-md-5 hidden">
+            <div id="test-info" class="mb-4 text-center"></div>
 
-            <div class="bg-blue-50 rounded-xl p-5 mb-6">
-                <label class="block text-sm font-semibold text-gray-700 mb-3">
+            <div class="bg-primary-subtle rounded-4 p-4 mb-4">
+                <label class="form-label d-block fw-semibold text-dark mb-3">
                     🎯 Số câu hỏi muốn làm
                 </label>
-                <div class="flex items-center gap-4">
+                <div class="d-flex align-items-center gap-3 gap-md-4">
                     <input type="range" id="question-count-slider" min="5" max="100" value="20"
-                        class="flex-1 cursor-pointer"
+                        class="flex-grow-1"
                         oninput="updateQuestionCount(this.value)">
-                    <div class="bg-white border-2 border-blue-400 rounded-xl px-4 py-2 text-center min-w-[72px] shadow-sm">
-                        <span id="question-count-display" class="text-blue-600 font-bold text-2xl leading-none">20</span>
-                        <span class="text-gray-400 text-xs block mt-0.5">/ <span id="max-display">100</span> câu</span>
+                    <div class="bg-white border border-primary rounded-4 px-4 py-2 text-center min-width-72 shadow-sm">
+                        <span id="question-count-display" class="text-primary fw-bold fs-3 d-block lh-1">20</span>
+                        <span class="text-secondary small d-block mt-1">/ <span id="max-display">100</span> câu</span>
                     </div>
                 </div>
-                <div class="flex justify-between text-xs text-gray-400 mt-2 px-0.5">
+                <div class="d-flex justify-content-between small text-secondary mt-2 px-1">
                     <span>5 câu</span>
                     <span id="max-label-end">100 câu</span>
                 </div>
             </div>
 
-            <div class="space-y-3">
+            <div class="d-grid gap-3">
                 <button onclick="startQuiz()"
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:scale-105">
+                    class="btn btn-primary btn-lg rounded-pill fw-bold shadow btn-scale">
                     Bắt Đầu Làm Bài →
                 </button>
                 <button onclick="goHome()"
-                    class="w-full bg-gray-100 hover:bg-gray-200 text-gray-600 font-medium py-2.5 px-8 rounded-full transition">
+                    class="btn btn-light btn-lg rounded-pill fw-medium">
                     ← Chọn bài khác
                 </button>
             </div>
         </div>
 
         <!-- Quiz Screen -->
-        <div id="quiz-screen" class="p-8 hidden">
-            <div class="flex justify-between items-center mb-6 text-sm font-medium text-gray-500">
-                <span id="question-tracker" class="bg-gray-100 px-3 py-1 rounded-full">Câu 1/20</span>
-                <span id="score-tracker" class="text-blue-600 font-semibold">Điểm: 0</span>
+        <div id="quiz-screen" class="p-4 p-md-5 hidden">
+            <div class="d-flex justify-content-between align-items-center mb-4 small fw-medium text-secondary gap-3">
+                <span id="question-tracker" class="badge rounded-pill text-bg-light px-3 py-2">Câu 1/20</span>
+                <span id="score-tracker" class="text-primary fw-semibold">Điểm: 0</span>
             </div>
 
-            <div class="w-full bg-gray-200 rounded-full h-2 mb-8">
-                <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            <div class="w-100 bg-secondary-subtle rounded-pill mb-4" style="height: 8px;">
+                <div id="progress-bar" class="bg-primary rounded-pill progress-smooth" style="width: 0%; height: 8px;"></div>
             </div>
 
-            <h2 id="question-text" class="text-xl font-bold text-gray-800 mb-6 leading-relaxed"></h2>
+            <h2 id="question-text" class="fs-4 fw-bold text-dark mb-4 lh-base"></h2>
 
-            <div id="options-container" class="space-y-3"></div>
+            <div id="options-container" class="d-grid gap-3"></div>
 
-            <div class="mt-8 flex justify-end">
+            <div class="mt-4 d-flex justify-content-end">
                 <button id="next-btn" onclick="nextQuestion()"
-                    class="hidden bg-gray-800 hover:bg-gray-900 text-white font-medium py-2 px-6 rounded-lg transition">
+                    class="hidden btn btn-dark px-4 py-2">
                     Câu tiếp theo ➔
                 </button>
             </div>
         </div>
 
         <!-- Result Screen -->
-        <div id="result-screen" class="p-8 text-center hidden">
-            <div id="result-emoji" class="text-6xl mb-4">🏆</div>
-            <h2 class="text-3xl font-bold text-gray-800 mb-1">Hoàn Thành!</h2>
-            <p id="result-test-name" class="text-gray-400 text-sm mb-6"></p>
+        <div id="result-screen" class="p-4 p-md-5 text-center hidden">
+            <div id="result-emoji" class="display-4 mb-3">🏆</div>
+            <h2 class="display-6 fw-bold text-dark mb-1">Hoàn Thành!</h2>
+            <p id="result-test-name" class="text-secondary small mb-4"></p>
 
-            <div class="text-5xl font-bold text-blue-600 mb-1" id="final-score">0/20</div>
-            <div id="result-percentage" class="text-gray-400 text-sm mb-4"></div>
-            <p id="feedback-message" class="text-base font-medium text-gray-700 mb-8 max-w-sm mx-auto"></p>
+            <div class="display-5 fw-bold text-primary mb-1" id="final-score">0/20</div>
+            <div id="result-percentage" class="text-secondary small mb-3"></div>
+            <p id="feedback-message" class="fs-6 fw-medium text-dark mb-4 mx-auto" style="max-width: 28rem;"></p>
 
-            <div class="flex gap-3 justify-center flex-wrap">
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
                 <button onclick="restartQuiz()"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-5 rounded-full shadow-lg transition">
+                    class="btn btn-primary rounded-pill px-4 py-2 fw-bold shadow">
                     🔄 Làm lại (bộ câu mới)
                 </button>
                 <button onclick="goConfig()"
-                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-5 rounded-full transition">
+                    class="btn btn-light rounded-pill px-4 py-2 fw-medium">
                     ⚙️ Đổi số câu
                 </button>
                 <button onclick="goHome()"
-                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2.5 px-5 rounded-full transition">
+                    class="btn btn-light rounded-pill px-4 py-2 fw-medium">
                     🏠 Chọn bài khác
                 </button>
             </div>
@@ -333,7 +380,7 @@
                 renderHomeScreen();
             } catch (e) {
                 document.getElementById('test-list').innerHTML =
-                    '<p class="text-red-500 text-center py-6">❌ Không thể tải danh sách bài test.</p>';
+                    '<p class="text-danger text-center py-4 mb-0">❌ Không thể tải danh sách bài test.</p>';
             }
         }
 
@@ -383,16 +430,18 @@
             document.getElementById('header-subtitle').textContent = currentTest.description || '';
 
             document.getElementById('test-info').innerHTML = `
-                <div class="text-5xl mb-3">${escHtml(currentTest.emoji || '🧩')}</div>
-                <h3 class="text-xl font-bold text-gray-800">${escHtml(currentTest.title || 'Quiz')}</h3>
-                <p class="text-gray-500 text-sm mt-1">${escHtml(currentTest.description || '')}</p>
+                <div class="display-6 mb-3">${escHtml(currentTest.emoji || '🧩')}</div>
+                <h3 class="fs-4 fw-bold text-dark mb-1">${escHtml(currentTest.title || 'Quiz')}</h3>
+                <p class="text-secondary small mt-1 mb-0">${escHtml(currentTest.description || '')}</p>
             `;
 
             const max = Math.max(1, parseInt(currentTest.total, 10) || (Array.isArray(allQuestions) ? allQuestions.length : 1));
+            const min = Math.min(5, max);
             const def = Math.min(20, max);
             selectedCount = def;
 
             const slider = document.getElementById('question-count-slider');
+            slider.min = min;
             slider.max = max;
             slider.value = def;
             document.getElementById('question-count-display').textContent = def;
@@ -409,24 +458,31 @@
             const safeEmoji = test.emoji || '🧩';
             const safeTotal = Number.isFinite(Number(test.total)) ? Number(test.total) : (Array.isArray(test.questions) ? test.questions.length : 0);
             return `
-                <div class="test-card border-2 border-gray-200 hover:border-blue-400 rounded-xl p-5 cursor-pointer"
+                <div class="test-card border rounded-4 p-4 p-md-4 cursor-pointer"
                      data-test-id="${escHtml(test.id)}">
-                    <div class="flex items-center gap-4">
-                        <span class="text-4xl leading-none">${escHtml(safeEmoji)}</span>
-                        <div class="flex-1 min-w-0">
-                            <h3 class="font-bold text-gray-800 text-lg leading-tight">${escHtml(safeTitle)}</h3>
-                            <p class="text-gray-500 text-sm mt-1 line-clamp-2">${escHtml(safeDescription)}</p>
-                            <div class="flex gap-2 mt-2 flex-wrap">
-                                ${(Array.isArray(test.tags) ? test.tags : []).map(t => `<span class="bg-blue-50 text-blue-600 text-xs font-semibold px-2 py-0.5 rounded-full">${escHtml(t)}</span>`).join('')}
-                                ${test.source === 'local' ? '<span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-2 py-0.5 rounded-full">Cá nhân</span>' : ''}
-                                <span class="bg-gray-100 text-gray-500 text-xs font-semibold px-2 py-0.5 rounded-full">${safeTotal} câu</span>
+                    <div class="d-flex align-items-center gap-3">
+                        <span class="fs-2 lh-1">${escHtml(safeEmoji)}</span>
+                        <div class="flex-grow-1 min-w-0">
+                            <h3 class="fw-bold text-dark fs-5 mb-0">${escHtml(safeTitle)}</h3>
+                            <p class="text-secondary small mt-1 mb-0 line-clamp-2">${escHtml(safeDescription)}</p>
+                            <div class="d-flex gap-2 mt-2 flex-wrap">
+                                ${(Array.isArray(test.tags) ? test.tags : []).map(t => `<span class="badge rounded-pill text-bg-primary-subtle text-primary-emphasis">${escHtml(t)}</span>`).join('')}
+                                ${test.source === 'local' ? '<span class="badge rounded-pill text-bg-info">Cá nhân</span>' : ''}
+                                <span class="badge rounded-pill text-bg-light text-secondary border">${safeTotal} câu</span>
                             </div>
                         </div>
-                        ${test.source === 'local' ? `<button class="delete-test-btn bg-red-50 hover:bg-red-100 text-red-600 text-xs font-semibold px-2.5 py-1.5 rounded-lg" data-delete-id="${escHtml(test.id)}" title="Xoá bộ quiz này">🗑️ Xoá</button>` : ''}
-                        <span class="text-gray-300 text-2xl font-light shrink-0">›</span>
+                        ${test.source === 'local' ? `<button class="delete-test-btn btn btn-outline-danger btn-sm" data-delete-id="${escHtml(test.id)}" title="Xoá bộ quiz này">🗑️ Xoá</button>` : ''}
+                        <span class="text-secondary fs-4 flex-shrink-0">›</span>
                     </div>
                 </div>
             `;
+        }
+
+        function updateQuestionCount(value) {
+            const parsed = Number.parseInt(value, 10);
+            if (!Number.isFinite(parsed)) return;
+            selectedCount = parsed;
+            document.getElementById('question-count-display').textContent = parsed;
         }
 
         function bindListEvents() {
@@ -513,7 +569,7 @@
             }
 
             if (filteredTests.length === 0) {
-                list.innerHTML = '<div class="text-center text-gray-400 py-6 text-sm">Không có kết quả phù hợp.</div>';
+                list.innerHTML = '<div class="text-center text-secondary py-4 small">Không có kết quả phù hợp.</div>';
                 stopListObserver();
                 const loadMoreBtn = document.getElementById('load-more-btn');
                 if (loadMoreBtn) loadMoreBtn.classList.add('hidden');
@@ -572,6 +628,35 @@
             startQuiz();
         }
 
+        function startQuiz() {
+            if (!Array.isArray(allQuestions) || allQuestions.length === 0) {
+                alert('Bộ quiz này chưa có câu hỏi hợp lệ.');
+                return;
+            }
+
+            const total = Math.min(selectedCount, allQuestions.length);
+            if (total <= 0) {
+                alert('Số câu hỏi không hợp lệ.');
+                return;
+            }
+
+            const shuffled = [...allQuestions]
+                .map((question) => ({ ...question, opts: Array.isArray(question.opts) ? [...question.opts] : [] }))
+                .sort(() => Math.random() - 0.5);
+
+            quizData = shuffled.slice(0, total);
+            currentQuestionIndex = 0;
+            score = 0;
+            hasAnswered = false;
+
+            document.getElementById('score-tracker').textContent = 'Điểm: 0';
+            document.getElementById('progress-bar').style.width = '0%';
+            document.getElementById('next-btn').classList.add('hidden');
+
+            showScreen('quiz-screen');
+            loadQuestion();
+        }
+
         function loadQuestion() {
             hasAnswered = false;
             document.getElementById('next-btn').classList.add('hidden');
@@ -588,8 +673,9 @@
 
             q.opts.forEach((opt, index) => {
                 const btn = document.createElement('button');
-                btn.className = 'option-btn w-full text-left p-4 rounded-xl border-2 border-gray-200 text-gray-700 font-medium hover:border-blue-500 focus:outline-none bg-white';
-                btn.innerHTML = `<span class="font-bold mr-2 text-blue-600">${getOptionLabel(index)}.</span>${renderWithFurigana(opt)}`;
+                btn.type = 'button';
+                btn.className = 'option-btn btn btn-outline-secondary text-start p-3 rounded-4 bg-white';
+                btn.innerHTML = `<span class="fw-bold me-2 text-primary">${getOptionLabel(index)}.</span>${renderWithFurigana(opt)}`;
                 btn.onclick = () => selectAnswer(index, btn);
                 container.appendChild(btn);
             });
@@ -606,7 +692,7 @@
                 allBtns[i].disabled = true;
                 if (i === q.answer) {
                     allBtns[i].classList.add('correct');
-                    allBtns[i].innerHTML += ' <span class="float-right">✓</span>';
+                    allBtns[i].innerHTML += ' <span class="float-end">✓</span>';
                 }
             }
 
@@ -615,7 +701,7 @@
                 document.getElementById('score-tracker').textContent = `Điểm: ${score}`;
             } else {
                 btnElement.classList.add('incorrect');
-                btnElement.innerHTML += ' <span class="float-right">✗</span>';
+                btnElement.innerHTML += ' <span class="float-end">✗</span>';
             }
 
             document.getElementById('next-btn').classList.remove('hidden');
@@ -647,25 +733,26 @@
             if (pct >= 90) {
                 emoji = '🏆';
                 msg = 'Tuyệt vời! Phản xạ của bạn cực kỳ vững chắc. Chúc mừng!';
-                colorClass = 'text-green-600';
+                colorClass = 'text-success';
             } else if (pct >= 75) {
                 emoji = '🌟';
                 msg = 'Rất tốt! Bạn nắm khá vững, chỉ cần cẩn thận thêm vài bẫy nữa thôi.';
-                colorClass = 'text-blue-600';
+                colorClass = 'text-primary';
             } else if (pct >= 60) {
                 emoji = '👍';
                 msg = 'Khá tốt. Hãy ôn thêm các cấu trúc nâng cao và thử lại nhé.';
-                colorClass = 'text-yellow-600';
+                colorClass = 'text-warning';
             } else {
                 emoji = '📚';
                 msg = 'Đừng nản chí! Hãy xem lại nền tảng trong sách và thử sức lại nhé.';
-                colorClass = 'text-red-600';
+                colorClass = 'text-danger';
             }
 
             document.getElementById('result-emoji').textContent = emoji;
             const fb = document.getElementById('feedback-message');
             fb.textContent = msg;
-            fb.className = `text-base font-medium mb-8 max-w-sm mx-auto ${colorClass}`;
+            fb.className = `fs-6 fw-medium mb-4 mx-auto ${colorClass}`;
+            fb.style.maxWidth = '28rem';
 
             showScreen('result-screen');
         }
@@ -744,8 +831,8 @@
 
         function showImportMessage(message, isError = false) {
             const el = document.getElementById('import-message');
-            el.classList.remove('hidden', 'text-red-600', 'text-green-600', 'bg-red-50', 'bg-green-50', 'p-3', 'rounded-lg');
-            el.classList.add(isError ? 'text-red-600' : 'text-green-600', isError ? 'bg-red-50' : 'bg-green-50', 'p-3', 'rounded-lg');
+            el.classList.remove('hidden', 'alert', 'alert-danger', 'alert-success');
+            el.classList.add('alert', isError ? 'alert-danger' : 'alert-success');
             el.textContent = message;
         }
 
