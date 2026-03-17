@@ -6,6 +6,13 @@ const viewerContent = document.getElementById("viewer-content");
 const welcomeScreen = document.getElementById("welcome-screen");
 const viewerArea = document.getElementById("viewer-area");
 
+const CUSTOM_TESTS_KEY = "jpn_n345_custom_tests_v1";
+let homeFlashcards = [];
+let homeFlashcardIndex = 0;
+let homeQuestionPool = [];
+let homeQuestionPoolReady = false;
+let currentHomeQuestion = null;
+
 // Get base path - only add for GitHub Pages subdir repos
 const getBasePath = () => {
 	const hostname = window.location.hostname;
@@ -40,6 +47,7 @@ async function loadResources() {
 		if (!response.ok) throw new Error("Không thể tải resources.json");
 		resources = await response.json();
 		renderSidebar();
+		await initializeHomeWidgets();
 	} catch (err) {
 		console.error("Lỗi khi tải resources:", err);
 		alert("Lỗi: Không thể tải danh sách tài liệu");
@@ -85,6 +93,11 @@ function openQuizApp() {
 window.openMiniTest = openMiniTest;
 window.openQuizApp = openQuizApp;
 
+window.prevHomeFlashcard = prevHomeFlashcard;
+window.nextHomeFlashcard = nextHomeFlashcard;
+window.showRandomHomeQuestion = showRandomHomeQuestion;
+window.selectHomeOption = selectHomeOption;
+
 // Logo button - go back to home/welcome screen
 document.getElementById("logo-btn").addEventListener("click", (e) => {
 	e.preventDefault();
@@ -93,7 +106,202 @@ document.getElementById("logo-btn").addEventListener("click", (e) => {
 	welcomeScreen.classList.remove("d-none");
 	// Clear active nav items
 	resourceNav.querySelectorAll(".nav-item-btn").forEach((b) => b.classList.remove("active"));
+	showRandomHomeQuestion();
 });
+
+async function initializeHomeWidgets() {
+	await loadHomeFlashcards();
+	renderHomeFlashcard();
+	await loadHomeQuestionPool();
+	showRandomHomeQuestion();
+}
+
+async function loadHomeFlashcards() {
+	const fallback = [
+		{ front: "に", back: "Trợ từ chỉ đích đến / thời điểm" },
+		{ front: "で", back: "Trợ từ chỉ nơi diễn ra hành động" },
+		{ front: "を", back: "Trợ từ chỉ tân ngữ trực tiếp" }
+	];
+
+	try {
+		const item = resources.find((r) => r.id === "trotu-sheet" && r.path);
+		if (!item) {
+			homeFlashcards = fallback;
+			return;
+		}
+		const response = await fetch(basePath + item.path, { cache: "no-store" });
+		if (!response.ok) throw new Error("Không thể tải bộ thẻ trợ từ");
+		const data = await response.json();
+		const mapped = Array.isArray(data)
+			? data
+					.map((it) => ({
+						front: String(it.front || "").trim(),
+						back: String(it.back || "").trim()
+					}))
+					.filter((it) => it.front && it.back)
+			: [];
+		homeFlashcards = mapped.length > 0 ? mapped : fallback;
+	} catch (error) {
+		homeFlashcards = fallback;
+	}
+}
+
+function renderHomeFlashcard() {
+	if (!homeFlashcards.length) return;
+	const card = homeFlashcards[homeFlashcardIndex];
+	const frontEl = document.getElementById("home-flashcard-front");
+	const backEl = document.getElementById("home-flashcard-back");
+	const idxEl = document.getElementById("home-flashcard-index");
+	const cardEl = document.getElementById("home-flashcard");
+	if (!frontEl || !backEl || !idxEl || !cardEl) return;
+
+	frontEl.textContent = card.front;
+	backEl.textContent = card.back;
+	idxEl.textContent = `${homeFlashcardIndex + 1} / ${homeFlashcards.length}`;
+	cardEl.classList.remove("is-flipped");
+}
+
+function prevHomeFlashcard() {
+	if (!homeFlashcards.length) return;
+	homeFlashcardIndex = (homeFlashcardIndex - 1 + homeFlashcards.length) % homeFlashcards.length;
+	renderHomeFlashcard();
+}
+
+function nextHomeFlashcard() {
+	if (!homeFlashcards.length) return;
+	homeFlashcardIndex = (homeFlashcardIndex + 1) % homeFlashcards.length;
+	renderHomeFlashcard();
+}
+
+function readCustomTests() {
+	try {
+		const raw = localStorage.getItem(CUSTOM_TESTS_KEY);
+		const parsed = raw ? JSON.parse(raw) : [];
+		return Array.isArray(parsed) ? parsed : [];
+	} catch {
+		return [];
+	}
+}
+
+async function loadHomeQuestionPool() {
+	if (homeQuestionPoolReady) return;
+	homeQuestionPoolReady = true;
+	homeQuestionPool = [];
+
+	try {
+		const response = await fetch(basePath + "test.json", { cache: "no-store" });
+		if (response.ok) {
+			const tests = await response.json();
+			for (const test of Array.isArray(tests) ? tests : []) {
+				if (!test || !test.file) continue;
+				try {
+					const qRes = await fetch(basePath + test.file, { cache: "no-store" });
+					if (!qRes.ok) continue;
+					const questions = await qRes.json();
+					pushQuestionsToPool(questions, test.title || "Bộ có sẵn");
+				} catch {
+					// Skip broken test file
+				}
+			}
+		}
+	} catch {
+		// Ignore built-in pool errors
+	}
+
+	const customTests = readCustomTests();
+	for (const test of customTests) {
+		pushQuestionsToPool(test.questions, test.title || "Bộ cá nhân");
+	}
+}
+
+function pushQuestionsToPool(questions, sourceTitle) {
+	if (!Array.isArray(questions)) return;
+	for (const q of questions) {
+		if (!q) continue;
+		const text = String(q.q || q.question || "").trim();
+		const opts = Array.isArray(q.opts) ? q.opts : Array.isArray(q.options) ? q.options : [];
+		const answerIndex = parseAnswerIndex(q.answer, opts);
+		if (!text || opts.length < 2) continue;
+		if (answerIndex < 0 || answerIndex >= opts.length) continue;
+		homeQuestionPool.push({
+			question: text,
+			options: opts.map((o) => String(o)),
+			answerIndex,
+			source: sourceTitle
+		});
+	}
+}
+
+function parseAnswerIndex(answer, options) {
+	if (Number.isInteger(answer)) return answer;
+	if (typeof answer === "string") {
+		const t = answer.trim();
+		if (/^[A-Za-z]$/.test(t)) {
+			return t.toUpperCase().charCodeAt(0) - 65;
+		}
+		if (/^\d+$/.test(t)) {
+			return parseInt(t, 10);
+		}
+		const idx = options.findIndex((o) => String(o).trim() === t);
+		if (idx >= 0) return idx;
+	}
+	return -1;
+}
+
+function renderFurigana(text) {
+	return escapeHtml(String(text || "")).replace(/([\u4E00-\u9FFF々〆ヵヶ]+)\[([^\]]+)\]/g, "<ruby>$1<rt>$2</rt></ruby>");
+}
+
+function showRandomHomeQuestion() {
+	const sourceEl = document.getElementById("home-random-source");
+	const qEl = document.getElementById("home-random-question");
+	const optEl = document.getElementById("home-random-options");
+	const feedbackEl = document.getElementById("home-random-feedback");
+	if (!sourceEl || !qEl || !optEl || !feedbackEl) return;
+
+	if (!homeQuestionPool.length) {
+		sourceEl.textContent = "Nguồn: chưa có dữ liệu";
+		qEl.textContent = "Chưa tải được câu hỏi ngẫu nhiên.";
+		optEl.innerHTML = "";
+		feedbackEl.textContent = "";
+		currentHomeQuestion = null;
+		return;
+	}
+
+	const pick = homeQuestionPool[Math.floor(Math.random() * homeQuestionPool.length)];
+	currentHomeQuestion = pick;
+	sourceEl.textContent = `Nguồn: ${pick.source}`;
+	qEl.innerHTML = renderFurigana(pick.question);
+	optEl.innerHTML = pick.options
+		.map((opt, idx) => `<button type="button" class="opt" onclick="window.selectHomeOption && window.selectHomeOption(${idx})"><strong>${String.fromCharCode(65 + idx)}.</strong> ${renderFurigana(opt)}</button>`)
+		.join("");
+	feedbackEl.textContent = "Hãy chọn 1 đáp án.";
+	feedbackEl.className = "small mt-2 text-muted";
+}
+
+function selectHomeOption(selectedIndex) {
+	if (!currentHomeQuestion) return;
+	const optionNodes = Array.from(document.querySelectorAll("#home-random-options .opt"));
+	if (!optionNodes.length) return;
+
+	const correctIndex = currentHomeQuestion.answerIndex;
+	optionNodes.forEach((node, idx) => {
+		node.disabled = true;
+		node.classList.remove("correct", "incorrect");
+		if (idx === correctIndex) node.classList.add("correct");
+		if (idx === selectedIndex && idx !== correctIndex) node.classList.add("incorrect");
+	});
+
+	const feedbackEl = document.getElementById("home-random-feedback");
+	if (!feedbackEl) return;
+	if (selectedIndex === correctIndex) {
+		feedbackEl.textContent = "✅ Chính xác";
+		feedbackEl.className = "small mt-2 text-success fw-semibold";
+	} else {
+		feedbackEl.textContent = `❌ Sai rồi. Đáp án đúng là ${String.fromCharCode(65 + correctIndex)}.`;
+		feedbackEl.className = "small mt-2 text-danger fw-semibold";
+	}
+}
 
 function renderSidebar() {
 	// Group resources by category

@@ -199,6 +199,120 @@ body {
 	color: #0f7b6c;
 }
 
+/* Home live wire blocks */
+.home-wire {
+	background: #fff;
+	border: 2px solid #d8e2dc;
+	border-radius: 14px;
+	padding: 14px;
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+.home-wire-full {
+	min-height: 520px;
+}
+
+.home-flashcard {
+	height: 400px;
+	perspective: 1000px;
+	cursor: pointer;
+}
+
+.home-flashcard-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.5s;
+	transform-style: preserve-3d;
+}
+
+.home-flashcard.is-flipped .home-flashcard-inner {
+	transform: rotateY(180deg);
+}
+
+.home-flashcard-face {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 12px;
+	padding: 16px;
+	border: 1px solid #d6e4df;
+	backface-visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.home-flashcard-front {
+	background: linear-gradient(145deg, #f4fbf8, #ffffff);
+}
+
+.home-flashcard-back {
+	background: linear-gradient(145deg, #fff8ee, #ffffff);
+	transform: rotateY(180deg);
+}
+
+.home-minitest-frame {
+	width: 100%;
+	height: 400px;
+	border: 1px solid #d6e4df;
+	border-radius: 12px;
+	background: #fff;
+}
+
+.home-question-box {
+	height: 400px;
+	overflow: auto;
+	border: 1px solid #d6e4df;
+	border-radius: 12px;
+	padding: 14px;
+	background: linear-gradient(145deg, #fffdf6, #ffffff);
+}
+
+#home-random-options {
+	display: grid;
+	gap: 8px;
+}
+
+#home-random-options .opt {
+	border: 1px solid #e6e1c8;
+	border-radius: 8px;
+	padding: 8px 10px;
+	background: #fff;
+	text-align: left;
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+
+#home-random-options .opt:hover {
+	border-color: #d6bb63;
+	transform: translateY(-1px);
+}
+
+#home-random-options .opt.correct {
+	background: #e9f9ef;
+	border-color: #2ea86b;
+}
+
+#home-random-options .opt.incorrect {
+	background: #fdecec;
+	border-color: #db4d4d;
+}
+
+@media (max-width: 991.98px) {
+	.home-wire-full {
+		min-height: 460px;
+	}
+
+	.home-flashcard,
+	.home-minitest-frame,
+	.home-question-box {
+		height: 340px;
+	}
+}
+
 /* Viewer toolbar */
 .viewer-toolbar {
 	background: #f7fbfa;
