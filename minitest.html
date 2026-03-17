@@ -43,6 +43,7 @@
             display: -webkit-box;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             overflow: hidden;
         }
         .btn-scale:hover {
@@ -301,6 +302,8 @@
 
             <div id="options-container" class="d-grid gap-3"></div>
 
+            <div id="question-explain" class="alert alert-light border small mt-3 hidden"></div>
+
             <div class="mt-4 d-flex justify-content-end">
                 <button id="next-btn" onclick="nextQuestion()"
                     class="hidden btn btn-dark px-4 py-2">
@@ -349,6 +352,7 @@
         let quizData = [];
         let currentQuestionIndex = 0;
         let score = 0;
+        let maxScore = 0;
         let hasAnswered = false;
         let selectedCount = 20;
         let builtInTests = [];
@@ -641,15 +645,16 @@
             }
 
             const shuffled = [...allQuestions]
-                .map((question) => ({ ...question, opts: Array.isArray(question.opts) ? [...question.opts] : [] }))
+                .map((question) => ({ ...question, options: Array.isArray(question.options) ? [...question.options] : [] }))
                 .sort(() => Math.random() - 0.5);
 
             quizData = shuffled.slice(0, total);
             currentQuestionIndex = 0;
             score = 0;
+            maxScore = quizData.reduce((sum, q) => sum + (Number.isFinite(Number(q.point)) ? Number(q.point) : 1), 0);
             hasAnswered = false;
 
-            document.getElementById('score-tracker').textContent = 'Điểm: 0';
+            document.getElementById('score-tracker').textContent = `Điểm: 0/${maxScore}`;
             document.getElementById('progress-bar').style.width = '0%';
             document.getElementById('next-btn').classList.add('hidden');
 
@@ -667,11 +672,16 @@
             document.getElementById('question-tracker').textContent = `Câu ${currentQuestionIndex + 1}/${total}`;
             document.getElementById('progress-bar').style.width = `${(currentQuestionIndex / total) * 100}%`;
             document.getElementById('question-text').innerHTML = `${currentQuestionIndex + 1}. ${renderWithFurigana(q.q)}`;
+            const explainBox = document.getElementById('question-explain');
+            if (explainBox) {
+                explainBox.classList.add('hidden');
+                explainBox.innerHTML = '';
+            }
 
             const container = document.getElementById('options-container');
             container.innerHTML = '';
 
-            q.opts.forEach((opt, index) => {
+            q.options.forEach((opt, index) => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = 'option-btn btn btn-outline-secondary text-start p-3 rounded-4 bg-white';
@@ -697,11 +707,18 @@
             }
 
             if (selectedIndex === q.answer) {
-                score++;
-                document.getElementById('score-tracker').textContent = `Điểm: ${score}`;
+                score += Number.isFinite(Number(q.point)) ? Number(q.point) : 1;
+                document.getElementById('score-tracker').textContent = `Điểm: ${score}/${maxScore}`;
             } else {
                 btnElement.classList.add('incorrect');
                 btnElement.innerHTML += ' <span class="float-end">✗</span>';
+            }
+
+            const explainText = String(q.explain || q.explanation || '').trim();
+            const explainBox = document.getElementById('question-explain');
+            if (explainText && explainBox) {
+                explainBox.classList.remove('hidden');
+                explainBox.innerHTML = `<strong>Giải thích:</strong> ${renderWithFurigana(explainText)}`;
             }
 
             document.getElementById('next-btn').classList.remove('hidden');
@@ -722,7 +739,7 @@
 
         // ── Results ────────────────────────────────────────────
         function showResults() {
-            const total = quizData.length;
+            const total = maxScore || quizData.length;
             const pct = Math.round((score / total) * 100);
 
             document.getElementById('final-score').textContent = `${score} / ${total}`;
@@ -853,13 +870,16 @@
 
         function normalizeQuestion(rawQ) {
             const q = (rawQ && (rawQ.q || rawQ.question || rawQ.text || '')).toString().trim();
-            const opts = rawQ && (rawQ.opts || rawQ.options || rawQ.choices);
+            const opts = rawQ && (rawQ.options || rawQ.options || rawQ.choices);
             const choices = Array.isArray(opts) ? opts.map(o => String(o)) : [];
             if (!q || choices.length < 2) {
                 throw new Error('Mỗi câu hỏi cần có nội dung và ít nhất 2 lựa chọn.');
             }
 
             let answer = rawQ.answer;
+            if (typeof answer === 'undefined' || answer === null) {
+                answer = rawQ.correct;
+            }
             if (typeof answer === 'string') {
                 const t = answer.trim();
                 if (/^[A-Za-z]$/.test(t)) {
@@ -876,7 +896,11 @@
                 throw new Error(`Đáp án không hợp lệ cho câu: ${q}`);
             }
 
-            return { q, opts: choices, answer };
+            const pointRaw = Number.parseInt(rawQ.point, 10);
+            const point = Number.isFinite(pointRaw) && pointRaw > 0 ? pointRaw : 1;
+            const explain = String(rawQ.explain || rawQ.explanation || '').trim();
+
+            return { q, options: choices, answer, point, explain };
         }
 
         function normalizeQuizPack(rawPack, fallbackIndex = 1) {
@@ -962,7 +986,7 @@
                     if (current) {
                         questions.push(normalizeQuestion(current));
                     }
-                    current = { q: line.slice(2).trim(), opts: [] };
+                    current = { q: line.slice(2).trim(), options: [] };
                     continue;
                 }
 
@@ -970,7 +994,7 @@
 
                 const optMatch = line.match(/^([A-F])\)\s*(.+)$/i);
                 if (optMatch) {
-                    current.opts.push(optMatch[2].trim());
+                    current.options.push(optMatch[2].trim());
                     continue;
                 }
 

@@ -1,24 +1,50 @@
 {
-  "id": "sample-furigana-basic",
-  "title": "Mẫu Quiz Furigana",
-  "emoji": "🧪",
-  "description": "Ví dụ import JSON có furigana",
-  "tags": ["Sample", "Furigana"],
-  "questions": [
+  "quizzes": [
     {
-      "q": "日本語[にほんご]を___。",
-      "opts": ["勉強[べんきょう]します", "勉強[べんきょう]しません", "勉強[べんきょう]でした", "勉強[べんきょう]です"],
-      "answer": 0
-    },
-    {
-      "q": "明日[あした]、学校[がっこう]へ___。",
-      "opts": ["行[い]きます", "行[い]きました", "行[い]かない", "行[い]ける"],
-      "answer": "A"
-    },
-    {
-      "q": "先生[せんせい]に本[ほん]を___。",
-      "opts": ["もらいました", "あげました", "くれました", "のみました"],
-      "answer": 0
+      "id": "n4-timer-demo",
+      "title": "Demo: Bài thi có giới hạn thời gian",
+      "level": "n4",
+      "totalQuestions": 3,
+      "duration": 3,
+      "description": "Ví dụ bài thi có timer 3 phút - Test thử tính năng đếm ngược!",
+      "questions": [
+        {
+          "q": "私[わたし]は毎日[まいにち]日本語[にほんご]を________います。",
+          "options": [
+            "a. 勉強[べんきょう]して",
+            "b. 勉強[べんきょう]し",
+            "c. 勉強[べんきょう]",
+            "d. 勉強[べんきょう]する"
+          ],
+          "correct": 1,
+          "point": 2,
+          "explain": "Form ~ています: V-masu (bỏ masu) + ています. 勉強します → 勉強し + ています"
+        },
+        {
+          "q": "昨日[きのう]、友達[ともだち]に会[あ]いました。とても嬉[うれ]________。",
+          "options": [
+            "a. しいです",
+            "b. しかったです",
+            "c. しくです",
+            "d. しいでした"
+          ],
+          "correct": 1,
+          "point": 2,
+          "explain": "Tính từ đuôi i ở thể quá khứ: 嬉[うれ]しい → 嬉[うれ]しかった + です"
+        },
+        {
+          "q": "この本[ほん]は________読[よ]めますか。",
+          "options": [
+            "a. 何[なん]",
+            "b. どう",
+            "c. どこ",
+            "d. どのぐらい"
+          ],
+          "correct": 3,
+          "point": 2,
+          "explain": "どのぐらい = Bao lâu / Khoảng bao nhiêu. Quyển sách này có thể đọc xong trong bao lâu?"
+        }
+      ]
     }
   ]
 }

@@ -298,7 +298,7 @@ function pushQuestionsToPool(questions, sourceTitle) {
 	for (const q of questions) {
 		if (!q) continue;
 		const text = String(q.q || q.question || "").trim();
-		const opts = Array.isArray(q.opts) ? q.opts : Array.isArray(q.options) ? q.options : [];
+		const opts = Array.isArray(q.options) ? q.options : Array.isArray(q.options) ? q.options : [];
 		const answerIndex = parseAnswerIndex(q.answer, opts);
 		if (!text || opts.length < 2) continue;
 		if (answerIndex < 0 || answerIndex >= opts.length) continue;
