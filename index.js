@@ -392,7 +392,16 @@ function parseAnswerIndex(answer, options) {
 }
 
 function renderFurigana(text) {
-	return escapeHtml(String(text || "")).replace(/([\u4E00-\u9FFF々〆ヵヶ\u3040-\u309F\u30A0-\u30FF]+)\[([^\]]+)\]/g, "<ruby>$1<rt>$2</rt></ruby>");
+	return escapeHtml(String(text || "")).replace(/([\u4E00-\u9FFF々〆ヵヶ\u3040-\u309F\u30A0-\u30FF]+)\[([^\]]+)\]/g, (_m, base, reading) => {
+		const source = String(base || "");
+		const firstKanjiIndex = source.search(/[\u4E00-\u9FFF々〆ヵヶ]/);
+		if (firstKanjiIndex > 0) {
+			const prefix = source.slice(0, firstKanjiIndex);
+			const rubyBase = source.slice(firstKanjiIndex);
+			return `${prefix}<ruby>${rubyBase}<rt>${reading}</rt></ruby>`;
+		}
+		return `<ruby>${source}<rt>${reading}</rt></ruby>`;
+	});
 }
 
 function showRandomHomeQuestion() {

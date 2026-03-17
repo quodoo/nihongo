@@ -63,6 +63,20 @@ body {
 	font-family: var(--font-ui);
 }
 
+.home-question-box ruby,
+#home-random-options ruby {
+	ruby-position: over;
+	ruby-align: center;
+}
+
+.home-question-box ruby rt,
+#home-random-options ruby rt {
+	font-size: 0.58em;
+	line-height: 1;
+	color: var(--vti-medium);
+	font-weight: 600;
+}
+
 /* Full-height shell */
 .app-body {
 	height: 100vh;

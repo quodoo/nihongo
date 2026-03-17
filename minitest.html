@@ -271,10 +271,15 @@
         .go-top-btn.hidden {
             display: none;
         }
+        ruby {
+            ruby-position: over;
+            ruby-align: center;
+        }
         ruby rt {
-            font-size: 0.72em;
+            font-size: 0.58em;
+            line-height: 1;
             color: var(--vti-medium);
-            font-weight: 500;
+            font-weight: 600;
         }
         /* Custom slider */
         input[type=range] {
@@ -1232,7 +1237,16 @@
         function renderWithFurigana(str, allowedTags = []) {
             const escaped = escHtml(str || '');
             const withBasicTags = unescapeAllowedTags(escaped, allowedTags);
-            return withBasicTags.replace(/([\u4E00-\u9FFF々〆ヵヶ\u3040-\u309F\u30A0-\u30FF]+)\[([^\]]+)\]/g, '<ruby>$1<rt>$2</rt></ruby>');
+            return withBasicTags.replace(/([\u4E00-\u9FFF々〆ヵヶ\u3040-\u309F\u30A0-\u30FF]+)\[([^\]]+)\]/g, (_m, base, reading) => {
+                const source = String(base || '');
+                const firstKanjiIndex = source.search(/[\u4E00-\u9FFF々〆ヵヶ]/);
+                if (firstKanjiIndex > 0) {
+                    const prefix = source.slice(0, firstKanjiIndex);
+                    const rubyBase = source.slice(firstKanjiIndex);
+                    return `${prefix}<ruby>${rubyBase}<rt>${reading}</rt></ruby>`;
+                }
+                return `<ruby>${source}<rt>${reading}</rt></ruby>`;
+            });
         }
 
         function getOptionLabel(index) {
