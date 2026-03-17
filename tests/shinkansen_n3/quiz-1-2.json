@@ -1,0 +1,310 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-1-2-full",
+      "title": "Tổng hợp Ngữ pháp Shinkansen N3 - Bài 1, 2 và Luyện tập tổng hợp",
+      "level": "n3",
+      "totalQuestions": 27,
+      "description": "Toàn bộ bài tập ngữ pháp từ Bài 1, Bài 2 và phần ôn luyện tổng hợp 1-2 trong giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "（　）うちに、聞[き]いたことをメモ[めも]しておいたほうがいい。",
+          "options": [
+            "a. 忘[わす]れる",
+            "b. 忘[わす]れない",
+            "c. 忘[わす]れている"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + うちに: Trong lúc chưa... (Trong lúc chưa quên, nên ghi chú lại những gì đã nghe)."
+        },
+        {
+          "q": "ほかのことに気[き]を（　）うちに昼[ひる]ご飯[はん]を食[た]べる時間[じかん]がなくなってしまった。",
+          "options": [
+            "a. 取[と]られた",
+            "b. 取[と]られない",
+            "c. 取[と]られている"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + うちに: Trong khi đang... (mải mê việc khác) thì một sự thay đổi xảy ra (hết thời gian ăn trưa)."
+        },
+        {
+          "q": "お風呂[ふろ]に（　）間[あいだ]に、配達[はいたつ]の人[ひと]が来[き]たようだ。",
+          "options": [
+            "a. 入[はい]る",
+            "b. 入[はい]った",
+            "c. 入[はい]っている"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + 間に: Trong lúc đang làm gì đó (hành động kéo dài) thì có một hành động khác xen vào (người giao hàng đến)."
+        },
+        {
+          "q": "わたしは夏休み[なつやすみ]の（　）、アメリカ[あめりか]の友[とも]だちの家[いえ]にいた。",
+          "options": [
+            "a. 中[なか]で",
+            "b. 間[あいだ]",
+            "c. 間[あいだ]に"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc Nの + 間: Trong suốt khoảng thời gian... (Ở suốt tại nhà bạn trong cả kỳ nghỉ hè)."
+        },
+        {
+          "q": "4時[よじ]に（　）飛行機[ひこうき]の時間[じかん]には間[ま]に合[あ]わない。",
+          "options": [
+            "a. 起[お]きなければ",
+            "b. 起[お]きてからでなければ",
+            "c. 起[お]きられてからでないと"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc V-te + からでなければ...ない: Nếu không sau khi... thì không thể (Nếu không dậy từ lúc 4h thì không kịp giờ bay)."
+        },
+        {
+          "q": "もっと暑[あつ]くなってからでないと（　）。",
+          "options": [
+            "a. 海[うみ]では泳[およ]げない",
+            "b. 仕事[しごと]をしても疲[つか]れない",
+            "c. 扇風機[せんぷうき]を使[つか]わなくてもいい"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～てからでないと: Nếu chưa trở nên nóng hơn thì chưa thể đi bơi ở biển được."
+        },
+        {
+          "q": "間[ま]もなく2時[にじ]に（　）ところです。",
+          "options": [
+            "a. なる",
+            "b. なった",
+            "c. なっている"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + ところです: Sắp sửa... (Sắp sửa đến 2 giờ rồi)."
+        },
+        {
+          "q": "学校[がっこう]を休[やす]んで遊[あそ]んでいる（　）友[とも]だちのお母[かあ]さんに見[み]られた。",
+          "options": [
+            "a. ところで",
+            "b. ところに",
+            "c. ところを"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc V-te iru + ところを: Đúng lúc đang... thì bị (bị bắt gặp/bị nhìn thấy). Dùng 'wo' vì đằng sau là động từ tác động."
+        },
+        {
+          "q": "今[いま]、出[で]かける準備[じゅんび]をしている（　）ちょっと待[ま]って。",
+          "options": [
+            "a. ところで",
+            "b. ところを",
+            "c. ところだから"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Vì đang trong lúc chuẩn bị đi ra ngoài nên hãy đợi một chút."
+        },
+        {
+          "q": "人生[じんせい]は自分[じぶん]の（　）とおりにはいかない。",
+          "options": [
+            "a. 考え[かんがえ]",
+            "b. 計画[けいかく]",
+            "c. 思う[おもう]"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + とおりに: Theo như... (Cuộc đời không diễn ra theo đúng như những gì mình nghĩ)."
+        },
+        {
+          "q": "この絵[え]の（　）30年前[ねんまえ]はこの辺[へん]は畑[はたけ]だった。",
+          "options": [
+            "a. とおり",
+            "b. どおり",
+            "c. とおりの"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc N + とおり: Theo như... (Theo như bức tranh này thì 30 năm trước vùng này là cánh đồng)."
+        },
+        {
+          "q": "この虫[むし]は地方[ちほう]によって呼び方[よびかた]が（　）そうだ。",
+          "options": [
+            "a. 違う[ちがう]",
+            "b. 同じ[おなじ]だ",
+            "c. 似[に]ている"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc N + によって: Tùy vào... mà khác nhau (Tùy vào địa phương mà cách gọi loài sâu này khác nhau)."
+        },
+        {
+          "q": "あしたは、所[ところ]によっては（　）。",
+          "options": [
+            "a. 天気[てんき]が皆[みな]違う[ちがう]",
+            "b. どこも雨[あめ]が降[ふ]る",
+            "c. 雨[あめ]が降[ふ]るかもしれない"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc N + によっては: Tùy vào/Có trường hợp... (Ngày mai tùy nơi mà có thể có mưa)."
+        },
+        {
+          "q": "彼女[かのじょ]はデート[でーと]のたびに（　）。",
+          "options": [
+            "a. 元気[げんき]がない",
+            "b. 遅[おく]れてくる",
+            "c. 忙[いそが]しそうだ"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc N/V-plain + たびに: Cứ mỗi lần... (Cứ mỗi lần hẹn hò cô ấy lại đến muộn)."
+        },
+        {
+          "q": "この絵[え]は本物[ほんもの]ではないが、見[み]れば（　）本物[ほんもの]に見[み]える。",
+          "options": [
+            "a. 見[み]るほど",
+            "b. 見[み]えるほど",
+            "c. 見[み]ないほど"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-ba + V-plain + ほど: Càng... càng (Bức tranh này không phải đồ thật nhưng càng nhìn càng thấy giống đồ thật)."
+        },
+        {
+          "q": "刺身[さしみ]は（　）新鮮[しんせん]なほどおいしい。",
+          "options": [
+            "a. 新鮮[しんせん]だと",
+            "b. 新鮮[しんせん]なら",
+            "c. 新鮮[しんせん]でなければ"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc A-na なら + A-na なほど: Càng... càng (Sashimi càng tươi thì càng ngon)."
+        },
+        {
+          "q": "カン[かん]さんはピアノ[ぴあお]を（　）歌[うた]を歌[うた]うのが上手[じょうず]だ。",
+          "options": [
+            "a. 弾[ひ]くたびに",
+            "b. 弾[ひ]きながら",
+            "c. 弾[ひ]くついでに"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc V-masu + ながら: Vừa... vừa (Anh Kan vừa đánh đàn vừa hát rất giỏi)."
+        },
+        {
+          "q": "銀行[ぎんこう]に行[い]ったついでに（　）。",
+          "options": [
+            "a. 偶然[ぐうぜん]リー[りー]さんに会[あ]った",
+            "b. 自転車[じてんしゃ]に乗[の]った",
+            "c. 花屋[はなや]に寄[よ]った"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc V-plain-past + ついでに: Nhân tiện... (Nhân tiện đi ngân hàng tôi đã ghé qua tiệm hoa)."
+        },
+        {
+          "q": "ちょうどメール[めーる]を書[か]いている（　）本人[ほんにん]が来[き]た。",
+          "options": [
+            "a. までに",
+            "b. 間[あいだ]",
+            "c. ところに"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc V-te iru + ところに: Đúng lúc đang... thì (Đúng lúc đang viết mail thì chính chủ đến)."
+        },
+        {
+          "q": "先生[せんせい]の説明[せつめい]を聞[き]いている（　）だんだんわかってきた。",
+          "options": [
+            "a. うちに",
+            "b. たびに",
+            "c. ところを"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-te iru + うちに: Trong khi đang... thì một sự thay đổi diễn ra (Trong khi nghe giải thích thì dần dần trở nên hiểu)."
+        },
+        {
+          "q": "今朝[けさ]（　）のどが痛[いた]かった。",
+          "options": [
+            "a. 起[お]きたとき",
+            "b. 起[お]きたついでに",
+            "c. 起[お]きているうちに"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Sử dụng ～とき để chỉ thời điểm: Khi thức dậy sáng nay thì bị đau họng."
+        },
+        {
+          "q": "自分[じぶん]の目[め]で（　）何[なん]ともお答え[おこたえ]できません。",
+          "options": [
+            "a. 確か[たしか]めたとおりに",
+            "b. 確か[たしか]めてからでないと",
+            "c. 確か[たしか]めたから"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～てからでないと: Nếu chưa xác nhận bằng mắt mình thì tôi không thể trả lời gì được."
+        },
+        {
+          "q": "今日[きょう]のスポーツ[すぽーつ]大会[たいかい]は（　）行[おこな]います。",
+          "options": [
+            "a. 予定[よてい]どおり",
+            "b. 予定[よてい]のうちに",
+            "c. 予定[よてい]によって"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc N + どおり: Đúng theo như dự định."
+        },
+        {
+          "q": "わたしの場合[ばあい]、引っ越し[ひっこし]する（　）物[もの]が増[ふ]える。",
+          "options": [
+            "a. ところに",
+            "b. たびに",
+            "c. ついでに"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + たびに: Cứ mỗi lần chuyển nhà là đồ đạc lại tăng lên."
+        },
+        {
+          "q": "あの子[こ]はここにかばんを（　）どこかへ行[い]ってしまった。",
+          "options": [
+            "a. 置[お]いている間[あいだ]",
+            "b. 置[お]いたついでに",
+            "c. 置[お]いたまま"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc V-ta + まま: Cứ để nguyên trạng thái... (Đứa trẻ đó cứ để nguyên cặp sách ở đây rồi đi đâu mất)."
+        },
+        {
+          "q": "山道[やまみち]を（　）見[み]える景色[けしき]が広がって[ひろがって]いく。",
+          "options": [
+            "a. 登[のぼ]れば登[のぼ]るほど",
+            "b. 登[のぼ]っていって",
+            "c. 登[のぼ]っていってから"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-ba + V-plain + ほど: Càng leo núi thì cảnh sắc hiện ra càng rộng mở."
+        },
+        {
+          "q": "感謝[かんしゃ]の言葉[ことば]でも、言い方[いいかた]（　）悪い[わるい]意味[いみ]に聞こえる[きこえる]こともある。",
+          "options": [
+            "a. どおりでは",
+            "b. のたびに",
+            "c. によっては"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc N + によっては: Tùy vào cách nói mà có khi nghe thành ý nghĩa xấu."
+        }
+      ]
+    }
+  ]
+}

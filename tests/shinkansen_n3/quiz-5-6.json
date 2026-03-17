@@ -1,0 +1,310 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-5-6-full",
+      "title": "Ngữ pháp Shinkansen N3 - Bài 5, 6 và Luyện tập tổng hợp",
+      "level": "n3",
+      "totalQuestions": 27,
+      "description": "Tổng hợp bài tập ngữ pháp Bài 5 (Nguyên nhân, Lý do), Bài 6 (Điều kiện, Giả định) và phần ôn tập 5-6 từ giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "パソコン[ぱそこん]がこわれてしまったために、（　）。",
+          "options": [
+            "a. 新[あたら]しいのを買[か]おう",
+            "b. 資料[しりょう]が作[つく]れなかった",
+            "c. 直[なお]してくれませんか"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc **～ために** chỉ nguyên nhân dẫn đến một kết quả khách quan. Vì máy tính hỏng nên đã không thể làm được tài liệu."
+        },
+        {
+          "q": "台風[たいふう]15号[ごう]によって（　）。",
+          "options": [
+            "a. 橋[はし]が流[なが]された",
+            "b. 明日[あした]は大雨[おおあめ]だろう",
+            "c. 明日[あした]は外出[がいしゅつ]したくない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **～によって** dùng để chỉ nguyên nhân dẫn đến một kết quả (thường dùng trong câu bị động). Cây cầu đã bị cuốn trôi do cơn bão số 15."
+        },
+        {
+          "q": "高い[たかい]技術[ぎじゅつ]（　）詳しい[くわしい]健康[けんこう]チェック[ちぇっく]ができるようになった。",
+          "options": [
+            "a. によって",
+            "b. によれば",
+            "c. によると"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **～によって** ở đây chỉ phương thức, phương tiện. Nhờ vào kỹ thuật cao mà việc kiểm tra sức khỏe chi tiết đã trở nên khả thi."
+        },
+        {
+          "q": "小さな[ちいさな]不注意[ふちゅうい]（　）大問題[だいもんだい]が起こる[おこる]こともある。",
+          "options": [
+            "a. から",
+            "b. まで",
+            "c. には"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **～から** chỉ nguyên nhân, căn nguyên. Từ một chút bất cẩn nhỏ cũng có khi dẫn đến vấn đề lớn."
+        },
+        {
+          "q": "自転車[じてんしゃ]の事故[じこ]が増え[ふえ]たことから、（　）。",
+          "options": [
+            "a. 気[き]をつけよう",
+            "b. 自転車[じてんしゃ]には乗り[のり]たくない",
+            "c. 警察[けいさつ]の注意[ちゅうい]がきびしくなった"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc **～ことから** chỉ lý do dẫn đến một sự thay đổi hoặc phán đoán. Do tai nạn xe đạp tăng lên nên sự nhắc nhở của cảnh sát đã trở nên nghiêm khắc hơn."
+        },
+        {
+          "q": "弟[おとうと]のせいで（　）。",
+          "options": [
+            "a. 楽[たの]しかった",
+            "b. よく遊[あそ]べた",
+            "c. 母[はは]にしかられた"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc **～せいで** dùng để đổ lỗi, chỉ nguyên nhân dẫn đến kết quả xấu. Tại em trai mà tôi bị mẹ mắng."
+        },
+        {
+          "q": "この薬[くすり]（　）病気[びょうき]を治す[なおす]ことができた。",
+          "options": [
+            "a. のおかげで",
+            "b. のせいで",
+            "c. から"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **～おかげで** chỉ nguyên nhân dẫn đến kết quả tốt, thể hiện sự biết ơn. Nhờ có loại thuốc này mà tôi đã khỏi bệnh."
+        },
+        {
+          "q": "やっと運転[うんてん]免許[めんきょ]が取れ[とれ]たんだから、（　）。",
+          "options": [
+            "a. 車[くるま]を買[か]った",
+            "b. 車[くるま]を買[か]いたい",
+            "c. 車[くるま]は買[か]わなかった"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc **～んだから** diễn tả lý do mà cả hai đều biết, theo sau thường là ý chí hoặc mong muốn. Vì khó khăn lắm mới lấy được bằng lái nên tôi muốn mua xe."
+        },
+        {
+          "q": "先生[せんせい]、すみません。かぜをひいて（　）、今日[きょう]は休ま[やすま]せてください。",
+          "options": [
+            "a. しまったので",
+            "b. しまったんですから",
+            "c. しまって"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Sử dụng **～ので** để đưa ra lý do một cách lịch sự khi đưa ra lời yêu cầu. Thưa thầy, vì em bị cảm nên xin phép cho em nghỉ hôm nay."
+        },
+        {
+          "q": "会社員[かいしゃいん]B「（　）なら後片付け[あとかたづけ]はわたしがやっておくから、早く[はやく]行って[いって]。」",
+          "options": [
+            "a. 遅[おく]れない",
+            "b. 急[いそ]がない",
+            "c. 時間[じかん]がない"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Trong ngữ cảnh vội đi tàu, 'Nếu không có thời gian thì tôi sẽ dọn dẹp hộ, đi mau đi'."
+        },
+        {
+          "q": "体[からだ]の調子[ちょうし]が悪く[わるく]ては（　）。",
+          "options": [
+            "a. 仕事[しごと]が進ま[すすま]ないだろう",
+            "b. 仕事[しごと]を休ん[やすん]でもいいよ",
+            "c. あした仕事[しごと]をしよう"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **～ては** diễn tả một điều kiện dẫn đến kết quả tiêu cực. Nếu tình trạng cơ thể xấu thì công việc sẽ không tiến triển được đâu."
+        },
+        {
+          "q": "一人暮らし[ひとりぐらし]でも、お金[おかね]さえ（　）。",
+          "options": [
+            "a. なければ困る[こまる]",
+            "b. あれば困ら[こまら]ない",
+            "c. なければアルバイト[あるばいと]をする"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc **～さえ...ば** chỉ điều kiện cần thiết duy nhất. Sống một mình thì chỉ cần có tiền là sẽ không gặp khó khăn."
+        },
+        {
+          "q": "ハンドル[はんどる]さえ直せ[なおせ]ばこの自転車[じてんしゃ]は（　）だろう。",
+          "options": [
+            "a. もう使え[つかえ]ない",
+            "b. まだ使える[つかえる]",
+            "c. 使い[つかい]にくい"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Chỉ cần sửa được tay lái thì chiếc xe đạp này vẫn có thể sử dụng được."
+        },
+        {
+          "q": "たとえどんなに（　）、賛成[さんせい]する人[ひと]が少な[すくな]ければ実行[じっこう]できない。",
+          "options": [
+            "a. よくない案[あん]でも",
+            "b. いい案[あん]でも",
+            "c. 案[あん]を考え[かんがえ]なくても"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc **たとえ ～ても**: Cho dù là phương án tốt đến thế nào đi nữa, nếu ít người tán thành thì cũng không thể thực hiện."
+        },
+        {
+          "q": "たとえ国[くに]を離れ[はなれ]ても、ぼくは君[きみ]のことを（　）。",
+          "options": [
+            "a. 忘れ[わすれ]ないよ",
+            "b. 忘れる[わすれる]かもしれない",
+            "c. もう思い出せ[おもいだせ]ない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cho dù có rời xa đất nước, anh cũng sẽ không quên em đâu."
+        },
+        {
+          "q": "ああ、よかった。気がつく[きがつく]のが（　）火事[かじ]になったかもしれない。",
+          "options": [
+            "a. 遅い[おそい]と",
+            "b. 遅い[おそい]なら",
+            "c. 遅かっ[おそかっ]たら"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **V-る と** diễn tả giả định về một kết quả tất yếu. Thật may, nếu mà nhận ra chậm chút nữa là có khi đã xảy ra hỏa hoạn rồi."
+        },
+        {
+          "q": "学生[がくせい]時代[じだい]にもっと勉強[べんきょう]すれば（　）と、今[いま]ではとても残念[ざんねん]だ。",
+          "options": [
+            "a. いい",
+            "b. よさそうだ",
+            "c. よかった"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc **～ばよかった** thể hiện sự hối hận về một việc đã không làm trong quá khứ. Bây giờ tôi rất hối tiếc vì đáng lẽ thời sinh viên nên học hành chăm chỉ hơn."
+        },
+        {
+          "q": "今年[ことし]は梅雨[つゆ]に雨[あめ]の量[りょう]が少な[すくな]かった（　）、米[こめ]や野菜[やさい]などがよく育って[そだって]いない。",
+          "options": [
+            "a. おかげで",
+            "b. ために",
+            "c. のなら"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Năm nay do lượng mưa trong mùa mưa ít nên lúa và rau quả không phát triển tốt."
+        },
+        {
+          "q": "今日[きょう]は（　）、早く[はやく]家[いえ]に帰り[かえり]たい。",
+          "options": [
+            "a. 疲れ[つかれ]たせいで",
+            "b. 疲れ[つかれ]たのでは",
+            "c. 疲れ[つかれ]たから"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Dùng **～から** để đưa ra lý do cho mong muốn cá nhân một cách trực tiếp."
+        },
+        {
+          "q": "あなたは（　）どんな仕事[しごと]でもするんですか。",
+          "options": [
+            "a. 給料[きゅうりょう]さえ高ければ[たかければ]",
+            "b. 給料[きゅうりょう]が高い[たかい]のでは",
+            "c. 給料[きゅうりょう]が高い[たかい]のだから"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Có phải bạn sẽ làm bất cứ việc gì miễn là lương cao không?"
+        },
+        {
+          "q": "せっかく京都[きょうと]まで（　）、京都[きょうと]にしかない物[もの]を食[た]べませんか。",
+          "options": [
+            "a. 来た[きた]のでは",
+            "b. 来た[きた]ことから",
+            "c. 来た[きた]んだから"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc **せっかく ～んだから**: Đã mất công đến tận Kyoto rồi thì chẳng nhẽ không ăn thử những món chỉ có ở đây sao?"
+        },
+        {
+          "q": "ひろしは絵[え]を（　）、デザイン[でざいん]の仕事[しごと]に興味[きょうみ]を持っ[もっ]たようだ。",
+          "options": [
+            "a. ほめられたのだから",
+            "b. ほめられたことから",
+            "c. ほめられさえすれば"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Từ việc được khen ngợi về tranh mà Hiroshi có vẻ đã bắt đầu hứng thú với công việc thiết kế."
+        },
+        {
+          "q": "太陽熱[たいようねつ]（　）発電[はつでん]は、24時間[じかん]可能[かのう]だ。",
+          "options": [
+            "a. から",
+            "b. による",
+            "c. のための"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Việc phát điện bằng nhiệt mặt trời có thể thực hiện suốt 24 giờ."
+        },
+        {
+          "q": "オートバイ[おーとばい]を（　）、今[いま]、お金[おかね]をためています。",
+          "options": [
+            "a. 買い[かい]たいなら",
+            "b. 買い[かい]たいので",
+            "c. 買い[かい]たいのでは"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Vì muốn mua xe máy nên hiện tại tôi đang tiết kiệm tiền."
+        },
+        {
+          "q": "ホームステイ[ほーむすてい]に（　）、早く[はやく]申し込み[もうしこみ]をしたほうがいいですよ。",
+          "options": [
+            "a. 参加[さんか]すれば",
+            "b. 参加[参加]するため",
+            "c. 参加[さんか]するなら"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Nếu bạn định tham gia homestay thì nên đăng ký sớm nhé."
+        },
+        {
+          "q": "そんなにほめ言葉[ことば]を（　）、かえって恥ずかしい[はずかしい]です。",
+          "options": [
+            "a. 言わ[いわ]れては",
+            "b. 言わ[いわ]れたのだから",
+            "c. 言わ[いわ]れさえすれば"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc **～ては** ở đây chỉ một điều kiện dẫn đến cảm xúc không mong muốn (ngược lại còn thấy xấu hổ)."
+        },
+        {
+          "q": "たとえどんなにいい服[ふく]を（　）着る[きる]機会[きかい]がなかったら意味[いみ]がない。",
+          "options": [
+            "a. 買った[かった]のだから",
+            "b. 買って[かって]も",
+            "c. 買った[かった]のでは"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cho dù có mua quần áo đẹp đến thế nào đi nữa, nếu không có cơ hội mặc thì cũng vô nghĩa."
+        }
+      ]
+    }
+  ]
+}

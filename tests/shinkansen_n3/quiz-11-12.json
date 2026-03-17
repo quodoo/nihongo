@@ -1,0 +1,299 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-11-12",
+      "title": "Ngữ pháp Shinkansen N3 - Bài 11, 12 và Tổng hợp 11-12",
+      "level": "n3",
+      "totalQuestions": 26,
+      "description": "Bài tập kiểm tra kiến thức về các cấu trúc ý chí, dự định (Bài 11) và Kính ngữ (Bài 12) từ giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "今度[こんど]の日曜日[にちようび]はどこへも行[い]かないで家[いえ]で（　）ことにした。",
+          "options": [
+            "a. ゆっくりできる",
+            "b. ゆっくり休む[やすむ]",
+            "c. ゆっくり休ん[やすん]でいられる"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vる[る]ことにした</b> diễn tả một quyết định của bản thân người nói."
+        },
+        {
+          "q": "今[いま]、週[しゅう]18時間[じかん]もアルバイト[あるばいと]をしている。もうこれ以上[いじょう]（　）ことにした。",
+          "options": [
+            "a. 増[ふ]えない",
+            "b. 増[ふ]やさない",
+            "c. 増[ふ]やせない"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Sử dụng <b>Vない[ない]ことにした</b> để diễn tả quyết định không thực hiện một hành động nào đó."
+        },
+        {
+          "q": "わたしはもう油[あぶら]の多い[おおい]料理[りょうり]は（　）ようにしよう。",
+          "options": [
+            "a. 食[た]べない",
+            "b. 食[た]べられない",
+            "c. 食[た]べていない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vない[ない]ようにしよう</b> thể hiện nỗ lực hoặc ý chí cố gắng không làm gì đó."
+        },
+        {
+          "q": "健康[けんこう]のために1日[にち]40分[ふん]は（　）いる。",
+          "options": [
+            "a. 歩[ある]くようにして",
+            "b. 歩[ある]けるようになって",
+            "c. 歩[ある]くようになって"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vる[る]ようにしている</b> diễn tả một thói quen hoặc nỗ lực được duy trì đều đặn."
+        },
+        {
+          "q": "薬[くすり]は好き[すき]じゃないと言[い]って、（　）病院[びょういん]から出[で]た薬[くすり]を飲[の]もうとしない。",
+          "options": [
+            "a. わたしは",
+            "b. 山口[やまぐち]さんは",
+            "c. わたしも夫[おっと]も"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vよう[よう]としない</b> diễn tả việc ai đó hoàn toàn không có ý định thực hiện hành động, thường dùng cho ngôi thứ ba."
+        },
+        {
+          "q": "電車[でんしゃ]に乗[の]ろうとしたら、（　）。",
+          "options": [
+            "a. 電車[でんしゃ]が来[き]た",
+            "b. 電車[でんしゃ]のドア[どあ]が開[あ]いた",
+            "c. 電車[でんしゃ]のドア[どあ]が閉[し]まった"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vよう[よう]としたら</b> diễn tả một sự việc bất ngờ xảy ra ngay khi định làm gì đó."
+        },
+        {
+          "q": "これ、ねずみに見[み]えますか。自分[じぶん]ではねこを（　）つもりですが……。",
+          "options": [
+            "a. かく",
+            "b. かいた",
+            "c. かこうという"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vた[た]つもり</b> diễn tả việc người nói tin rằng mình đã làm gì đó, dù thực tế có thể không phải vậy hoặc người khác thấy khác."
+        },
+        {
+          "q": "この靴下[くつした]はていねいに（　）つもりだが、まだ完全[かんぜん]にはきれいになっていない。",
+          "options": [
+            "a. 洗濯[せんたく]する",
+            "b. 洗濯[せんたく]される",
+            "c. 洗濯[せんたく]した"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Dùng <b>Vた[た]つもり</b> để nói về một hành động đã thực hiện với ý nghĩ là đã hoàn tất theo cách mình muốn."
+        },
+        {
+          "q": "あなたはそれでも（　）つもりですか。プロ[ぷろ]ならきちんと仕事[しごと]をしてください。",
+          "options": [
+            "a. プロ[ぷろ]の",
+            "b. プロ[ぷろ]だと思う[おもう]",
+            "c. プロ[ぷろ]らしい"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>Nの[の]つもり</b> diễn tả việc một người tự cho mình là ai đó hoặc có trạng thái đó."
+        },
+        {
+          "q": "高橋[たかはし]先生[せんせい]が先週[せんしゅう]水曜日[すいようび]に帰国[きこく]（　）。",
+          "options": [
+            "a. いたしました",
+            "b. されました",
+            "c. いたされました"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Sử dụng thể bị động <b>V(r)aremasu</b> như một hình thức kính ngữ (Sonkeigo) để tôn vinh hành động của thầy giáo."
+        },
+        {
+          "q": "客[きゃく]「あの、わたしの番[ばん]はまだでしょうか。20分[ぷん]ぐらい待[ま]っているんですけど。」 銀行員[ぎんこういん]「何番[なんばん]の紙[かみ]を（　）。ああ、12番[ばん]ですね。では、次[つぎ]です。」",
+          "options": [
+            "a. お持ち[もち]されますか",
+            "b. お持ち[もち]ですか",
+            "c. お持ち[もち]していますか"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc <b>お + V-masu + です</b> là hình thức kính ngữ tôn kính (Sonkeigo) dùng để hỏi về trạng thái hoặc hành động của đối phương."
+        },
+        {
+          "q": "お父[とう]様[さま]はあなたに何[なに]と（　）。",
+          "options": [
+            "a. 申[もう]されましたか",
+            "b. 申[もう]し上げ[あげ]ましたか",
+            "c. おっしゃいましたか"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "<b>おっしゃる</b> là động từ kính ngữ đặc biệt (Sonkeigo) thay cho động từ 言[い]う."
+        },
+        {
+          "q": "わたしはリー[りー]と（　）。台湾[たいわん]からの留学生[りゅうがくせい]です。",
+          "options": [
+            "a. 申し[もうし]ます",
+            "b. 申し上げ[もうしあげ]ます",
+            "c. おっしゃいます"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "<b>申[もう]す</b> là động từ khiêm nhường (Kenjougo) dùng khi giới thiệu tên bản thân."
+        },
+        {
+          "q": "客[きゃく]「すみません。牛乳[ぎゅうにゅう]はどこですか。」 店員[てんいん]「あ、牛乳[ぎゅうにゅう]ですか。牛乳[ぎゅうにゅう]はあそこのパン[ぱん]売り場[うりば]のとなりに（　）。」",
+          "options": [
+            "a. いたします",
+            "b. ございます",
+            "c. おります"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "<b>ございます</b> là hình thức lịch sự (Teineigo) của あります."
+        },
+        {
+          "q": "どうぞご自由[じゆう]にパンフレット[ぱんふれっと]を（　）ください。",
+          "options": [
+            "a. お取り[とり]",
+            "b. いただいて",
+            "c. お持ち[もち]して"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>お + V-masu + ください</b> dùng để đưa ra lời mời hoặc yêu cầu một cách kính trọng."
+        },
+        {
+          "q": "お忙[いそが]しいとは（　）が、できるだけ早く[はやく]お返事[へんじ]をいただけますか。",
+          "options": [
+            "a. ご存じ[ぞんじ]ます",
+            "b. ご存じ[ぞんじ]です",
+            "c. 存[ぞん]じます"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "<b>存[ぞん]じる</b> là động từ khiêm nhường (Kenjougo) thay cho 思う[おもう] hoặc 知[し]っている."
+        },
+        {
+          "q": "では次[つぎ]に、こちらのグラフ[ぐらふ]を（　）。",
+          "options": [
+            "a. ご覧[らん]ください",
+            "b. ごらんんでください",
+            "c. ごらんんしてください"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "<b>ご覧[らん]ください</b> là cách nói kính trọng (Sonkeigo) để mời ai đó xem tài liệu."
+        },
+        {
+          "q": "来月[らいげつ]国[くに]から両親[りょうしん]が（　）。",
+          "options": [
+            "a. 見[み]えます",
+            "b. 参り[まいり]ます",
+            "c. おいでです"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "<b>参[まい]る</b> là động từ khiêm nhường (Kenjougo) thay cho 行[い]く hoặc 来[く]る."
+        },
+        {
+          "q": "駅[えき]の改札[かいさつ]を（　）したとき、切符[きっぷ]をなくしたことに気が[きが]ついた。",
+          "options": [
+            "a. 出[て]るつもりに",
+            "b. 出[よ]うと",
+            "c. 出[で]るように"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vよう[よう]としたとき</b> diễn tả thời điểm định thực hiện hành động thì phát hiện ra điều gì đó."
+        },
+        {
+          "q": "あさっては大雨[おおあめ]が降[ふ]るそうだよ。ハイキング[はいきんぐ]は来週[らいしゅう]（　）。",
+          "options": [
+            "a. 行[い]こうとしようよ",
+            "b. 行[い]くことにしようよ",
+            "c. 行[い]くようになろうよ"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "<b>Vる[る]ことにする</b> thể hiện quyết định của cá nhân hoặc nhóm."
+        },
+        {
+          "q": "弟[おとうと]はさっきからテーブル[てーぶる]の上に[うえに]卵[たまご]を（　）しているが、難しい[むずかしい]だろう。",
+          "options": [
+            "a. 立て[たて]ようと",
+            "b. 立てる[たてる]ことに",
+            "c. 立て[たて]たつもりに"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>Vよう[よう]とする</b> diễn tả nỗ lực đang thực hiện một hành động nào đó."
+        },
+        {
+          "q": "教え[おしえ]ていただいたときは（　）が、後で[あとで]自分[じぶん]でやってみたらできませんでした。",
+          "options": [
+            "a. わかろうとなさいました",
+            "b. おわかりのことでした",
+            "c. わかったつもりでした"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "<b>Vた[た]つもりだった</b> diễn tả việc ngỡ rằng đã hiểu/đã làm được nhưng thực tế không phải vậy."
+        },
+        {
+          "q": "3月[さんがつ]3日[みっか]にうちでパーティー[ぱーてぃー]を開く[ひらく]（　）ので、ぜひおいでください。",
+          "options": [
+            "a. ようにさいました",
+            "b. ようにしておりました",
+            "c. ことにいたしました"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "<b>ことにいたしました</b> là hình thức khiêm nhường ngữ của ことにしました."
+        },
+        {
+          "q": "わたしはいつも必ず[かならず]朝[あさ]7時[しちじ]のニュース[にゅーす]を（　）います。",
+          "options": [
+            "a. 見[み]るようにして",
+            "b. 拝見[はいけん]するようにして",
+            "c. ごらんになることにして"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "<b>Vる[る]ようにしている</b> dùng để diễn tả thói quen hằng ngày."
+        },
+        {
+          "q": "では、今度は[こんどは]来週[らいしゅう]の月曜[げつよう]に（　）しましょう。",
+          "options": [
+            "a. お会い[あい]することに",
+            "b. お会い[あい]になることに",
+            "c. お会い[あい]しようと"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>お + V-masu + する</b> là hình thức khiêm nhường ngữ (Kenjougo) kết hợp với quyết định <b>ことにする</b>."
+        },
+        {
+          "q": "あの、お荷物[にもつ]が多くて[おおくて]大変[たいへん]でしょう。一つ[ひとつ]、（　）。",
+          "options": [
+            "a. お持ち[もち]になるようにしますよ",
+            "b. お持ち[もち]しますよ",
+            "c. お持ち[もち]になりますよ"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Sử dụng khiêm nhường ngữ <b>お + V-masu + する</b> để đề nghị giúp đỡ đối phương một cách lịch sự."
+        }
+      ]
+    }
+  ]
+}

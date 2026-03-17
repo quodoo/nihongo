@@ -1,0 +1,169 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-1-8",
+      "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 8",
+      "level": "n3",
+      "totalQuestions": 13,
+      "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 8 giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "彼[かれ]の話[はなし]では、これはこの地方[ちほう]の伝統的[でんとうてき]な（　）。",
+          "options": [
+            "a. 料理[りょうり]だと聞[き]いた",
+            "b. 料理[りょうり]と言[い]った",
+            "c. 料理[りょうり]と言[い]われている",
+            "d. 料理[りょうり]だという"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～だという dùng để truyền đạt lại thông tin (nghe nói là). Đi với cụm 「～の話では」 để chỉ nguồn thông tin."
+        },
+        {
+          "q": "カップラーメンは（　）簡単[かんたん]にできる。",
+          "options": [
+            "a. お湯[ゆ]だけ入[い]れては",
+            "b. お湯[ゆ]さえ入[い]れれば",
+            "c. お湯[ゆ]も入[い]れるほど",
+            "d. お湯[ゆ]を入[い]れるくらいなら"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～さえ～ば: Chỉ cần... là đủ. Chỉ cần cho nước sôi vào là có thể ăn ngay."
+        },
+        {
+          "q": "あの女優[じょゆう]は（　）が、少[すこ]し冷[つめ]たい感[かん]じがする。",
+          "options": [
+            "a. きれいだとは限[かぎ]らない",
+            "b. きれいなはずはない",
+            "c. きれいなことはきれいだ",
+            "d. きれいというわけではない"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～ことは～が: Tuy là có... thật đấy nhưng... (Thừa nhận một sự thực nhưng vế sau đưa ra đánh giá khác)."
+        },
+        {
+          "q": "この車[くるま]は電気[でんき]とガソリン（　）動[うご]く「ハイブリッドカー」だ。",
+          "options": [
+            "a. から",
+            "b. によって",
+            "c. のことから",
+            "d. のために"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～によって ở đây chỉ phương thức, phương tiện. Xe chạy bằng (bởi) điện và xăng."
+        },
+        {
+          "q": "たとえ詳[くわ]しい説明[せつめい]が（　）、用語[ようご]が難[むむず]かしければわかりにくい。",
+          "options": [
+            "a. 書[か]いてあったら",
+            "b. 書[か]いてなかったら",
+            "c. 書[か]いてあっても",
+            "d. 書[か]いてなくても"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc たとえ～ても: Cho dù... đi chăng nữa. Cho dù có viết giải thích chi tiết nhưng thuật ngữ khó thì vẫn khó hiểu."
+        },
+        {
+          "q": "A「あれ。また1匹[ぴき]。お宅[たく]にはねこが何匹[なんびき]いるんですか。」<br>B「5匹[ひき]います。」<br>A「5匹[ひき]（　）大変[たいへん]でしょう。」",
+          "options": [
+            "a. もいては",
+            "b. さえいれば",
+            "c. がいても",
+            "d. だけいると"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～ては: Nếu/Trong trường hợp (thường dẫn đến kết quả không tốt hoặc đánh giá tiêu cực). Có tận 5 con thì chắc là vất vả lắm."
+        },
+        {
+          "q": "料理[りょうり]は（　）が、時間[じかん]がなくてあまりしない。",
+          "options": [
+            "a. するわけではない",
+            "b. すればしたい",
+            "c. できないことはない",
+            "d. できないことはできない"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～ないことはない: Không phải là không thể... (Khẳng định nhẹ nhàng hoặc có điều kiện). Không phải là không biết nấu ăn, nhưng vì không có thời gian nên ít làm."
+        },
+        {
+          "q": "いいレストランで食事[しょくじ]を（　）、そんなかっこうではだめだろう。",
+          "options": [
+            "a. しては",
+            "b. するうちに",
+            "c. したら",
+            "d. するなら"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～なら: Nếu là/Trong trường hợp là... (Đưa ra lời khuyên hoặc đánh giá dựa trên tình huống). Nếu ăn ở nhà hàng xịn thì bộ dạng đó không được đâu."
+        },
+        {
+          "q": "わたしの実験[じっけん]が成功[せいこう]したのは、みんなが手伝[てつだ]って（　）です。",
+          "options": [
+            "a. もらったことから",
+            "b. くれたことから",
+            "c. もらったおかげ",
+            "d. くれたおかげ"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～てくれたおかげ: Nhờ vào việc ai đó đã làm gì giúp mình. Thí nghiệm thành công là nhờ mọi người đã giúp đỡ."
+        },
+        {
+          "q": "聞[き]いた話[はなし]ではあしたは大雪[おおゆき]になる（　）。今日[きょう]のうちに買[か]い物[もの]をしておこう。",
+          "options": [
+            "a. と",
+            "b. とか",
+            "c. こと",
+            "d. のこと"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～とのこと: Nghe nói là... (Dùng để truyền đạt lại thông tin từ nguồn khác, trang trọng hơn ~だそうだ)."
+        },
+        {
+          "q": "梅雨[つゆ]の間[あいだ]でも毎日[まいにち]雨[あめ]が（　）。晴[は]れる日[ひ]もある。",
+          "options": [
+            "a. 降[ふ]るとは限[かぎ]らない",
+            "b. 降[ふ]らないとは限[かぎ]らない",
+            "c. 降[ふ]るに限[かぎ]る",
+            "d. 降[ふ]らないに限[かぎ]る"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～とは限らない: Không hẳn là/Không nhất thiết là. Ngay cả trong mùa mưa thì không hẳn ngày nào cũng mưa."
+        },
+        {
+          "q": "あれ、この上着[うわぎ]はちょっと大[おお]きすぎる。きのう買[か]う前[まえ]に（　）なあ。",
+          "options": [
+            "a. 着[き]てみたほうがいい",
+            "b. 着[き]てみたらいい",
+            "c. 着[き]てみてよかった",
+            "d. 着[き]てみればよかった"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～ばよかった: Đáng lẽ nên... thì tốt (Thể hiện sự hối hận về một việc đã không làm trong quá khứ)."
+        },
+        {
+          "q": "国[くに]の大学[だいがく]で日本人[にほんじん]留学生[りゅうがくせい]と知[し]り合[あ]った（　）、日本[にほん]に興味[きょうみ]を持[も]った。",
+          "options": [
+            "a. ことから",
+            "b. とおりに",
+            "c. ついでに",
+            "d. のだから"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～ことから: Do/Từ việc... (Chỉ nguyên nhân, lý do dẫn đến một sự thay đổi hoặc kết quả). Từ việc quen biết du học sinh Nhật ở đại học mà tôi bắt đầu hứng thú với Nhật Bản."
+        }
+      ]
+    }
+  ]
+}

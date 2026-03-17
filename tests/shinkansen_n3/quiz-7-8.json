@@ -1,0 +1,299 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-7-8-full",
+      "title": "Ngữ pháp Shinkansen N3 - Bài 7 & 8 (Full 26 câu)",
+      "level": "n3",
+      "totalQuestions": 26,
+      "description": "Tổng hợp đầy đủ 26 câu hỏi luyện tập và tổng hợp từ bài 7 và bài 8 giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "（　）、「ズボン[ずぼん]」はフランス[ふらんす]語[ご]から来[き]た言葉[ことば]だということです。",
+          "options": [
+            "a. 先生[せんせい]の説明[せつめい]は",
+            "b. 先生[せんせい]の説明[せつめい]では",
+            "c. 先生[せんせい]の説明[せつめい]からは"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～では...ということだ dùng để trích dẫn nguồn thông tin: 'Theo giải thích của thầy giáo thì...'"
+        },
+        {
+          "q": "今朝[けさ]の新聞[しんぶん]（　）、痛[いた]み止[ど]めの新[あたら]しい薬[くすり]が発売[はつばい]されるということだ。",
+          "options": [
+            "a. によって",
+            "b. によったら",
+            "c. によると"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～によると...ということだ: 'Theo như (nguồn tin) thì nghe nói là...'"
+        },
+        {
+          "q": "（　）、この家[いえ]は300年[ねん]ぐらい前[まえ]に建て[たて]られたと言わ[いわ]れている。",
+          "options": [
+            "a. 確か[たしか]ではないが",
+            "b. 山川[やまかわ]さんの話[はなし]では",
+            "c. 林[はやし]さんから聞い[きい]たのだが"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Dùng 確か[たしか]ではないが để mở đầu khi thông tin không hoàn toàn chắc chắn: 'Dù không chắc chắn nhưng nghe nói là...'"
+        },
+        {
+          "q": "今[いま]、テレビ[てれび]の天気[てんき]予報[よほう]で見[み]たんだけど、あしたは全国[ぜんこく]的[てき]に雨[あめ]だ（　）よ。",
+          "options": [
+            "a. と聞い[きい]ている",
+            "b. と言わ[いわ]れている",
+            "c. そうだ"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Sử dụng ～そうだ để truyền đạt lại thông tin vừa nghe thấy từ dự báo thời tiết."
+        },
+        {
+          "q": "足[あし]の裏[うら]を日[ひ]に当て[あて]ると健康[けんこう]に（　）とか。本当[ほんとう]だろうか。",
+          "options": [
+            "a. いい",
+            "b. いいです",
+            "c. いいそうだ"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～とか (nghe nói là/hình như là) đi sau thể thông thường (động từ/tính từ i/danh từ + da)."
+        },
+        {
+          "q": "A「あしたは（　）。」<br>B「わあ。いやだなあ。あしたは野球[やきゅう]の練習[れんしゅう]があるんだ。」",
+          "options": [
+            "a. 暑い[あつい]と",
+            "b. 暑い[あつい]って",
+            "c. 暑く[あつく]て"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Trong văn nói, ～って được dùng thay cho ～と言[い]う hoặc ～そうだ để truyền đạt lại thông tin."
+        },
+        {
+          "q": "昔[むかし]、この地方[ちほう]には、珍しい[めずらしい]習慣[しゅうかん]が（　）という。",
+          "options": [
+            "a. あった",
+            "b. あったそうだ",
+            "c. あったんだって"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～という (nghe nói là) đi trực tiếp sau thể thông thường của động từ/tính từ."
+        },
+        {
+          "q": "この地域[ちいき]の土地[とち]の値段[ねだん]は今後[こんご]もあまり高く[たかく]（　）という。",
+          "options": [
+            "a. なりません",
+            "b. ならないでしょう",
+            "c. ならないだろう"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～という đi sau thể thông thường (plain form). ならないだろう là thể thông thường của ならないでしょう."
+        },
+        {
+          "q": "わたしはこんなに健康[けんこう]に注意[ちゅうい]しているのだ。（　）はずがない。",
+          "options": [
+            "a. 病気[びょうき]になる",
+            "b. 病気[びょうき]にならない",
+            "c. 病気[びょうき]ではない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～はずがない: Không thể nào có chuyện... (Phủ định dựa trên niềm tin hoặc logic). Tôi chú ý thế này thì không thể nào bị bệnh được."
+        },
+        {
+          "q": "田中[たなか]さんにはそのことを先週[せんしゅう]話し[はなし]たのだから、（　）。",
+          "options": [
+            "a. 知る[しる]わけがない",
+            "b. 知っ[しっ]ているわけがない",
+            "c. 知ら[しら]ないわけがない"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "～ないわけがない: Chắc chắn là có... (Phủ định của phủ định). Đã nói rồi thì không lý nào anh ấy lại không biết."
+        },
+        {
+          "q": "強い[つよい]チーム[ちーむ]ではないが、（　）とは限ら[かぎら]ない。",
+          "options": [
+            "a. 絶対[ぜったい]勝て[かて]ない",
+            "b. 必ず[かならず]勝てる[かてる]",
+            "c. 絶対[ぜったい]負け[まけ]ない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～とは限ら[かぎら]ない: Không hẳn là... Ý nói không hẳn là tuyệt đối không thể thắng."
+        },
+        {
+          "q": "旅行[りょこう]に（　）わけではなく、二日[ふつか]目[め]から参加[さんか]するつもりなのです。",
+          "options": [
+            "a. 行ける[いける]",
+            "b. 行か[いか]ない",
+            "c. 行き[いき]たい"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～ないわけではない: Không phải là không... Ở đây dùng わけではない để đính chính: Không phải là không đi du lịch, mà là tham gia từ ngày thứ 2."
+        },
+        {
+          "q": "わたしたち兄弟[きょうだい]は仲[なか]がよくないことはないが、（　）。",
+          "options": [
+            "a. いつもいっしょにいる",
+            "b. いっしょにいることもある",
+            "c. いっしょにいることは少ない[すくない]"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～ないことはない: Không hẳn là không... thường đi với が để bổ sung ý nghĩa 'nhưng cũng chỉ ở mức độ nào đó thôi'."
+        },
+        {
+          "q": "山田[やまだ]さんの住所[じゅうしょ]はここに書いて[かいて]あることは（　）が、10年前[ねんまえ]のです。",
+          "options": [
+            "a. 書き[かき]ました",
+            "b. 書い[かい]ています",
+            "c. 書い[かい]てあります"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc VることはVるが (Thừa nhận sự thực nhưng...): Ở đây dùng 書いてあることは書いてあるが (Có viết thì có viết thật đấy nhưng mà...)"
+        },
+        {
+          "q": "少し[すこし]寒い[さむい]ことは寒い[さむい]が、（　）。",
+          "options": [
+            "a. 暖房[だんぼう]は必要[ひつよう]ない",
+            "b. 暖房[だんぼう]を入れ[いれ]よう",
+            "c. 暖房[だんぼう]を入れ[いれ]た"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Dùng AいことはAい[が] để thừa nhận tình trạng: Hơi lạnh thì lạnh thật đấy nhưng không cần bật sưởi."
+        },
+        {
+          "q": "わたしはテレビ[てれび]を（　）が、ニュース[にゅーす]番組[ばんぐみ]だけだ。",
+          "options": [
+            "a. 見る[みる]ことは見[み]ない",
+            "b. 見[み]ないことは見[み]ない",
+            "c. 見る[みる]ことは見る[みる]"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "見る[みる]ことは見る[みる]が: Xem thì có xem đấy nhưng chỉ xem chương trình tin tức thôi."
+        },
+        {
+          "q": "ねえ、この記事[きじ]見て[みて]。きのうのスケート[すけーと]大会[たいかい]、青木[あおき]選手[せんしゅ]が（　）。",
+          "options": [
+            "a. 優勝[ゆうしょう]したとか",
+            "b. 優勝[ゆうしょう]したんだって",
+            "c. 優勝[ゆうしょう]したという"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～んだって dùng trong văn nói để truyền đạt lại tin tức vừa mới biết: 'Nghe nói tuyển thủ Aoki đã vô địch đấy'."
+        },
+        {
+          "q": "石田[いしだ]さんの奥さん[おくさん]の話[はなし]では、石田[いしだ]さんはあした退院[たいいん]する（　）。",
+          "options": [
+            "a. とのことです",
+            "b. と言い[いい]ました",
+            "c. と言わ[いわ]れています"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～とのことだ: Cách nói trang trọng của 'nghe nói là', thường dùng khi dẫn nguồn tin từ người khác."
+        },
+        {
+          "q": "アンケート[あんけーと]の結果[けっか]から、ほとんどの人[ひと]がこの商品[しょうひん]に満足[まんぞく]している（　）。",
+          "options": [
+            "a. と言わ[いわ]れている",
+            "b. とのことだ",
+            "c. ことがわかる"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Dựa trên kết quả khảo sát (căn cứ rõ ràng) nên dùng ことがわかる (cho thấy rằng/có thể hiểu rằng)."
+        },
+        {
+          "q": "先生[せんせい]「あした、皆さん[みなさん]が乗る[のる]バス[ばす]は駅前[えきまえ]を8時に[はちじに]（　）。場所[ばしょ]と時間[じかん]を間違え[まちがえ]ないでください。」",
+          "options": [
+            "a. 出発[しゅっぱつ]するとか",
+            "b. 出発[しゅっぱつ]します",
+            "c. 出発[しゅっぱつ]すると言わ[いわ]れています"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Đây là lời thông báo trực tiếp từ giáo viên về kế hoạch nên dùng thể lịch sự 出発[しゅっぱつ]します."
+        },
+        {
+          "q": "先生[せんせい]の話[はなし]では、今のわたしの実力[じつりょく]でもがんばれば合格[ごうかく]できない（　）。",
+          "options": [
+            "a. ということだ",
+            "b. ことはできないという",
+            "c. ことはないそうだ"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "～ないことはない (không phải là không...) kết hợp với ～そうだ (nghe nói là): Nghe thầy nói là không phải không thể đỗ."
+        },
+        {
+          "q": "仕事[しごと]がたくさんあるが、あしたまでに（　）。でも、ミス[みす]が出[で]ないか心配[しんばい]だ。",
+          "options": [
+            "a. できることはできる",
+            "b. できるはずがない",
+            "c. できるとは限ら[かぎら]ない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "できることはできる: Làm được thì làm được thật đấy (thừa nhận khả năng) nhưng vẫn có nỗi lo ở vế sau."
+        },
+        {
+          "q": "わたしはよくこの店[みせ]でパン[ぱん]を買う[かう]が、この店[みせ]が特に[とくに]（　）ない。",
+          "options": [
+            "a. 好き[すき]でないことは",
+            "b. 好きな[すきな]わけでは",
+            "c. 好き[すき]とのことでは"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～わけではない: Không hẳn là/Không có nghĩa là... Tôi hay mua ở đây nhưng không hẳn là vì quá thích."
+        },
+        {
+          "q": "練習[れんしゅう]すればだれでもピアノ[ぴあの]が上手[じょうず]に（　）。",
+          "options": [
+            "a. なるわけがない",
+            "b. なるとは限ら[かぎら]ない",
+            "c. ならないということだ"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～とは限ら[かぎら]ない: Không phải cứ luyện tập là ai cũng giỏi (phủ định tính tất yếu)."
+        },
+        {
+          "q": "プロ[ぷろ]でもうまくできないのだから、わたしに（　）よ。",
+          "options": [
+            "a. できるわけがない",
+            "b. できるわけだという",
+            "c. できないとは限ら[かぎら]ない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～わけがない: Tuyệt đối không/Lẽ nào lại... (Vì pro còn không làm được nên tôi chắc chắn không thể)."
+        },
+        {
+          "q": "明美[あけみ]さんが今年[ことし]（　）ない。10年前[ねんまえ]、もう中学生[ちゅうがくせい]だったのだ。",
+          "options": [
+            "a. 二十歳[はたち]のはずが",
+            "b. 二十歳[はたち]でないことは",
+            "c. 二十歳[はたち]のわけでは"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～はずがない: Dựa trên dữ kiện (10 năm trước đã là học sinh cấp 2) thì năm nay không thể nào mới 20 tuổi được."
+        }
+      ]
+    }
+  ]
+}

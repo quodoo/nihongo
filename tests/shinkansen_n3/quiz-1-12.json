@@ -1,0 +1,169 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-summary-1-12",
+      "title": "Tổng hợp Ngữ pháp Shinkansen N3 (Bài 1 - Bài 12)",
+      "level": "n3",
+      "totalQuestions": 13,
+      "description": "Bài kiểm tra tổng hợp toàn bộ các cấu trúc ngữ pháp quan trọng từ bài 1 đến bài 12 giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "課長[かちょう]、今度[こんど]の工場[こうじょう]見学[けんがく]にはわたしもいっしょに（　）んですが、いいでしょうか。",
+          "options": [
+            "a. 行[い]ってほしい",
+            "b. 行[い]っていただきたい",
+            "c. 行[い]かせたい",
+            "d. 行[い]かせていただきたい"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Sử dụng cấu trúc <b>使役形[しえきけい] + ていただきたい</b> để xin phép đối phương cho mình thực hiện một hành động nào đó một cách lịch sự. 'Thưa trưởng phòng, em cũng muốn được đi cùng trong buổi tham quan nhà máy tới có được không ạ?'"
+        },
+        {
+          "q": "日本語[にほんご]をたくさん話[はな]したいから、教室[きょうしつ]では自分[じぶん]の国[くに]の言葉[ことば]を（　）。",
+          "options": [
+            "a. 使う[つかう]とは限ら[かぎら]ない",
+            "b. 使わ[つかわ]ないようにしている",
+            "c. 使う[つかう]ことではない",
+            "d. 使わ[つかわ]ないわけではない"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc <b>～ようにしている</b> diễn tả nỗ lực duy trì một thói quen hoặc hành động vì một mục đích nào đó. 'Vì muốn nói tiếng Nhật nhiều nên trong lớp tôi đang cố gắng không dùng tiếng mẹ đẻ'."
+        },
+        {
+          "q": "5時[ごじ]ごろ空港[くうこう]から電話[でんわ]があったのだから、そろそろ家[いえ]に着く[つく]（　）だ。",
+          "options": [
+            "a. ばかり",
+            "b. つもり",
+            "c. はず",
+            "d. べき"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc <b>～はずだ</b> diễn tả sự suy luận chắc chắn dựa trên một căn cứ logic. Vì có điện thoại từ sân bay lúc 5h nên giờ này chắc chắn là sắp về đến nhà rồi."
+        },
+        {
+          "q": "【図書館[としょかん]で】あ、それは持ち出し[もちだし]禁止[きんし]の資料[しりょう]ですので、（　）。",
+          "options": [
+            "a. お借り[かり]できません",
+            "b. お貸し[かし]できません",
+            "c. お借り[かり]しません",
+            "d. お貸し[かし]になりません"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Sử dụng kính ngữ dạng khả năng phủ định <b>お + V-masu + できません</b> để thông báo một việc không thể thực hiện một cách lịch sự. 'Vì đây là tài liệu cấm mang ra ngoài nên quý khách không thể mượn được ạ'."
+        },
+        {
+          "q": "A「すみません、ちょっとその辞書[じしょ]を（　）。」<br>B「いいですよ。どうぞ。」",
+          "options": [
+            "a. 借り[かり]てもいいですか",
+            "b. 借り[かり]たらどうですか",
+            "c. 借り[かり]てほしいんですが",
+            "d. 借り[かり]るといいですよ"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>～てもいいですか</b> dùng để xin phép thực hiện hành động."
+        },
+        {
+          "q": "先生[せんせい]「皆さん[みなさん]、この書類[しょるい]は大切[たいせつ]なので、絶対に[ぜったいに]（　）。わかりましたか。」",
+          "options": [
+            "a. なくすわけではありません",
+            "b. なくさないべき",
+            "c. なくすことはありません",
+            "d. なくさないこと"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Sử dụng <b>V-nai + こと</b> để đưa ra mệnh lệnh, chỉ thị hoặc quy định trong văn viết hoặc thông báo. 'Tài liệu này quan trọng nên tuyệt đối không được làm mất'."
+        },
+        {
+          "q": "会社[かいしゃ]を（　）、課長[かちょう]に呼び止め[よびとめ]られた。",
+          "options": [
+            "a. 出る[でる]ようにしたら",
+            "b. 出て[でて]いる間[あいだ]",
+            "c. 出[で]ようとしたら",
+            "d. 出て[でて]いるうちに"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc <b>V-よう[よう]としたら</b> diễn tả một sự việc bất ngờ xảy ra ngay khi vừa định thực hiện hành động. 'Vừa định rời công ty thì bị trưởng phòng gọi lại'."
+        },
+        {
+          "q": "A「もしもし、田中[たなか]ですが、これからお宅[たく]に（　）よろしいですか。」<br>B「ええ、どうぞ[どうぞ]。お待ち[まち]しています。」",
+          "options": [
+            "a. おいでになっても",
+            "b. 伺って[うかがって]も",
+            "c. いらっしゃっても",
+            "d. お目に[めに]かかっても"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "<b>伺う[うかがう]</b> là động từ khiêm nhường ngữ (Kenjougo) của 行く[いく] hoặc 訪ねる[たずねる]. 'Em là Tanaka đây ạ, bây giờ em qua nhà anh/chị có được không?'"
+        },
+        {
+          "q": "A「お宅[たく]のこうちゃん、薬[くすり]飲ま[のま]ないの？」<br>B「そうなの。あの子[こ]、（　）、いやがって口[くち]を開け[あけ]ないのよ。」",
+          "options": [
+            "a. 飲む[のむ]ことにしても",
+            "b. 飲む[のむ]つもりでも",
+            "c. 飲ま[のま]せたつのりでも",
+            "d. 飲ま[のま]せようとしても"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Sử dụng <b>使役形[しえきけい] (Sai khiến) + 意向形[いこうけい] (Ý chí) + としても</b> để diễn tả một nỗ lực ép buộc nhưng không thành công. 'Dù có cố cho nó uống thuốc thì nó cũng ghét mà không chịu mở miệng'."
+        },
+        {
+          "q": "A「あした、柔道[じゅうどう]の試合[しあい]に出る[でる]んです。」<br>B「そうですか。自分[じぶん]の力[ちから]が（　）。」",
+          "options": [
+            "a. 出せる[だせる]といいですね",
+            "b. 出せ[だせ]たらどうですか",
+            "c. 出る[でる]といいですよ",
+            "d. 出れ[でれ]ばよかったですね"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc <b>～といいですね</b> dùng để bày tỏ hy vọng một điều tốt đẹp sẽ đến với đối phương. 'Mong là em sẽ phát huy được hết năng lực của mình'."
+        },
+        {
+          "q": "店[みせ]に入り[はいり]たかったが、もう閉店[へいてん]時間[じかん]だった。もっと早く[はやく]来る[くる]（　）だった。",
+          "options": [
+            "a. ほど",
+            "b. はず",
+            "c. こと",
+            "d. べき"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc <b>～べきだった</b> thể hiện sự hối tiếc về một việc đáng lẽ nên làm trong quá khứ. 'Muốn vào cửa hàng quá mà đã đến giờ đóng cửa rồi. Đáng lẽ mình nên đến sớm hơn'."
+        },
+        {
+          "q": "【美術館[びじゅつかん]で】あの、お客様[きゃくさま]、どちらへ（　）。この奥[おく]は関係[かんけい]者[しゃ]以外[いがい]は入れ[いれ]ませんが。",
+          "options": [
+            "a. 行か[いか]れますか",
+            "b. 参り[まいり]ますか",
+            "c. おられまずか",
+            "d. 見え[みえ]ますか"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Sử dụng thể bị động <b>V-(r)aremasu</b> như một hình thức kính ngữ (Sonkeigo) để hỏi về hành động của khách hàng. 'Xin lỗi quý khách đang đi đâu vậy ạ? Phía trong này người không phận sự không được vào ạ'."
+        },
+        {
+          "q": "一度[いちど]失敗[しっぱい]しただけで（　）よ。もう少し[すこし]がんばって。",
+          "options": [
+            "a. あきらめたわけがない",
+            "b. あきらめたはずがない",
+            "c. あきらめるわけではない",
+            "d. あきらめるべきではない"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc <b>～べきではない</b>: Không nên làm gì đó. 'Chỉ mới thất bại một lần thì không nên bỏ cuộc đâu. Cố gắng thêm chút nữa đi'."
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,86 @@
 [
    {
+    "id": "shinkansen-n3-grammar-1-2",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 2",
+    "emoji": "🌸",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 2 giáo trình Shinkansen Master N3.",
+    "file": "tests/shinkansen_n3/quiz-1-2.json",
+    "total": 27,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
+    "id": "shinkansen-n3-grammar-3-4",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 3 đến Bài 4",
+    "emoji": "🌸",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 3 đến bài 4 giáo trình Shinkansen Master N3.",
+    "file": "tests/shinkansen_n3/quiz-3-4.json",
+    "total": 27,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
+    "id": "shinkansen-n3-grammar-1-4",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 4",
+    "emoji": "🌸",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 4 giáo trình Shinkansen Master N3.",
+    "file": "tests/shinkansen_n3/quiz-1-4.json",
+    "total": 13,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
+    "id": "shinkansen-n3-grammar-5-6",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 5 đến Bài 6",
+    "emoji": "🌸",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 5 đến bài 6 giáo trình Shinkansen Master N3.",
+    "file": "tests/shinkansen_n3/quiz-5-6.json",
+    "total": 27,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
+    "id": "shinkansen-n3-grammar-7-8",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 7 đến Bài 8",
+    "emoji": "🌸",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 7 đến bài 8 giáo trình Shinkansen Master N3.",
+    "file": "tests/shinkansen_n3/quiz-7-8.json",
+    "total": 26,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
+    "id": "shinkansen-n3-grammar-1-8",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 8",
+    "emoji": "🌸",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 8 giáo trình Shinkansen Master N3.",
+    "file": "tests/shinkansen_n3/quiz-1-8.json",
+    "total": 13,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
+    "id": "shinkansen-n3-grammar-9-10",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 9 đến Bài 10",
+    "emoji": "🌸",
+    "description": "Bài tập luyện tập chuyên sâu các cấu trúc truyền đạt thông tin (Hearsay) và phủ định, khẳng định một phần trong bài 9 và 10.",
+    "file": "tests/shinkansen_n3/quiz-9-10.json",
+    "total": 27,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+  {
+    "id": "shinkansen-n3-grammar-11-12",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 11 đến Bài 12",
+    "emoji": "🌸",
+    "description": "Bài tập luyện tập chuyên sâu các cấu trúc truyền đạt thông tin (Hearsay) và phủ định, khẳng định một phần trong bài 11 và 12.",
+    "file": "tests/shinkansen_n3/quiz-11-12.json",
+    "total": 26,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+  {
+    "id": "shinkansen-n3-grammar-1-12",
+    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 12",
+    "emoji": "🌸",
+    "description": "Bài tập luyện tập chuyên sâu các cấu trúc truyền đạt thông tin (Hearsay) và phủ định, khẳng định một phần trong bài 1 đến bài 12.",
+    "file": "tests/shinkansen_n3/quiz-1-12.json",
+    "total": 13,
+    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+  },
+   {
     "id": "trotu",
     "title": "Trợ Từ N5-N3",
     "emoji": "🌸",
@@ -7,32 +88,5 @@
     "file": "tests/trotu.json",
     "total": 100,
     "tags": ["N5", "N4", "N3", "Trợ từ"]
-  },
-  {
-    "id": "dongtu-a",
-    "title": "Động từ Phần A (N5)",
-    "emoji": "✏️",
-    "description": "30 câu nền tảng: nhóm động từ, masu, te, nai, ta",
-    "file": "tests/dongtu-phan-a.json",
-    "total": 30,
-    "tags": ["N5", "Động từ", "Phần A"]
-  },
-  {
-    "id": "dongtu-b",
-    "title": "Động từ Phần B (N4)",
-    "emoji": "📘",
-    "description": "30 câu mở rộng: khả năng, ý định, cảm đoán, sai khiến",
-    "file": "tests/dongtu-phan-b.json",
-    "total": 30,
-    "tags": ["N4", "Động từ", "Phần B"]
-  },
-  {
-    "id": "dongtu-c",
-    "title": "Động từ Phần C (N3)",
-    "emoji": "🎓",
-    "description": "40 câu nâng cao: bị động, sai khiến bị động, sắc thái, cụm động từ",
-    "file": "tests/dongtu-phan-c.json",
-    "total": 40,
-    "tags": ["N3", "Động từ", "Phần C"]
   }
 ]

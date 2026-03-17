@@ -1,0 +1,310 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-3-4-full",
+      "title": "Ngữ pháp Shinkansen N3 - Bài 3, 4 và Luyện tập tổng hợp",
+      "level": "n3",
+      "totalQuestions": 27,
+      "description": "Tổng hợp đầy đủ bài tập ngữ pháp Bài 3 (Mức độ, So sánh), Bài 4 (Đối chiếu, Thay thế) và phần ôn tập 3-4 giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "パーティー[ぱーてぃー]ではたくさんのごちそうが出[で]た。（　）ほどだった。",
+          "options": [
+            "a. 全部[ぜんぶ]食[た]べた",
+            "b. 全部[ぜんぶ]食[た]べられる",
+            "c. 全部[ぜんぶ]は食[た]べられない"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～ほど dùng để chỉ mức độ. Ở đây là 'nhiều đến mức mà không thể ăn hết sạch được'."
+        },
+        {
+          "q": "最近[さいきん]、食事[しょくじ]する時間[じかん]もないほど（　）。",
+          "options": [
+            "a. 忙[いそが]しい",
+            "b. ひまだ",
+            "c. あまり食[た]べない"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～ほど chỉ mức độ: Bận đến mức không có cả thời gian ăn cơm."
+        },
+        {
+          "q": "きのうは本当[ほんとう]に寒[さむ]くて、体[からだ]が（　）くらいだった。",
+          "options": [
+            "a. 凍[こお]った",
+            "b. 凍[こお]るかと思う[おもう]",
+            "c. 凍[こお]るかどうか"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～くらい/ほど: Đến mức... Ở đây dùng 凍[こお]るかと思う[おもう] (ngỡ như đóng băng) để so sánh mức độ lạnh."
+        },
+        {
+          "q": "京都[きょうと]の紅葉[こうよう]ほど美しい[うつくしい]ものは（　）。",
+          "options": [
+            "a. ほかにもある",
+            "b. ほかにない",
+            "c. ほかにも少ない[すくない]"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～ほど...はない: Không có cái gì bằng... (Không có gì đẹp bằng lá đỏ ở Kyoto - So sánh nhất)."
+        },
+        {
+          "q": "日本[にほん]で富士山[ふじさん]ぐらい（　）山[やま]はないと思う[おもう]。",
+          "options": [
+            "a. きれいな",
+            "b. 高い[たかい]",
+            "c. ほかの"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～ぐらい...はない: Không có... bằng... (Tôi nghĩ ở Nhật không có ngọn núi nào cao bằng núi Phú Sĩ)."
+        },
+        {
+          "q": "（　）くらいなら、今の生活[せいかつ]レベル[れべる]でがまんしよう。",
+          "options": [
+            "a. いい仕事[しごと]がない",
+            "b. 仕事[しごと]がほしい",
+            "c. きつい仕事[しごと]をする"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + くらいなら: Nếu phải... thì thà... còn hơn. Nếu phải làm công việc cực nhọc thì thà cứ chịu đựng mức sống hiện tại còn hơn."
+        },
+        {
+          "q": "何[なに]もしないで後[あと]で残念[ざんねん]がるくらいなら、（　）ほうがいい。",
+          "options": [
+            "a. 何[なに]も残念[ざんねん]がらない",
+            "b. あまりがんばらない",
+            "c. 失敗[しっぱい]してもやってみた"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～くらいなら: Nếu phải để sau này hối hận vì không làm gì, thì thà thử làm dù có thất bại còn tốt hơn."
+        },
+        {
+          "q": "旅行先[りょこうさき]でおいしい店[みせ]が知りたければ[しりたければ]、その土地[とち]の人[ひと]に（　）に限る[かぎる]。",
+          "options": [
+            "a. 聞く[きく]",
+            "b. 聞いた[きいた]",
+            "c. 聞いている[きいている]"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc V-plain + に限る[かぎる]: ...là tốt nhất/là nhất. Muốn biết quán ngon thì hỏi người dân địa phương là tốt nhất."
+        },
+        {
+          "q": "眠れない[ねむれない]ときは（　）に限る[かぎる]。",
+          "options": [
+            "a. 4、5時間[じかん]",
+            "b. 温かい[あたたかい]ミルク[みるく]",
+            "c. 朝[あさ]、起きられない[おきられない]"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc N + に限る[かぎる]: Khi không ngủ được thì sữa ấm là nhất."
+        },
+        {
+          "q": "前[まえ]のアパート[あぱーと]が冬[ふゆ]も暖かかった[あたたかかった]のに対して[にたいして]、（　）はとても寒い[さむい]。",
+          "options": [
+            "a. 今[いま]のアパート[あぱーと]",
+            "b. わたしの職場[しょくば]",
+            "c. 山川[やまかわ]さんの家[いえ]"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～に対して[にたいして] dùng để so sánh, đối chiếu hai đối tượng. Trái với căn hộ trước đây mùa đông cũng ấm, căn hộ bây giờ lại rất lạnh."
+        },
+        {
+          "q": "旧製品[きゅうせいひん]は長い間[ながいあいだ]よく売れている[うれている]のに対して[にたいして]、この新製品[しんせいひん]は（　）。",
+          "options": [
+            "a. あした発売[はつばい]になる",
+            "b. あまり人気[にんき]がない",
+            "c. すぐに売り切れた[うりきれた]"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～に対して[にたいして] chỉ sự đối lập: Sản phẩm cũ bán chạy lâu nay, trái lại sản phẩm mới này lại không mấy được ưa chuộng."
+        },
+        {
+          "q": "この町[まち]は、夏[なつ]は大勢[おおぜい]の観光客[かんこうきゃく]でにぎやかな反面[はんめん]、（　）。",
+          "options": [
+            "a. 冬[ふゆ]は人[ひと]が少ない[すくない]",
+            "b. 冬[ふゆ]もスキー[すきー]客[きゃく]が多い[おおい]",
+            "c. 一年中[いちねんじゅう]人[ひと]が来る[くる]"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～反面[はんめん]: Mặt khác/Nhưng ngược lại (cùng một đối tượng nhưng có 2 mặt đối lập). Mùa hè nhộn nhịp, ngược lại mùa đông lại ít người."
+        },
+        {
+          "q": "自動[じどう]化[か]は人[ひと]の労働[ろうどう]を減らして[へらして]くれる一方で[いっぽうで]、人[ひと]の工夫[くふう]する能力[のうりょく]を（　）。",
+          "options": [
+            "a. 変えて[かえて]くれる",
+            "b. 高く[たかく]してくれる",
+            "c. 低く[ひくく]してしまう"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～一方で[いっぽうで]: Song song với/Mặt khác. Tự động hóa giảm sức lao động nhưng mặt khác lại làm giảm khả năng sáng tạo của con người."
+        },
+        {
+          "q": "山口[やまぐち]君[くん]は（　）一方で[いっぽうで]、静かに[しずかに]本[ほん]を読む[よむ]のも好きだ[すきだ]と言う[いう]。",
+          "options": [
+            "a. よく図書館[としょかん]に行く[いく]",
+            "b. サッカー[さっかー]に夢中[むちゅう]になる",
+            "c. 本[ほん]をたくさん買う[かう]"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～一方で[いっぽうで] diễn tả hai đặc điểm song hành của một người: Anh Yamaguchi vừa say mê bóng đá, mặt khác cũng thích đọc sách yên tĩnh."
+        },
+        {
+          "q": "今日[きょう]は急に[きゅうに]気温[きおん]が下[さ]がって、（　）というより寒い[さむい]だった。",
+          "options": [
+            "a. 涼しい[すずしい]",
+            "b. 暖かい[あたたかい]",
+            "c. 暑い[あつい]"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～というより: Nói là... thì đúng hơn. Hôm nay nhiệt độ giảm, nói là mát mẻ thì đúng hơn là lạnh (hoặc: lạnh hơn cả mức mát mẻ)."
+        },
+        {
+          "q": "うちでは、犬[いぬ]のチロ[ちろ]はペット[ぺっと]というより（　）。",
+          "options": [
+            "a. 家族[かぞく]なんです",
+            "b. 動物[どうぶつ]なんです",
+            "c. かわいいんです"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～というより: Ở nhà tôi, chú chó Chiro giống như một thành viên gia đình hơn là một con vật nuôi."
+        },
+        {
+          "q": "このアルバイト[あるばいと]はきついかわりに（　）。",
+          "options": [
+            "a. 休み[やすみ]がない",
+            "b. 給料[きゅうりょう]がいい",
+            "c. やってみたい"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～かわりに: Bù lại/Thay cho. Việc làm thêm này vất vả nhưng bù lại lương rất khá."
+        },
+        {
+          "q": "わたしは夜[よる]（　）かわりに朝[あさ]早く[はやく]起きて[おきて]勉強[べんきょう]しています。",
+          "options": [
+            "a. 遅く[おそく]帰る[かえる]",
+            "b. 眠く[ねむく]なる",
+            "c. 早く[はやく]寝る[ねる]"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "～かわりに: Thay vì thức khuya, tôi đi ngủ sớm và dậy sớm học bài."
+        },
+        {
+          "q": "来週[らいしゅう]は今週[こんしゅう]（　）もっと忙しく[いそがしく]なると思う[おもう]よ。",
+          "options": [
+            "a. の反面[はんめん]",
+            "b. というより",
+            "c. より"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Dùng より để so sánh hơn: Tuần sau có lẽ sẽ bận hơn tuần này đấy."
+        },
+        {
+          "q": "仕事[しごと]がなくなる（　）つらいことはない。",
+          "options": [
+            "a. くらい",
+            "b. くらいなら",
+            "c. くらいでは"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～くらい...はない: Không có gì... bằng mức độ... (Không có gì đau khổ bằng việc mất việc làm)."
+        },
+        {
+          "q": "その人[ひと]には一度[いちど]会った[あった]だけだが、すぐに思い出せる[おもいだせる]（　）特徴[とくちょう]のある人[ひと]だ。",
+          "options": [
+            "a. 反面[はんめん]",
+            "b. ほど",
+            "c. かわりに"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～ほど chỉ mức độ: Đó là người có đặc điểm đến mức chỉ cần gặp một lần là nhớ ngay."
+        },
+        {
+          "q": "疲れた[つかれた]ときは寝る[ねる]（　）。",
+          "options": [
+            "a. に限る[かぎる]",
+            "b. くらいだ",
+            "c. よりいい"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～に限る[かぎる]: Khi mệt mỏi thì đi ngủ là tốt nhất."
+        },
+        {
+          "q": "遠慮[えんりょ]しながら人[ひと]に手伝い[てつだい]を頼む[たのむ]（　）、自分で[じぶんで]やってしまったほうがいい。",
+          "options": [
+            "a. 一方で[いっぽうで]",
+            "b. というより",
+            "c. くらいなら"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "～くらいなら: Nếu phải vừa ngại ngùng vừa nhờ người khác giúp, thì thà tự mình làm phắt đi cho xong."
+        },
+        {
+          "q": "うちでは、母[はは]がパン[ぱん]が（　）、父[ちち]はパン[ぱん]はほとんど食べない[たべない]。",
+          "options": [
+            "a. 好き[すき]なら好きな[すきな]ほど",
+            "b. 好きな[すきな]のに対して[にたいして]",
+            "c. 好き[すき]というより"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～のに対して[にたいして]: Chỉ sự đối chiếu giữa hai người: Mẹ tôi thích bánh mì, trong khi bố tôi hầu như không ăn."
+        },
+        {
+          "q": "林[はやし]さんのお子[こ]さんにあいさつすると、返事[へんじ]をする（　）いつもにこにこ笑う[わらう]。",
+          "options": [
+            "a. かわりに",
+            "b. 反面[はんめん]",
+            "c. のに対して[にたいして]"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～かわりに: Thay vì... (Thay vì đáp lời, đứa bé cứ luôn mỉm cười)."
+        },
+        {
+          "q": "年[とし]を取る[とる]と覚える[おぼえる]力[ちから]は弱く[よわく]なる（　）、深く[ふかく]考えられる[かんがえられる]ようになる。",
+          "options": [
+            "a. というより",
+            "b. 反面[はんめん]",
+            "c. し"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "～反面[はんめん]: Mặt khác. Khi già đi trí nhớ giảm nhưng mặt khác lại có khả năng suy nghĩ sâu sắc hơn."
+        },
+        {
+          "q": "こんな方法[ほうほう]でお金[おかね]を手に[てに]入れる[いれる]のは、頭[あたま]がいい（　）ずるいと思う[おもう]。",
+          "options": [
+            "a. というより",
+            "b. くらいなら",
+            "c. ばかりで"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "～というより: Cách kiếm tiền kiểu này tôi nghĩ là xảo quyệt hơn là thông minh."
+        }
+      ]
+    }
+  ]
+}

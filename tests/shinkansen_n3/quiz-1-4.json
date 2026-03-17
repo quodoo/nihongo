@@ -1,0 +1,169 @@
+{
+  "quizzes": [
+    {
+      "id": "shinkansen-n3-grammar-summary-1-4",
+      "title": "Bài tập tổng hợp Ngữ pháp Shinkansen N3 (Bài 1 - Bài 4)",
+      "level": "n3",
+      "totalQuestions": 13,
+      "description": "Bài kiểm tra tổng hợp kiến thức ngữ pháp từ bài 1 đến bài 4 giáo trình Shinkansen Master N3.",
+      "questions": [
+        {
+          "q": "もっと雪[ゆき]が（　）スキー[すきー]はできない。",
+          "options": [
+            "a. 降[ふ]ってから",
+            "b. 降[ふ]っているうちに",
+            "c. 降[ふ]ってからでないと",
+            "d. 降[ふ]らない間[あいだ]に"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～てからでないと...ない: Nếu chưa... thì không thể. Câu này nghĩa là nếu tuyết chưa rơi thêm nữa thì không thể trượt tuyết được."
+        },
+        {
+          "q": "祖父[そふ]が（　）、午後[ごご]になって雨[あめ]が降[ふ]ってきた。",
+          "options": [
+            "a. 言[い]ってから",
+            "b. 言[い]ったから",
+            "c. 言[い]っていれば",
+            "d. 言[い]ったとおり"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～とおり[に]: Đúng như... Đúng như lời ông tôi đã nói, đến buổi chiều thì trời đổ mưa."
+        },
+        {
+          "q": "彼[かれ]は会[あ]う（　）政治[せいじ]の話[はなし]をする。",
+          "options": [
+            "a. ところで",
+            "b. たびに",
+            "c. うちに",
+            "d. 一方[いっぽう]で"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～たびに: Cứ mỗi lần... lại. Anh ấy cứ mỗi lần gặp là lại nói chuyện chính trị."
+        },
+        {
+          "q": "本屋[ほんや]で読み[よみ]たい本[ほん]を（　）、待ち合わせ[まちあわせ]の時間[じかん]を過ぎて[すぎて]しまった。",
+          "options": [
+            "a. 探し[さがし]ている間[あいだ]",
+            "b. 探し[さがし]ているうちに",
+            "c. 探し[さがし]ながら",
+            "d. 探し[さがし]てから"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～ているうちに: Trong lúc đang làm gì đó thì có một sự thay đổi ngoài dự tính xảy ra. Trong lúc mải tìm sách ở nhà sách thì đã quá giờ hẹn."
+        },
+        {
+          "q": "リー[りー]さんはこの学校[がっこう]に（　）、一度[いちど]も欠席[けっせき]しなかった。",
+          "options": [
+            "a. 留学[りゅうがく]している間[あいだ]",
+            "b. 留学[りゅうがく]してからでないと",
+            "c. 留学[りゅうがく]しているうちに",
+            "d. 留学[りゅうがく]しているところで"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～間[あいだ]: Trong suốt khoảng thời gian... (duy trì một trạng thái liên tục). Anh Lee trong suốt thời gian du học ở trường này đã không nghỉ buổi nào."
+        },
+        {
+          "q": "A「月日[つきひ]がたつのは早い[はやい]ですね。お子さん[おこさん]はもう中学生[ちゅうがくせい]なんでしょう。」<br>B「いえ、中学生[ちゅうがくせい]（　）、もう高校[こうこう]1年[ねん]なんですよ。」",
+          "options": [
+            "a. ではなく",
+            "b. だけでななく",
+            "c. というより",
+            "d. に対して[にたいして]"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～というより: Nói là... thì đúng hơn. Không phải, nói là học sinh cấp 2 thì đúng hơn là bé đã vào lớp 10 rồi."
+        },
+        {
+          "q": "A「あ、今度[こんど]は失敗[しっぱい]しないでうまく組み立て[くみたて]られたね。」<br>B「ぼくは同じ[おなじ]間違い[まちがい]を（　）ばかじゃない。」",
+          "options": [
+            "a. 繰り返す[くりかえす]より",
+            "b. 繰り返す[くりかえす]ほど",
+            "c. 繰り返さ[くりかえさ]ないほど",
+            "d. 繰り返さ[くりかえさ]ないより"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～ほど...ない: Không đến mức... Tôi không ngốc đến mức lặp đi lặp lại cùng một sai lầm đâu."
+        },
+        {
+          "q": "クレジットカード[くれじっとかーど]は便利[べんり]な（　）、危険[きけん]も多い[おおい]。",
+          "options": [
+            "a. 場合[ばあい]",
+            "b. 結果[けっか]",
+            "c. 反面[はんめん]",
+            "d. 割合[わりあい]"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～反面[はんめん]: Mặt khác/Trái lại (diễn tả hai mặt đối lập của một vấn đề). Thẻ tín dụng tiện lợi nhưng mặt khác cũng nhiều nguy hiểm."
+        },
+        {
+          "q": "わたしが子ども[こども]の洋服[ようふく]を作る[つくる]のは、子ども[こども]の（　）、自分[じぶん]の趣味[しゅみ]です。",
+          "options": [
+            "a. 物[もの]というより",
+            "b. 物[もの]のかわりに",
+            "c. ためというより",
+            "d. ためのかわりに"
+          ],
+          "correct": 2,
+          "point": 1,
+          "explain": "Cấu trúc ～というより: Nói là vì con thì đúng hơn là vì sở thích của bản thân mình."
+        },
+        {
+          "q": "山田[やまだ]先生[せんせい]が（　）、川島[かわしま]先生[せんせい]はすぐに怒る[おこる]。",
+          "options": [
+            "a. いつも笑っ[わらっ]ているのに対して[にたいして]",
+            "b. いつも笑っ[わらっ]ているのより",
+            "c. あまり笑わ[わらわ]ないのに対して[にたいして]",
+            "d. あまり笑わ[わらわ]ないのより"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～に対して[にたいして]: Trái ngược với... (so sánh hai đối tượng khác nhau). Trái ngược với thầy Yamada luôn cười thì thầy Kawashima lại rất hay nổi nóng."
+        },
+        {
+          "q": "連休[れんきゅう]はどこかに旅行[りょこう]に行く[いく]（　）、家[いえ]でパーティー[ぱーてぃー]をしたい。",
+          "options": [
+            "a. というより",
+            "b. 反面[はんめん]",
+            "c. うちに",
+            "d. かわりに"
+          ],
+          "correct": 3,
+          "point": 1,
+          "explain": "Cấu trúc ～かわりに: Thay vì/Bù lại. Thay vì đi du lịch vào kỳ nghỉ dài, tôi muốn mở tiệc ở nhà."
+        },
+        {
+          "q": "かぜをひいたようだ。こんなときは無理[むり]を（　）。今日[きょう]は仕事[しごと]を休もう[やすもう]。",
+          "options": [
+            "a. しないようだ",
+            "b. しないに限る[かぎる]",
+            "c. するようではない",
+            "d. するのでもない"
+          ],
+          "correct": 1,
+          "point": 1,
+          "explain": "Cấu trúc ～に限る[かぎる]: ...là tốt nhất. Những lúc bị cảm thế này thì tốt nhất là không nên gắng sức."
+        },
+        {
+          "q": "A「ここから見える[みえる]景色[けしき]はいいですねえ。」<br>B「ええ、富士山[ふじさん]の姿[すがた]が（　）。」",
+          "options": [
+            "a. 日[ひ]によっていろいろに変化[へんか]します",
+            "b. 日[ひ]が変わる[かわる]たびにきれいです",
+            "c. 日[ひ]が変わる[かわる]たびにいつも同じ[おなじ]です",
+            "d. 日[ひ]によっていつもきれいです"
+          ],
+          "correct": 0,
+          "point": 1,
+          "explain": "Cấu trúc ～によって: Tùy vào... mà khác nhau. Vẻ đẹp của núi Phú Sĩ thay đổi đa dạng tùy vào từng ngày."
+        }
+      ]
+    }
+  ]
+}

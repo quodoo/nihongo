@@ -329,6 +329,30 @@
                     class="form-control rounded-4 py-3"
                     placeholder="🔎 Tìm theo tên bài, mô tả, tag...">
             </div>
+            <div class="row g-2 mb-3">
+                <div class="col-12 col-md-4">
+                    <select id="filter-source" class="form-select" onchange="onFilterSourceChange(this.value)">
+                        <option value="all">Nguồn: Tất cả</option>
+                        <option value="builtin">Nguồn: Mặc định</option>
+                        <option value="local">Nguồn: Cá nhân</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4">
+                    <select id="filter-tag" class="form-select" onchange="onFilterTagChange(this.value)">
+                        <option value="all">Tag: Tất cả</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-4">
+                    <select id="sort-order" class="form-select" onchange="onSortOrderChange(this.value)">
+                        <option value="newest" selected>Sắp xếp: Mới nhất</option>
+                        <option value="oldest">Sắp xếp: Cũ nhất</option>
+                        <option value="title-asc">Sắp xếp: Tên A-Z</option>
+                        <option value="title-desc">Sắp xếp: Tên Z-A</option>
+                        <option value="total-desc">Sắp xếp: Nhiều câu nhất</option>
+                        <option value="total-asc">Sắp xếp: Ít câu nhất</option>
+                    </select>
+                </div>
+            </div>
             <p id="search-meta" class="small text-secondary mb-3"></p>
             <div id="test-list" class="d-grid gap-3">
                 <div class="text-center text-secondary py-5">
@@ -526,6 +550,9 @@
         let renderCount = 0;
         let listObserver = null;
         let searchKeyword = '';
+        let selectedSourceFilter = 'all';
+        let selectedTagFilter = 'all';
+        let selectedSort = 'newest';
 
         // ── Screens ────────────────────────────────────────────
         function showScreen(id) {
@@ -561,6 +588,14 @@
             if (searchInput) {
                 searchInput.value = searchKeyword;
             }
+            populateTagFilterOptions();
+
+            const sourceFilter = document.getElementById('filter-source');
+            const tagFilter = document.getElementById('filter-tag');
+            const sortOrder = document.getElementById('sort-order');
+            if (sourceFilter) sourceFilter.value = selectedSourceFilter;
+            if (tagFilter) tagFilter.value = selectedTagFilter;
+            if (sortOrder) sortOrder.value = selectedSort;
 
             showScreen('home-screen');
             // Render after screen becomes visible so IntersectionObserver can trigger reliably.
@@ -687,6 +722,53 @@
                 .trim();
         }
 
+        function getTestTotal(test) {
+            if (!test || typeof test !== 'object') return 0;
+            const total = Number.parseInt(test.total, 10);
+            if (Number.isFinite(total) && total >= 0) return total;
+            return Array.isArray(test.questions) ? test.questions.length : 0;
+        }
+
+        function getTestTimestamp(test, fallback = 0) {
+            if (!test || typeof test !== 'object') return fallback;
+
+            const dateCandidates = [
+                test.createdAt,
+                test.updatedAt,
+                test.importedAt
+            ];
+
+            for (const candidate of dateCandidates) {
+                const ms = Date.parse(String(candidate || ''));
+                if (Number.isFinite(ms)) {
+                    return ms;
+                }
+            }
+
+            return fallback;
+        }
+
+        function populateTagFilterOptions() {
+            const tagSelect = document.getElementById('filter-tag');
+            if (!tagSelect) return;
+
+            const uniqueTags = Array.from(new Set(
+                allTests.flatMap((test) => Array.isArray(test.tags) ? test.tags.map((tag) => String(tag).trim()) : [])
+            ))
+                .filter(Boolean)
+                .sort((a, b) => a.localeCompare(b, 'vi', { sensitivity: 'base' }));
+
+            tagSelect.innerHTML = [
+                '<option value="all">Tag: Tất cả</option>',
+                ...uniqueTags.map((tag) => `<option value="${escHtml(tag)}">Tag: ${escHtml(tag)}</option>`)
+            ].join('');
+
+            if (!uniqueTags.includes(selectedTagFilter)) {
+                selectedTagFilter = 'all';
+            }
+            tagSelect.value = selectedTagFilter;
+        }
+
         function updateSearchMeta() {
             const meta = document.getElementById('search-meta');
             if (!meta) return;
@@ -759,12 +841,47 @@
             filteredTests = allTests
                 .filter((test) => test && typeof test === 'object' && test.id)
                 .filter((test) => {
-                if (!keyword) return true;
-                const haystack = normalizeSearchText(
-                    `${test.title || ''} ${test.description || ''} ${(Array.isArray(test.tags) ? test.tags.join(' ') : '')}`
-                );
-                return haystack.includes(keyword);
+                    if (!keyword) return true;
+                    const haystack = normalizeSearchText(
+                        `${test.title || ''} ${test.description || ''} ${(Array.isArray(test.tags) ? test.tags.join(' ') : '')}`
+                    );
+                    return haystack.includes(keyword);
+                })
+                .filter((test) => {
+                    if (selectedSourceFilter === 'all') return true;
+                    return (test.source || 'builtin') === selectedSourceFilter;
+                })
+                .filter((test) => {
+                    if (selectedTagFilter === 'all') return true;
+                    const tags = Array.isArray(test.tags) ? test.tags.map((tag) => String(tag)) : [];
+                    return tags.includes(selectedTagFilter);
                 });
+
+            filteredTests.sort((a, b) => {
+                const totalA = getTestTotal(a);
+                const totalB = getTestTotal(b);
+                const titleA = String(a.title || '');
+                const titleB = String(b.title || '');
+                const tsA = getTestTimestamp(a, Number(a.sortOrderIndex) || 0);
+                const tsB = getTestTimestamp(b, Number(b.sortOrderIndex) || 0);
+
+                switch (selectedSort) {
+                    case 'oldest':
+                        return tsA - tsB;
+                    case 'title-asc':
+                        return titleA.localeCompare(titleB, 'vi', { sensitivity: 'base' });
+                    case 'title-desc':
+                        return titleB.localeCompare(titleA, 'vi', { sensitivity: 'base' });
+                    case 'total-desc':
+                        return totalB - totalA;
+                    case 'total-asc':
+                        return totalA - totalB;
+                    case 'newest':
+                    default:
+                        return tsB - tsA;
+                }
+            });
+
             renderCount = 0;
             renderNextChunk(true);
         }
@@ -775,6 +892,21 @@
 
         function onSearchInput(value) {
             searchKeyword = value || '';
+            applySearchAndRender();
+        }
+
+        function onFilterSourceChange(value) {
+            selectedSourceFilter = value || 'all';
+            applySearchAndRender();
+        }
+
+        function onFilterTagChange(value) {
+            selectedTagFilter = value || 'all';
+            applySearchAndRender();
+        }
+
+        function onSortOrderChange(value) {
+            selectedSort = value || 'newest';
             applySearchAndRender();
         }
 
@@ -1007,7 +1139,19 @@
         }
 
         function mergeAllTests() {
-            return [...builtInTests, ...getCustomTests()];
+            const builtIn = builtInTests.map((test, index) => ({
+                ...test,
+                source: 'builtin',
+                sortOrderIndex: index + 1
+            }));
+
+            const custom = getCustomTests().map((test, index) => ({
+                ...test,
+                source: 'local',
+                sortOrderIndex: builtIn.length + index + 1
+            }));
+
+            return [...builtIn, ...custom];
         }
 
         function showImportMessage(message, isError = false) {
