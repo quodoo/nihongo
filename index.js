@@ -284,6 +284,44 @@ function readCustomTests() {
 	}
 }
 
+function extractQuestionsFromPayload(payload) {
+	const looksLikeQuestion = (item) => item && typeof item === "object" && (item.q || item.question || item.text);
+
+	if (Array.isArray(payload)) {
+		if (payload.length > 0 && looksLikeQuestion(payload[0])) {
+			return payload;
+		}
+
+		const merged = [];
+		for (const pack of payload) {
+			if (pack && Array.isArray(pack.questions)) {
+				merged.push(...pack.questions);
+			}
+		}
+		return merged;
+	}
+
+	if (!payload || typeof payload !== "object") {
+		return [];
+	}
+
+	if (Array.isArray(payload.questions)) {
+		return payload.questions;
+	}
+
+	if (Array.isArray(payload.quizzes)) {
+		const merged = [];
+		for (const pack of payload.quizzes) {
+			if (pack && Array.isArray(pack.questions)) {
+				merged.push(...pack.questions);
+			}
+		}
+		return merged;
+	}
+
+	return [];
+}
+
 async function loadHomeQuestionPool() {
 	if (homeQuestionPoolReady) return;
 	homeQuestionPoolReady = true;
@@ -298,7 +336,8 @@ async function loadHomeQuestionPool() {
 				try {
 					const qRes = await fetch(basePath + test.file, { cache: "no-store" });
 					if (!qRes.ok) continue;
-					const questions = await qRes.json();
+					const payload = await qRes.json();
+					const questions = extractQuestionsFromPayload(payload);
 					pushQuestionsToPool(questions, test.title || "Bộ có sẵn");
 				} catch {
 					// Skip broken test file

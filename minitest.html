@@ -604,6 +604,46 @@
             }, 0);
         }
 
+        function extractQuestionsForSelectedTest(payload, preferredQuizId = '') {
+            const looksLikeQuestion = (item) => item && typeof item === 'object' && (item.q || item.question || item.text);
+
+            if (Array.isArray(payload)) {
+                if (payload.length > 0 && looksLikeQuestion(payload[0])) {
+                    return payload;
+                }
+
+                const packs = payload.filter(pack => pack && Array.isArray(pack.questions));
+                if (packs.length === 0) return [];
+
+                if (preferredQuizId) {
+                    const matched = packs.find(pack => String(pack.id || '').trim() === preferredQuizId);
+                    if (matched) return matched.questions;
+                }
+                return packs[0].questions;
+            }
+
+            if (!payload || typeof payload !== 'object') {
+                return [];
+            }
+
+            if (Array.isArray(payload.questions)) {
+                return payload.questions;
+            }
+
+            if (Array.isArray(payload.quizzes)) {
+                const packs = payload.quizzes.filter(pack => pack && Array.isArray(pack.questions));
+                if (packs.length === 0) return [];
+
+                if (preferredQuizId) {
+                    const matched = packs.find(pack => String(pack.id || '').trim() === preferredQuizId);
+                    if (matched) return matched.questions;
+                }
+                return packs[0].questions;
+            }
+
+            return [];
+        }
+
         // ── Select test & load questions ───────────────────────
         async function selectTest(testId) {
             currentTest = allTests.find(t => t.id === testId);
@@ -615,10 +655,16 @@
                 } else {
                     const res = await fetch(currentTest.file);
                     if (!res.ok) throw new Error(res.status);
-                    allQuestions = await res.json();
+                    const payload = await res.json();
+                    allQuestions = extractQuestionsForSelectedTest(payload, String(currentTest.id || ''));
                 }
             } catch (e) {
                 alert('Không thể tải câu hỏi. Vui lòng thử lại.');
+                return;
+            }
+
+            if (!Array.isArray(allQuestions) || allQuestions.length === 0) {
+                alert('Bộ đề không có câu hỏi hợp lệ hoặc sai định dạng JSON.');
                 return;
             }
 
