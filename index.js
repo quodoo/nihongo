@@ -1,53 +1,4 @@
-const resources = [
-	{
-		id: "dongtu-khung",
-		title: "Khung chương trình Động từ (N5-N3)",
-		description: "Tài liệu định hướng biên soạn chương, mục tiêu đầu ra, lộ trình triển khai.",
-		type: "Markdown",
-		path: "dongtu/yeucau.md",
-		category: "Tài liệu học tập"
-	},
-	{
-		id: "trotu-cam-nang",
-		title: "Cẩm nang Trợ từ và chia thể",
-		description: "Tài liệu học trọng tâm trợ từ theo ngữ cảnh và mẫu dùng thực tế.",
-		type: "Markdown",
-		path: "trotu/taileu-ontap-trotu.md",
-		category: "Tài liệu học tập"
-	},
-	{
-		id: "trotu-sheet",
-		title: "Bảng tra nhanh Trợ từ",
-		description: "Bộ thẻ lật học nhanh được xuất từ Quizlet, tối ưu để học trực tiếp trên web.",
-		type: "JSON",
-		path: "trotu/quizlet-tro-tu-import.json",
-		category: "Quizlet"
-	},
-	{
-		id: "trotu-minitest-md",
-		title: "Mini test Trợ từ 100 câu",
-		description: "Ngân hàng câu hỏi luyện tập theo định dạng JLPT từ N5 đến N3.",
-		type: "Markdown",
-		path: "trotu/mini-test-tro-tu-100-cau.md",
-		category: "Minitest"
-	},
-	{
-		id: "trotu-quiz-html",
-		title: "Mini test Trợ từ (Làm bài)",
-		description: "Giao diện làm bài trực tiếp có tính điểm và phản hồi ngay.",
-		type: "HTML",
-		path: "trotu/minitest_trotu.html",
-		category: "Minitest"
-	},
-	{
-		id: "about",
-		title: "Giới thiệu",
-		description: "Thông tin về dự án tài liệu giảng dạy.",
-		type: "ABOUT",
-		path: "",
-		category: "About"
-	}
-];
+let resources = [];
 
 const resourceNav = document.getElementById("resource-nav");
 const viewerTitle = document.getElementById("viewer-title");
@@ -55,17 +6,52 @@ const viewerContent = document.getElementById("viewer-content");
 const welcomeScreen = document.getElementById("welcome-screen");
 const viewerArea = document.getElementById("viewer-area");
 
-// Get base path for GitHub Pages repo
+// Get base path - only add for GitHub Pages subdir repos
 const getBasePath = () => {
-	const path = window.location.pathname;
-	if (path.includes("/") && !path.endsWith("/")) {
-		return path.substring(0, path.lastIndexOf("/")) + "/";
+	const hostname = window.location.hostname;
+	const pathname = window.location.pathname;
+	
+	// If on GitHub Pages with subdirectory (e.g., quodoo.github.io/nihongo/)
+	if (hostname.includes("github.io") && pathname !== "/" && !pathname.endsWith("index.html")) {
+		// Extract repo name from pathname (e.g., /nihongo/path -> /nihongo/)
+		const parts = pathname.split("/").filter(Boolean);
+		if (parts.length > 0) {
+			return "/" + parts[0] + "/";
+		}
 	}
-	return path.endsWith("/") ? path : path + "/";
+	// Local or user.github.io (no subdir) -> relative fetch
+	return "";
 };
 const basePath = getBasePath();
 
-renderSidebar();
+// Detect file type from extension
+function getFileType(path) {
+	if (!path) return "ABOUT";
+	if (path.endsWith(".md")) return "Markdown";
+	if (path.endsWith(".json")) return "JSON";
+	if (path.endsWith(".html")) return "HTML";
+	return "Text";
+}
+
+// Load resources from JSON file
+async function loadResources() {
+	try {
+		const response = await fetch(basePath + "resources.json", { cache: "no-store" });
+		if (!response.ok) throw new Error("Không thể tải resources.json");
+		resources = await response.json();
+		renderSidebar();
+	} catch (err) {
+		console.error("Lỗi khi tải resources:", err);
+		alert("Lỗi: Không thể tải danh sách tài liệu");
+	}
+}
+
+// Initialize on page load
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", loadResources);
+} else {
+	loadResources();
+}
 
 function renderSidebar() {
 	// Group resources by category
@@ -75,20 +61,55 @@ function renderSidebar() {
 		groups[item.category].push(item);
 	});
 
-	Object.entries(groups).forEach(([cat, items]) => {
-		const catEl = document.createElement("div");
-		catEl.className = "nav-category";
-		catEl.textContent = cat;
-		resourceNav.appendChild(catEl);
+	Object.entries(groups).forEach(([cat, items], idx) => {
+		const itemId = `accordion-item-${idx}`;
+		const headerId = `accordion-header-${idx}`;
+		const collapseId = `accordion-collapse-${idx}`;
 
+		// Accordion item
+		const accordionItem = document.createElement("div");
+		accordionItem.className = "accordion-item";
+
+		// Header (button)
+		const header = document.createElement("h2");
+		header.className = "accordion-header";
+		header.id = headerId;
+
+		const headerBtn = document.createElement("button");
+		headerBtn.className = "accordion-button";
+		// Expand by default for "Tài liệu học tập"
+		if (cat !== "Tài liệu học tập") {
+			headerBtn.classList.add("collapsed");
+		}
+		headerBtn.type = "button";
+		headerBtn.setAttribute("data-bs-toggle", "collapse");
+		headerBtn.setAttribute("data-bs-target", `#${collapseId}`);
+		headerBtn.setAttribute("aria-expanded", cat === "Tài liệu học tập" ? "true" : "false");
+		headerBtn.setAttribute("aria-controls", collapseId);
+		headerBtn.textContent = cat;
+
+		header.appendChild(headerBtn);
+
+		// Collapse body
+		const collapseDiv = document.createElement("div");
+		collapseDiv.id = collapseId;
+		collapseDiv.className = `accordion-collapse collapse${cat === "Tài liệu học tập" ? " show" : ""}`;
+		collapseDiv.setAttribute("aria-labelledby", headerId);
+		collapseDiv.setAttribute("data-bs-parent", "#resource-nav");
+
+		const bodyDiv = document.createElement("div");
+		bodyDiv.className = "accordion-body p-0";
+
+		// Add items to body
 		items.forEach((item) => {
 			const btn = document.createElement("button");
 			btn.type = "button";
 			btn.className = "nav-item-btn";
 			btn.dataset.id = item.id;
+			const fileType = getFileType(item.path);
 			btn.innerHTML = `
 				<span class="nav-item-title">${escapeHtml(item.title)}</span>
-				${item.type !== "ABOUT" ? `<span class="badge rounded-pill text-bg-light border" style="font-size:0.68rem">${escapeHtml(item.type)}</span>` : ""}
+				${fileType !== "ABOUT" ? `<span class="badge rounded-pill text-bg-light border" style="font-size:0.68rem">${escapeHtml(fileType)}</span>` : ""}
 			`;
 			btn.addEventListener("click", async () => {
 				// Mark active
@@ -100,14 +121,19 @@ function renderSidebar() {
 				const bsOffcanvas = bootstrap.Offcanvas.getInstance(sidebarEl);
 				if (bsOffcanvas) bsOffcanvas.hide();
 
-				await loadDocument(item.path, item.title, item.type);
+				await loadDocument(item.path, item.title);
 			});
-			resourceNav.appendChild(btn);
+			bodyDiv.appendChild(btn);
 		});
+
+		collapseDiv.appendChild(bodyDiv);
+		accordionItem.appendChild(header);
+		accordionItem.appendChild(collapseDiv);
+		resourceNav.appendChild(accordionItem);
 	});
 }
 
-async function loadDocument(path, title, type) {
+async function loadDocument(path, title) {
 	// Show viewer panel; hide welcome
 	welcomeScreen.classList.add("d-none");
 	viewerArea.classList.remove("d-none");
@@ -116,7 +142,8 @@ async function loadDocument(path, title, type) {
 	viewerContent.innerHTML = `<p class="text-muted">Đang tải…</p>`;
 
 	try {
-		const normalizedType = type.toLowerCase();
+		const fileType = getFileType(path);
+		const normalizedType = fileType.toLowerCase();
 
 		if (normalizedType === "about") {
 			renderAbout();

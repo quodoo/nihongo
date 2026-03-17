@@ -82,15 +82,6 @@ body {
 }
 
 /* Sidebar nav items */
-.nav-category {
-	padding: 0.8rem 1rem 0.25rem;
-	font-size: 0.68rem;
-	text-transform: uppercase;
-	letter-spacing: 0.09em;
-	color: #8fa39a;
-	font-weight: 700;
-}
-
 .nav-item-btn {
 	display: block;
 	width: 100%;
@@ -102,6 +93,7 @@ body {
 	cursor: pointer;
 	transition: background 0.15s, border-color 0.15s;
 	line-height: 1;
+	font-size: 0.88rem;
 }
 
 .nav-item-btn:hover {
@@ -116,7 +108,6 @@ body {
 
 .nav-item-title {
 	display: block;
-	font-size: 0.88rem;
 	font-weight: 600;
 	color: #1f2a24;
 	line-height: 1.35;
@@ -125,6 +116,33 @@ body {
 
 .nav-item-btn.active .nav-item-title {
 	color: var(--accent);
+}
+
+/* Accordion header customization */
+.accordion-button {
+	padding: 0.8rem 1rem;
+	font-size: 0.68rem;
+	text-transform: uppercase;
+	letter-spacing: 0.09em;
+	color: #8fa39a;
+	font-weight: 700;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+	background: #f0f8f5;
+	color: #6b8a7e;
+}
+
+.accordion-button:hover {
+	background: #eff8f4;
+	color: #8fa39a;
+}
+
+.accordion-button::after {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238fa39a'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 /* Main area */
