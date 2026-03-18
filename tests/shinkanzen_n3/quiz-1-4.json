@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "shinkansen-n3-grammar-summary-1-4",
-      "title": "Bài tập tổng hợp Ngữ pháp Shinkansen N3 (Bài 1 - Bài 4)",
+      "id": "shinkanzen-n3-grammar-summary-1-4",
+      "title": "Bài tập tổng hợp Ngữ pháp shinkanzen N3 (Bài 1 - Bài 4)",
       "level": "n3",
       "totalQuestions": 13,
-      "description": "Bài kiểm tra tổng hợp kiến thức ngữ pháp từ bài 1 đến bài 4 giáo trình Shinkansen Master N3.",
+      "description": "Bài kiểm tra tổng hợp kiến thức ngữ pháp từ bài 1 đến bài 4 giáo trình shinkanzen Master N3.",
       "questions": [
         {
           "q": "もっと雪[ゆき]が（　）スキー[すきー]はできない。",

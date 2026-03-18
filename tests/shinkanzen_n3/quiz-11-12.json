@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "shinkansen-n3-grammar-11-12",
-      "title": "Ngữ pháp Shinkansen N3 - Bài 11, 12 và Tổng hợp 11-12",
+      "id": "shinkanzen-n3-grammar-11-12",
+      "title": "Ngữ pháp shinkanzen N3 - Bài 11, 12 và Tổng hợp 11-12",
       "level": "n3",
       "totalQuestions": 26,
-      "description": "Bài tập kiểm tra kiến thức về các cấu trúc ý chí, dự định (Bài 11) và Kính ngữ (Bài 12) từ giáo trình Shinkansen Master N3.",
+      "description": "Bài tập kiểm tra kiến thức về các cấu trúc ý chí, dự định (Bài 11) và Kính ngữ (Bài 12) từ giáo trình shinkanzen Master N3.",
       "questions": [
         {
           "q": "今度[こんど]の日曜日[にちようび]はどこへも行[い]かないで家[いえ]で（　）ことにした。",

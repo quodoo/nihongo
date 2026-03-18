@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "shinkansen-n3-grammar-3-4-full",
-      "title": "Ngữ pháp Shinkansen N3 - Bài 3, 4 và Luyện tập tổng hợp",
+      "id": "shinkanzen-n3-grammar-3-4-full",
+      "title": "Ngữ pháp shinkanzen N3 - Bài 3, 4 và Luyện tập tổng hợp",
       "level": "n3",
       "totalQuestions": 27,
-      "description": "Tổng hợp đầy đủ bài tập ngữ pháp Bài 3 (Mức độ, So sánh), Bài 4 (Đối chiếu, Thay thế) và phần ôn tập 3-4 giáo trình Shinkansen Master N3.",
+      "description": "Tổng hợp đầy đủ bài tập ngữ pháp Bài 3 (Mức độ, So sánh), Bài 4 (Đối chiếu, Thay thế) và phần ôn tập 3-4 giáo trình shinkanzen Master N3.",
       "questions": [
         {
           "q": "パーティー[ぱーてぃー]ではたくさんのごちそうが出[で]た。（　）ほどだった。",

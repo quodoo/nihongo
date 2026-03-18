@@ -1,84 +1,84 @@
 [
    {
-    "id": "shinkansen-n3-grammar-1-2",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 2",
+    "id": "shinkanzen-n3-grammar-1-2",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 1 đến Bài 2",
     "emoji": "🌸",
-    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 2 giáo trình Shinkansen Master N3.",
-    "file": "tests/shinkansen_n3/quiz-1-2.json",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 2 giáo trình shinkanzen Master N3.",
+    "file": "tests/shinkanzen_n3/quiz-1-2.json",
     "total": 27,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
-    "id": "shinkansen-n3-grammar-3-4",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 3 đến Bài 4",
+    "id": "shinkanzen-n3-grammar-3-4",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 3 đến Bài 4",
     "emoji": "🌸",
-    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 3 đến bài 4 giáo trình Shinkansen Master N3.",
-    "file": "tests/shinkansen_n3/quiz-3-4.json",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 3 đến bài 4 giáo trình shinkanzen Master N3.",
+    "file": "tests/shinkanzen_n3/quiz-3-4.json",
     "total": 27,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
-    "id": "shinkansen-n3-grammar-1-4",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 4",
+    "id": "shinkanzen-n3-grammar-1-4",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 1 đến Bài 4",
     "emoji": "🌸",
-    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 4 giáo trình Shinkansen Master N3.",
-    "file": "tests/shinkansen_n3/quiz-1-4.json",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 4 giáo trình shinkanzen Master N3.",
+    "file": "tests/shinkanzen_n3/quiz-1-4.json",
     "total": 13,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
-    "id": "shinkansen-n3-grammar-5-6",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 5 đến Bài 6",
+    "id": "shinkanzen-n3-grammar-5-6",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 5 đến Bài 6",
     "emoji": "🌸",
-    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 5 đến bài 6 giáo trình Shinkansen Master N3.",
-    "file": "tests/shinkansen_n3/quiz-5-6.json",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 5 đến bài 6 giáo trình shinkanzen Master N3.",
+    "file": "tests/shinkanzen_n3/quiz-5-6.json",
     "total": 27,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
-    "id": "shinkansen-n3-grammar-7-8",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 7 đến Bài 8",
+    "id": "shinkanzen-n3-grammar-7-8",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 7 đến Bài 8",
     "emoji": "🌸",
-    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 7 đến bài 8 giáo trình Shinkansen Master N3.",
-    "file": "tests/shinkansen_n3/quiz-7-8.json",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 7 đến bài 8 giáo trình shinkanzen Master N3.",
+    "file": "tests/shinkanzen_n3/quiz-7-8.json",
     "total": 26,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
-    "id": "shinkansen-n3-grammar-1-8",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 8",
+    "id": "shinkanzen-n3-grammar-1-8",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 1 đến Bài 8",
     "emoji": "🌸",
-    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 8 giáo trình Shinkansen Master N3.",
-    "file": "tests/shinkansen_n3/quiz-1-8.json",
+    "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 8 giáo trình shinkanzen Master N3.",
+    "file": "tests/shinkanzen_n3/quiz-1-8.json",
     "total": 13,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
-    "id": "shinkansen-n3-grammar-9-10",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 9 đến Bài 10",
+    "id": "shinkanzen-n3-grammar-9-10",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 9 đến Bài 10",
     "emoji": "🌸",
     "description": "Bài tập luyện tập chuyên sâu các cấu trúc truyền đạt thông tin (Hearsay) và phủ định, khẳng định một phần trong bài 9 và 10.",
-    "file": "tests/shinkansen_n3/quiz-9-10.json",
+    "file": "tests/shinkanzen_n3/quiz-9-10.json",
     "total": 27,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
   {
-    "id": "shinkansen-n3-grammar-11-12",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 11 đến Bài 12",
+    "id": "shinkanzen-n3-grammar-11-12",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 11 đến Bài 12",
     "emoji": "🌸",
     "description": "Bài tập luyện tập chuyên sâu các cấu trúc truyền đạt thông tin (Hearsay) và phủ định, khẳng định một phần trong bài 11 và 12.",
-    "file": "tests/shinkansen_n3/quiz-11-12.json",
+    "file": "tests/shinkanzen_n3/quiz-11-12.json",
     "total": 26,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
   {
-    "id": "shinkansen-n3-grammar-1-12",
-    "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 12",
+    "id": "shinkanzen-n3-grammar-1-12",
+    "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 1 đến Bài 12",
     "emoji": "🌸",
     "description": "Bài tập luyện tập chuyên sâu các cấu trúc truyền đạt thông tin (Hearsay) và phủ định, khẳng định một phần trong bài 1 đến bài 12.",
-    "file": "tests/shinkansen_n3/quiz-1-12.json",
+    "file": "tests/shinkanzen_n3/quiz-1-12.json",
     "total": 13,
-    "tags": ["N3", "Ngữ pháp", "Shinkansen"]
+    "tags": ["N3", "Ngữ pháp", "shinkanzen"]
   },
    {
     "id": "trotu",

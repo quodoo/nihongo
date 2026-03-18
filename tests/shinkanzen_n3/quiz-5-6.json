@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "shinkansen-n3-grammar-5-6-full",
-      "title": "Ngữ pháp Shinkansen N3 - Bài 5, 6 và Luyện tập tổng hợp",
+      "id": "shinkanzen-n3-grammar-5-6-full",
+      "title": "Ngữ pháp shinkanzen N3 - Bài 5, 6 và Luyện tập tổng hợp",
       "level": "n3",
       "totalQuestions": 27,
-      "description": "Tổng hợp bài tập ngữ pháp Bài 5 (Nguyên nhân, Lý do), Bài 6 (Điều kiện, Giả định) và phần ôn tập 5-6 từ giáo trình Shinkansen Master N3.",
+      "description": "Tổng hợp bài tập ngữ pháp Bài 5 (Nguyên nhân, Lý do), Bài 6 (Điều kiện, Giả định) và phần ôn tập 5-6 từ giáo trình shinkanzen Master N3.",
       "questions": [
         {
           "q": "パソコン[ぱそこん]がこわれてしまったために、（　）。",

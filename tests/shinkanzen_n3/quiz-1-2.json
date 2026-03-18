@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "shinkansen-n3-grammar-1-2-full",
-      "title": "Tổng hợp Ngữ pháp Shinkansen N3 - Bài 1, 2 và Luyện tập tổng hợp",
+      "id": "shinkanzen-n3-grammar-1-2-full",
+      "title": "Tổng hợp Ngữ pháp shinkanzen N3 - Bài 1, 2 và Luyện tập tổng hợp",
       "level": "n3",
       "totalQuestions": 27,
-      "description": "Toàn bộ bài tập ngữ pháp từ Bài 1, Bài 2 và phần ôn luyện tổng hợp 1-2 trong giáo trình Shinkansen Master N3.",
+      "description": "Toàn bộ bài tập ngữ pháp từ Bài 1, Bài 2 và phần ôn luyện tổng hợp 1-2 trong giáo trình shinkanzen Master N3.",
       "questions": [
         {
           "q": "（　）うちに、聞[き]いたことをメモ[めも]しておいたほうがいい。",

@@ -1,11 +1,11 @@
 {
   "quizzes": [
     {
-      "id": "shinkansen-n3-grammar-1-8",
-      "title": "Ngữ pháp Shinkansen N3 - Tổng hợp Bài 1 đến Bài 8",
+      "id": "shinkanzen-n3-grammar-1-8",
+      "title": "Ngữ pháp shinkanzen N3 - Tổng hợp Bài 1 đến Bài 8",
       "level": "n3",
       "totalQuestions": 13,
-      "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 8 giáo trình Shinkansen Master N3.",
+      "description": "Bài tập tổng hợp kiểm tra kiến thức ngữ pháp từ bài 1 đến bài 8 giáo trình shinkanzen Master N3.",
       "questions": [
         {
           "q": "彼[かれ]の話[はなし]では、これはこの地方[ちほう]の伝統的[でんとうてき]な（　）。",
