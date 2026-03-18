@@ -95,11 +95,11 @@
           "q": "いいレストランで食事[しょくじ]を（　）、そんなかっこうではだめだろう。",
           "options": [
             "a. しては",
-            "b. するうちに",
-            "c. したら",
-            "d. するなら"
+            "b. するなら",
+            "c. するうちに",
+            "d. したら"
           ],
-          "correct": 3,
+          "correct": 1,
           "point": 1,
           "explain": "Cấu trúc <b>～なら</b>: Nếu là/Trong trường hợp là... (Đưa ra lời khuyên hoặc đánh giá dựa trên tình huống). Nếu ăn ở nhà hàng xịn thì bộ dạng đó không được đâu."
         },
@@ -123,7 +123,7 @@
             "c. こと",
             "d. のこと"
           ],
-          "correct": 3,
+          "correct": 1,
           "point": 1,
           "explain": "Cấu trúc <b>～とのこと</b>: Nghe nói là... (Dùng để truyền đạt lại thông tin từ nguồn khác, trang trọng hơn ~だそうだ)."
         },
